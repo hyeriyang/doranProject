@@ -1,0 +1,42 @@
+{% load staticfiles %}
+
+<html>
+<head>
+	<title>Doran Doran QUIZ</title>
+
+<script type="text/javascript">
+
+var i=1;
+ function myFucntion() {
+    if (i<17){
+    i+=1;
+    var img = document.getElementById("quiz");
+    img.src="/static/슬라이드"+i+".jpg";}
+    
+ }
+
+</script>
+</head>
+
+
+
+
+<body>
+
+    <h1>Quiz</h1>
+<div class="container">
+
+<form name="form">
+
+<img id="quiz" style="width:80%; height: 70%" src="{% static '슬라이드1.jpg' %}" alt="오잉?">
+ <br><br>
+ <input type="button" name="선택" value="다음" onclick="myFucntion()">
+</form>
+<p id="check"></p>
+
+</div> 
+
+
+</body>
+</html>
+
