@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>vcreate</title>
+</head>
+<body>
+<h1>비디오 업로드 폼 - 생성</h1>
+<br>
+<div class="container">
+    <form method='POST' enctype="multipart/form-data">
+        {% csrf_token %}
+        <p><label for="id_utitle">제목</label> <input type="text" name="utitle" maxlength="200" required id="id_utitle"></p>
+        <p><label for="id_ubody">내용</label> <br> <textarea name="ubody" cols="40" rows="10" required id="id_ubody"></textarea></p>
+        <p><label for="id_uvideo">비디오:</label> <input type="file" name="uvideo" required id="id_uvideo"></p>
+        <br>
+    
+    <input type="submit" value="저장">
+    <button type="button"><a href="{% url 'vread' %}">취소</a></button>
+    </form>
+</div>
+</body>
+</html>

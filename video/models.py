@@ -31,4 +31,12 @@ class VComment(models.Model):
         self.approved_comment = True
         self.save()
 
-  
+# 윤아
+class Upload(models.Model):
+    utitle = models.CharField(max_length=200)
+    pub_date = models.DateTimeField('date published')
+    ubody = models.TextField()
+    uvideo = models.FileField(upload_to="uploads/%Y/%m/%d", null=True)
+
+    def __str__(self):
+        return self.utitle

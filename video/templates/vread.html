@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>vread</title>
+</head>
+<body>
+    <h1>비디오 업로드 - 목록</h1>
+    <a href="{% url 'vcreate' %}"><h4>생성</h4></a>
+        <div class="container">
+                <table class = "table table-striped">
+                    <thead>
+                        <tr>
+                            <td>제목</td>
+                            <td>날짜</td>
+                        </tr>
+                    </thead>
+                    {% for upload in uploads.all %}
+                    <tbody>
+                        <tr>
+                            <td><a href="{% url 'udetail' upload.id %}">{{upload.utitle}}</a></td>
+                            <td>{{upload.pub_date|date:"Y-m-d"}}</td>
+                        </tr>
+                    </tbody>
+                    {% endfor %}
+                </table>
+            </div>
+
+</body>
+</html>
