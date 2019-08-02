@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'video.apps.VideoConfig',
     'member.apps.MemberConfig',
     'board.apps.BoardConfig',
     'django.contrib.admin',

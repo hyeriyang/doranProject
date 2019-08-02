@@ -1,0 +1,31 @@
+비디오 {{video.id}}
+<h1>제목: {{video.title}}</h1>
+        </a>
+        <p> 내용 : {{video.body}}</p>
+        <small class="text-muted">{{video.date}}</small>
+        <iframe width="420" height="315"
+        {% if video.video_key %}
+        src="https://www.youtube.com/embed/{{video.video_key}}">
+        {%endif%}
+        </iframe>
+<br/>
+<form method="POST" action="{% url 'vcsave' video.id %}">
+        {% csrf_token %} 
+    <input type="text" name="text">
+    <input type="hidden" name="author" value="변경">
+    <input type="hidden" name="created_date">
+
+    <input type="submit" value="제출">
+</form>        
+<br/>
+댓글:
+{%for vcomment in vcomments.all%}
+    <div class="container">
+        
+        <h1>작성자: {{vcomment.author}}</h1>
+        </a>
+        <p> 작성일 : {{vcomment.created_date}}</p>
+        내용 :<small class="text-muted">{{vcomment.text}}</small>
+        
+    </div>
+{%endfor%}
