@@ -7,7 +7,10 @@ from datetime import datetime
 
 from django.utils.dateformat import DateFormat
 
- 
+def search(request, genre):
+    if genre=='bal':
+        vs = Video.objects.filter(tags="발라드")
+    return render(request,'videolist.html', {'vs':vs})
 
 
 # 지연 : 비디오 재생 페이지를 로드

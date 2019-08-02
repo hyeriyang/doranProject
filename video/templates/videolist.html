@@ -1,4 +1,32 @@
 비디오 재생 및 목록<br>
+<p>장르</p>
+
+<a href="{% url 'search' 'hip' %}">랩/힙합</a>
+<a href="{% url 'search' 'bal' %}">발라드</a>
+<a href="#">청량한</a>
+<a href="#">신나는</a>
+
+<hr>
+<p>비디오 테스트 중</p>
+
+{% for i in vs %}
+<div class="container">
+        <a href ="{% url 'vdetail' i.id %}">반응보기</a>
+        <h1>제목: {{i.title}}</h1>
+        </a>
+        <p> 내용 : {{i.body}}</p>
+        <small class="text-muted">{{i.date}}</small>
+        <iframe width="420" height="315"
+        {% if i.video_key %}
+        src="https://www.youtube.com/embed/{{i.video_key}}">
+        {%endif%}
+        </iframe>
+    </div>
+
+{% endfor %}
+
+<hr>
+
 {% if user.is_authenticated %}
 {{user.username}}님 환영합니다!
 {%for video in videos.all%}
