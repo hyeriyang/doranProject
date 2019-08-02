@@ -1,0 +1,30 @@
+자세한 내용 
+<div class="container">
+    <a href="{%url 'bhome' %}">목록</a>
+    <h1>{{board.subject}}</h1>
+    <p>{{board.name}}
+    {{board.created_date}}</p>
+    <p>{{board.memo}}</p>
+    {%if user.username == board.name%}
+    <a href="{%url 'bupdate' board.id %}"><button>글 수정</button></a>
+    <a href="{%url 'bdelete' board.id %}"><button>글 삭제</button></a>
+    {%endif%}
+</div>
+
+<div class="card my-4">
+    <h5 class="card-header">Leave a Comment:</h5>
+    <div class="card-body">
+        <form method="POST">
+            {% csrf_token %}
+            {{user.username}}
+            {{ comment_form }}
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+{% for comment in comments.all %}
+<strong>{{comment.comment_user }}</strong>
+{{ comment.comment_textfield  }}
+{{ comment.comment_date }}
+<br>
+{% endfor %}
