@@ -4,6 +4,7 @@ from django.contrib import auth,messages
 from .models import Profile
 import json
 
+
 def logout(request):
     auth.logout(request)
     return redirect('test')

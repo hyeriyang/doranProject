@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<h1>비디오 업로드 폼 - 수정</h1>
+<br>
+<div class="container">
+	<form method = 'POST'enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            <div class = "title">
+                <span>제목</span>
+                {{form.utitle}} 
+            </div>
+            <div class = "body">
+                <span>내용</span>
+                <br>
+                {{form.ubody}}
+            </div>
+            <div class = "file">
+                <span>파일</span>
+                <br>
+                현재 : <a href = "/media/{{form.uvideo.value}}">{{form.uvideo.value}}</a>
+                <br>
+                수정 후 : <input type="file" name="uvideo" id="id_uvideo" value="{{upload.uvideo}}">
+                <br>
+            </div>
+        </table>
+	  <br>
+      <input type="submit" value="저장">
+      <button type="button"><a href="{% url 'vread' %}">취소</a></button>
+  </form>
+</div>
+</body>
+</html>

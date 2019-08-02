@@ -9,7 +9,8 @@ class Video(models.Model):
     body = models.TextField() # 영상 내용
     date = models.DateTimeField(auto_now=True) # 게시 날짜
     video_key=models.CharField(max_length=50, null=True) # 비디오 링크
-    
+    tags = models.CharField(max_length=300) # 장르 및 태그 
+
     def __str__(self):
         return self.title
     
@@ -30,4 +31,12 @@ class VComment(models.Model):
         self.approved_comment = True
         self.save()
 
-  
+# 윤아
+class Upload(models.Model):
+    utitle = models.CharField(max_length=200)
+    pub_date = models.DateTimeField('date published')
+    ubody = models.TextField()
+    uvideo = models.FileField(upload_to="uploads/%Y/%m/%d", null=True)
+
+    def __str__(self):
+        return self.utitle
