@@ -1,0 +1,43 @@
+<!--회원가입 페이지-->
+
+
+<h1>JOIN US!</h1>
+
+{{error1}}
+{{error2}}
+{{error3}}
+
+<form method="POST" action="{% url 'signup' %}">
+    {% csrf_token %}
+    Username:<br>
+    <input type="text" name="username" id="user" required><br>
+    Email:<br>
+    <input type="email" name="email" required><br>
+    Nickname:<br>
+    <input type="text" name="nickname" required><br>
+    Password:<br>
+    <input type="password" name="password1" id="pwd1" required><br>
+    Confirm Password:<br>
+    <input type="password" name="password2" id="pwd2" required><br>
+    <hr>
+    <input type="submit" value="sign up" onclick="checkpwd()">
+</form>
+
+ <script>
+    function checkpwd(){
+        pwd1 = document.getElementById("pwd1");
+        pwd2 = document.getElementById("pwd2");
+        if(pwd1.value.length==0){
+            alert("비밀번호를 입력해주세요.");
+            pwd2.value="";
+            pwd1.focus();
+        } else {
+        if(pwd1.value != pwd2.value){
+            alert("비밀번호가 일치하지 않습니다.")
+            pwd1.value="";
+            pwd2.value="";
+            pwd1.focus();
+        }
+    }  
+}
+</script>
