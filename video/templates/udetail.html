@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<h1>비디오 업로드 - 자세히</h1>
+<div class = "container">
+    <h1>{{upload.utitle}}</h1>
+    <p>{{upload.pub_date|date:"Y-m-d"}}</p>
+    <p>{{upload.ubody|linebreaksbr}}</p>
+    {% if upload.uvideo %}
+    <br>
+
+    <button><a href="{% url 'vupdate' pk=upload.pk %}">수정</a></button>
+    <button><a href="{% url 'vdelete' pk=upload.pk %}">삭제</a></button>
+    <button><a href="{{upload.uvideo.url}}">다운로드</a></button>
+    <button><a href="{% url 'vread' %}">돌아가기</a></button>
+
+
+  {% endif %}
+
+</body>
+</html>
