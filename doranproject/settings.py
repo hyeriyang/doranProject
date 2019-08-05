@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'main.apps.MainConfig',
     'quiz.apps.QuizConfig',
     'video.apps.VideoConfig',
     'member.apps.MemberConfig',
@@ -123,7 +124,8 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'quiz', 'static')
+    os.path.join(BASE_DIR, 'quiz', 'static'),
+    os.path.join(BASE_DIR, 'main', 'static'),
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')

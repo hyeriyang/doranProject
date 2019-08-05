@@ -1,34 +1,238 @@
-자세한 내용 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+ <link rel="stylesheet" href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css">
+
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+<style>
+.card {
+  box-shadow: 5px 5px 5px rgb(235, 235, 235);
+}
+body{ background: #fafafa;}
+
+body .no-padding {
+padding: 0;
+}
+
+.status-upload form {
+float: center;
+width: 720px;
+}
+
+
+
+.btn {
+  border-color:rgb(250, 213, 206);
+  border-width:3px;
+  color:#6E7783;
+  font-weight:3px;
+  float:right;
+}
+.btn:hover {
+  background-color:rgb(250, 213, 206);
+  border-color:rgb(250, 213, 206);
+}
+
+
+.btn-hover {
+    width: 150px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin: 20px;
+    height: 40px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+    float:right;
+
+    border-radius: 50px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btn-hover:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btn-hover:focus {
+    outline: none;
+}
+
+.btn-hover.color-10 {
+        background-image: linear-gradient(to right, #ed6ea0, #ec8c69, #f7186a , #FBB03B);
+    box-shadow: 0 4px 15px 0 rgba(236, 116, 149, 0.75);
+}
+
+.dropdown > a > span.green:before {
+border-left-color: #2dcb73;
+}
+/*.status-upload form button > i {
+margin-right: 7px;
+}
+/*font Awesome http://fontawesome.io*/
+@import url(//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
+/*Comment List styles*/
+.comment-list .row {
+  margin-bottom: 0px;
+}
+.comment-list .panel .panel-heading {
+  padding: 4px 15px;
+  position: absolute;
+  border:none;
+  /*Panel-heading border radius*/
+  border-top-right-radius:0px;
+  top: 1px;
+}
+.comment-list .panel .panel-heading.right {
+  border-right-width: 0px;
+  /*Panel-heading border radius*/
+  border-top-left-radius:0px;
+  right: 16px;
+}
+.comment-list .panel .panel-heading .panel-body {
+  padding-top: 6px;
+}
+.comment-list figcaption {
+  /*For wrapping text in thumbnail*/
+  word-wrap: break-word;
+}
+/* Portrait tablets and medium desktops */
+@media (min-width: 768px) {
+  .comment-list .arrow:after, .comment-list .arrow:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: transparent;
+  }
+  .comment-list .panel.arrow.left:after, .comment-list .panel.arrow.left:before {
+    border-left: 0;
+  }
+  /*****Left Arrow*****/
+  /*Outline effect style*/
+  .comment-list .panel.arrow.left:before {
+    left: 0px;
+    top: 30px;
+    /*Use boarder color of panel*/
+    border-right-color: inherit;
+    border-width: 16px;
+  }
+  /*Background color effect*/
+  .comment-list .panel.arrow.left:after {
+    left: 1px;
+    top: 31px;
+    /*Change for different outline color*/
+    border-right-color: #FFFFFF;
+    border-width: 15px;
+  }
+  /*****Right Arrow*****/
+  /*Outline effect style*/
+  .comment-list .panel.arrow.right:before {
+    right: -16px;
+    top: 30px;
+    /*Use boarder color of panel*/
+    border-left-color: inherit;
+    border-width: 16px;
+  }
+  /*Background color effect*/
+  .comment-list .panel.arrow.right:after {
+    right: -14px;
+    top: 31px;
+    /*Change for different outline color*/
+    border-left-color: #FFFFFF;
+    border-width: 15px;
+  }
+}
+.comment-list .comment-post {
+  margin-top: 6px;
+}
+</style>
+<!--게시물 디테일-->
+<br><br>
 <div class="container">
-    <a href="{%url 'bhome' %}">목록</a>
-    <h1>{{board.subject}}</h1>
-    <p>{{board.name}}
-    {{board.created_date}}</p>
-    <p>{{board.memo}}</p>
+        <div class="card">
+        <h2 class="card-header">{{board.subject}}</h2>
+            <div class="card-body"><h4>{{board.memo}}</h4></p>
+                <br>
+        <footer class="blockquote-footer">{{board.name}} | {{board.created_date}}</footer><br>
+        <a href="{% url 'bhome' %}" ><button class="btn btn-outline-primary">목록</button></a>
+
+        </div>
+        </div>
     {%if user.username == board.name%}
-    <a href="{%url 'bupdate' board.id %}"><button>글 수정</button></a>
-    <a href="{%url 'bdelete' board.id %}"><button>글 삭제</button></a>
+    <a href="{%url 'bupdate' board.id %}"><button class="btn btn-outline-primary">>글 수정</button></a>
+    <a href="{%url 'bdelete' board.id %}"><button class="btn btn-outline-primary">글 삭제</button></a>
     {%endif%}
 </div>
 
-<div class="card my-4">
-    <h5 class="card-header">Leave a Comment:</h5>
-    <div class="card-body">
-        <form method="POST">
-            {% csrf_token %}
-            {{user.username}}
-            {{ comment_form }}
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+<!--댓글 작성 폼-->
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      
+        <section class="comment-list">
+          <h3 class="page-header">Comments</h3>
+          <div class="container">    
+    <div class="row">
+    
+    <div class="col-md-6">
+    						<div class="widget-area no-padding blank">
+								<div class="status-upload">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{user.username}}
+                        {{ comment_form }}
+                        <button type="submit" class="btn-hover color-10">submit</button>
+                    </form>
+								</div>
+							</div>
+						</div>
+        
     </div>
 </div>
-{% for comment in comments.all %}
-<strong>{{comment.comment_user }}</strong>
-{{ comment.comment_textfield  }}
-{{ comment.comment_date }}
-
-{%if user.username == comment.comment_user %}
-<a href="{%url 'bcdelete' comment.id %}"><button>삭제</button></a>
-{%endif%}
-<br>
-{% endfor %}
+          <br><br>
+          {% for comment in comments.all %}
+          <!-- Comment -->
+          <article class="row">
+            <div class="col-md-2 col-sm-2 hidden-xs">
+              <figure class="thumbnail">
+                  <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+              </figure>
+            </div>
+            <div class="col-md-10 col-sm-10">
+              <div class="panel panel-default arrow left">
+                <div class="panel-body">
+                  <header class="text-left">
+                    <div class="comment-user"><i class="fa fa-user"></i> <strong>{{comment.comment_user }}</strong></div>
+                    <time class="comment-date" ><i class="fa fa-clock-o"></i> <footer class="blockquote-footer">{{ comment.comment_date }}</footer></time>
+                  </header>
+                  <div class="comment-post">
+                    <p>
+                        {{ comment.comment_textfield  }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          {% endfor %}

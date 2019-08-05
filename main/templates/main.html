@@ -1,0 +1,35 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>DORANDORAN</title>
+        <link rel= "stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+        
+    </head>
+<body>
+   <nav class="main-menu">
+			<ul>
+                    {% if user.is_authenticated %}
+                    <li><a href="#" title="about" ><span>ABOUT</span></a></li>
+                    <li><a href="{% url 'board' %}" title="community"><span>COMMUNITY</span></a></li>
+                    <li><a href="{% url 'video' %}" title="video"><span>VIDEO</span></a></li>
+                    <li><a href="{% url 'mypage' %}" title="login"><span>MYPAGE</span></a></li>
+                    {%else%}
+                    <li><a href="#" title="about" ><span>ABOUT</span></a></li>
+                    <li><a href="#" title="community"><span>COMMUNITY</span></a></li>
+                    <li><a href="#" title="video"><span>VIDEO</span></a></li>
+                    <li><a href="#" title="login"><span>LOGIN</span></a></li>
+                    {% endif %}
+                </ul>
+                </nav>    
+               
+    <div class=mainimage>
+        <div class=text>DORAN<br>DORAN</div>
+    </div>
+    <div class="main2">
+      <div class="back"><img src="{% static 'img/com.png' %}"></div>
+      <div class="front"><img src="{% static 'img/logo.png' %}"></div>
+    </div>
+</body>
+</html>

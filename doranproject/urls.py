@@ -4,6 +4,7 @@ from django.urls import path, include
 # import video.views # 지연
 import board.views
 import quiz.views
+import main.views
 from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.conf import settings
@@ -15,7 +16,7 @@ urlpatterns = [
     path('video/', include('video.urls')),
     path('board/', include('board.urls')),
     path('quiz/', include('quiz.urls')),
-
+    path('main/', include('main.urls')),
 
 ]
 

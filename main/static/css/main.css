@@ -1,0 +1,136 @@
+@font-face { font-family: 'ON-IGothic'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eleven@1.0/ON-IGothic.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'S-CoreDream-6Bold'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-6Bold.woff') format('woff'); font-weight: normal; font-style: normal; }
+html,body {height:100%; margin:0; padding:0;}
+
+div.mainimage { 
+  height:100%; margin:0; padding:0;
+  width: 768px;
+  height: 768px;
+  background-image: url("../img/main.png");
+  background-size:768px 768px;
+  display:inline-block;
+  position: fixed;
+  color:white;
+  align:center;
+ 
+}
+.text {
+  font-size:112px;
+  position: relative;
+  top:230px;
+  left:250px;
+  line-height:1.3em;
+  font-family: 'S-CoreDream-6Bold';
+  animation-name: fadeInUp;
+  animation-duration: 2.5s;
+
+}
+
+@keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 100%, 0);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  .fadeInUp {
+    animation-name: fadeInUp;
+  }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+}
+
+.main-menu ul {
+  padding: 10px;
+  margin: 10px 0;
+  list-style: none;
+  float: right;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style-type: none;
+}
+
+.main-menu ul li {
+  float: right;
+  display: inline;
+  margin-top: 20px; margin-right:5px;
+  padding-right: 5px; padding-left:5px;
+}
+
+.main-menu ul li a {
+  display:inline-block;
+  width:170px;
+  height:55px;
+  text-align:center;
+  line-height:55px;
+  font-family: 'ON-IGothic';
+  text-decoration: none;
+  float:right;
+  color:#7C7877;
+  cursor: pointer;
+  font-size: 23px
+
+}
+
+.main-menu ul li a:hover{
+  display:inline-block;
+  width:170px;
+  height:55px;
+  background-image:url('../img/button.png');
+  background-size:170px 55px;
+}
+
+.main-menu ul li a:active{
+  display:inline-block;
+  width:170px;
+  height:55px;
+  background-image:url('../img/button.png');
+  background-size:170px 55px;
+}
+
+
+div.main2 {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    display:inline-block;
+    float:right;
+    left: 380px; 
+    top: 240px;
+}
+
+div.front {
+    position: relative; 
+    left:0px; 
+    top: -300px; 
+    z-index: 2;
+    display:inline-block;
+    animation-name: fadeIn;
+    animation-duration: 3s;
+
+}
+
+div.back {
+    z-index: 1;
+    display:inline-block;
+    animation-name: fadeIn;
+    animation-duration: 3s;
+}
+

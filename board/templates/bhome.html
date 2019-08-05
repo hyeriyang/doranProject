@@ -1,74 +1,240 @@
-커뮤니티 메인페이지
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-<table cellspacing=1 width=700 border=1>
+<style>
+table.pt {
+  margin-left: auto; 
+  margin-right: auto;
+}
+
+.btn-hover {
+  position:relative;
+  width: 100px;
+  left:-150px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    margin: 20px;
+    height: 40px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+    float:left;
+    line-height:40px;
+   
+
+    border-radius: 50px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btn-hover {
+    position:relative;
+    width: 100px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin: 20px;
+    height: 40px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+    float:left;
+
+    border-radius: 50px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btn-hover:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    color:white;
+}
+
+.btn-hover:focus {
+    outline: none;
+}
+
+.btn-hover.color-10 {
+        background-image: linear-gradient(to right, #ed6ea0, #ec8c69, #f7186a , #FBB03B);
+    box-shadow: 0 4px 15px 0 rgba(236, 116, 149, 0.75);
+}
+
+.td {
+  display:inline;
+}
+.table {
+  width: 1000px;
+  margin:auto;
+}
+
+.table tr {
+  text-align:center;
+}
+.top {
+  background-color:#;
+}
+
+input.write {
+  background-color:#FACFD8;
+}
+
+form{
+    right:-270px;
+    position: relative;
+    transition: all 1s;
+    width: 50px;
+    height: 50px;
+    background: #fcc2ce;
+    box-sizing: border-box;
+    border-radius: 25px;
+    border: 4px solid #fcc2ce;
+    
+}
+
+input.search{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;;
+    height: 42.5px;
+    line-height: 30px;
+    outline: 0;
+    border: 0;
+    display: none;
+    font-size: 1em;
+    border-radius: 20px;
+
+}
+
+.fa{
+    box-sizing: border-box;
+    padding: 10px;
+    width: 42.5px;
+    height: 42.5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    color: white;
+    text-align: center;
+    font-size: 1.2em;
+    transition: all 1s;
+}
+
+form:hover{
+    width: 200px;
+    cursor: pointer;
+}
+
+form:hover input{
+    display: block;
+}
+
+form:hover .fa{
+    background: white;
+    color: #fcc2ce;
+}
+.my.pagination > .active > a, 
+    .my.pagination > .active > span, 
+    .my.pagination > .active > a:hover, 
+    .my.pagination > .active > span:hover, 
+    .my.pagination > .active > a:focus, 
+    .my.pagination > .active > span:focus {
+      background: #fcc2ce;
+      border-color: #fcc2ce;
+    }
+    .my.pagination > li > a {
+      color:black;
+    }
+    .my.pagination a {
+      border: 0px solid #ffffff;
+    }
+    .my.pagination a {
+      border-radius: 50px;
+    }    
+    .my.pagination a.active {
+      border-radius: 50px;
+    }
+  </style>
+
+<br>
+<table class="pt" width=700>
     <tr>
-        <td width=50><p align=center>번호</p>
-        </td>
-        <td width=100><p align=center>이름</p>
-        </td>
-        <td width=320><p align=center>제목</p>
-        </td>
-        <td width=100><p align=center>등록일</p>
-        </td>
-        <td width=100><p align=center>조회수</p>
+        <td><a href="{%url 'bwrite' %}"
+          <button type="submit" class="btn-hover color-10">글쓰기</button> </a>   </td>
+        <td><form action="" method="get">
+            <input class="search" type="search" name="q" value="{{ q }}">
+            <i class="fa fa-search" type="submit" ></i>
+            </form>
         </td>
     </tr>
-
-    {% if boards %}
-        <ul>
-            {% for boardRow in boards %}
-            <tr>
-            <td width=50><p align=center>{{ boardRow.id }}</p></td>
-            <td width=100><p align=center>{{ boardRow.name }}</p></td>
-            <td width=320>
-                <p align=center>
-                    <a href="{%url 'bhits' boardRow.id%}" title="{{ boardRow.memo}}">{{ boardRow.subject }}</a>
-                </p>
-            </td>
-            <td width=100><p align=center>{{ boardRow.created_date }}</p></td>
-            <td width=100><p align=center>{{ boardRow.hits }}</p></td>
-            </tr>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>No Data.</p>
-    {% endif %}
 </table>
 
-<nav aria-label="Page navigation example">
+<table class="table">
+  <thead>
+    <tr class="top">
+      <th scope="col">번호</th>
+      <th scope="col">이름</th>
+      <th scope="col">제목</th>
+      <th scope="col">등록일</th>
+      <th scope="col">조회수</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% if boards %}
+  <ul>
+      {% for boardRow in boards %}
+      <tr>
+        <th scope="row">{{ boardRow.id }}</th>
+        <td>{{ boardRow.name }}</td>
+        <td><a href="{%url 'bhits' boardRow.id%}" title="{{ boardRow.memo}}">{{ boardRow.subject }}</a></td>
+        <td>{{ boardRow.created_date }}</td>
+        <td>{{ boardRow.hits }}</td>
+      </tr>
+      
+      {% endfor %}
+  </ul>
+{% else %}
+  <p>No Data.</p>
+{% endif %}
+</tbody>
+</table>
+
+
+<br />
 {% if boards.has_other_pages %}
-  <ul class="pagination">
+<nav aria-label="Page navigation example">
+  <ul class="my pagination justify-content-center">
     {% if boards.has_previous %}
-      <li><a href="?page={{ boards.previous_page_number }}">&laquo;</a></li>
+      <li class="page-item"><a class="page-link" href="?page={{ boards.previous_page_number }}">&laquo;</a></li>
     {% else %}
-      <li class="disabled"><span>&laquo;</span></li>
+    <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true"><span>&laquo;</span></a></li>
     {% endif %}
     {% for i in boards.paginator.page_range %}
       {% if boards.number == i %}
-        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+        <li class="page-item active" aria-current="page"><a class="page-link" href="#">{{ i }} <span class="sr-only">(current)</span></a></li>
       {% else %}
-        <li><a href="?page={{ i }}">{{ i }}</a></li>
+        <li  class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
       {% endif %}
     {% endfor %}
     {% if boards.has_next %}
-      <li><a href="?page={{ boards.next_page_number }}">&raquo;</a></li>
+      <li  class="page-item"><a class="page-link" href="?page={{ boards.next_page_number }}">&raquo;</a></li>
     {% else %}
-      <li class="disabled"><span>&raquo;</span></li>
+      <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true"><span>&raquo;</span></a></li>
     {% endif %}
   </ul>
-{% endif %}
 </nav>
-
-<table width=700>
-    <tr>
-        <td><a href="{%url 'bwrite' %}"><input type=button value="글쓰기"> </a>   </td>
-        <td><form action="" method="get">
-            <p align=right><input type="text" name="q" value="{{ q }}" size=50  maxlength=50>
-            <input type=submit value="글찾기"></p>
-        </td>
-    </tr>
-</table>
+{% endif %}
