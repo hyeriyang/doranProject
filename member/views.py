@@ -4,6 +4,8 @@ from django.contrib import auth,messages
 from .models import Profile
 import json
 
+def mypage(request):
+    return render(request, 'mypage.html')
 
 def logout(request):
     auth.logout(request)

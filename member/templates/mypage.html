@@ -1,0 +1,42 @@
+{% load staticfiles %}
+<style>
+p {font-size:1.5em;display:inline;font-weight:600;}
+a{
+    background-color:white;
+    border-style: solid;
+    border-color: gray;
+    padding:5px;
+    width:7.5em;
+    height:2em;
+    font-size:10pt;
+    color:black;
+    text-decoration:none;
+}
+a:active, a:hover {
+    color:black;
+    text-decoration:none;
+}
+
+#m1 {margin-left:25em;}
+#m1>p {margin-bottom:20em;}
+</style>
+
+<div id="m1">
+<img src="{% static 'user.png' %}" width="15%" height="27%">
+{% if user.is_authenticated %}
+<p>{{ user.username }} 님, 반갑습니다 :)</p><br>
+</div>
+
+<div id="m2">
+<a href="{% url 'logout' %}">로그아웃</a>
+<a href="#">개인정보 수정</a>
+</div>
+
+
+
+{% else %}
+<script>
+alert("로그인 후 이용가능합니다");
+history.go(-1);
+</script>
+{% endif %}
