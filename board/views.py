@@ -119,5 +119,5 @@ def bcdelete(request, comment_id):
                 'comments': comments,
                 'comment_form': comment_form
              }
-    return render(request, 'bdetail.html',context)
+    return redirect('/board/bdetail/'+str(comment.board.id))
        
