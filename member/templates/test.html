@@ -1,6 +1,8 @@
 <h1>test page</h1>
 {% if user.is_authenticated %}
-{{ user.username }} 님 환영합니다.
+{{ user.username }} 님 환영합니다.<br>
+{{ user.profile.nickname}}<br>
+{{ user.email}}
 <br>
 <a href="{% url 'videolist' %}">비디오 목록</a>
 <a href="{% url 'logout' %}">로그아웃</a>

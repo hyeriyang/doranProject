@@ -9,13 +9,15 @@
 <!-- css file-->
 <link rel="stylesheet" href="{% static 'mypage.css' %}">
 
-<img src="{% static 'user.png' %}" width="15%" height="27%">
+<img id="mimg"src="{% static 'user.png' %}" style="margin-top:-1.5em;"width="15%" height="27%">
 {% if user.is_authenticated %}
-<p id="user">{{ user.username }} 님, 반갑습니다 :)</p><br>
-
-<div id="m2">
-<a href="{% url 'logout' %}">로그아웃</a>
-<a href="#">개인정보 수정</a><br>
+<div id="m">
+  <p id="user" style="margin-top:3em">{{ user.username }} 님, 반갑습니다 :)</p>
+  <br>
+  <div id="m2">
+  <a href="{% url 'logout' %}" >로그아웃</a>
+  <a href="{% url 'edit' user.id %}">개인정보 수정</a>
+  </div>
 </div>
 <!-- video list 출력하기 -->
 <div class="list">
@@ -101,6 +103,6 @@
 {% else %}
 <script>
 alert("로그인 후 이용가능합니다");
-history.go(-1);
+window.location.href="../../user/login/";
 </script>
 {% endif %}

@@ -7,6 +7,22 @@ import json
 def mypage(request):
     return render(request, 'mypage.html')
 
+def edit(request, pk): # 개인정보 수정
+    if request.method=="POST":
+        if request.POST["password1"]==request.POST["password2"]:
+            user = User.objects.get(id=pk)
+            user.email=request.POST["email"]
+            user.password=request.POST["password1"]
+            
+            profile=Profile.objects.get(user_id=pk)
+            profile.nickname=request.POST["nickname"]
+            user.save()
+            profile.save()
+            auth.login(request,user)
+            return redirect('test')
+            
+    return render(request, 'edit.html')
+
 def logout(request):
     auth.logout(request)
     return redirect('test')
@@ -21,7 +37,7 @@ def signup(request):
             elif nick_exist(request)==True:
                 return render(request, 'signup.html', {'error3':'존재하는 닉네임'})
             else:
-                print("** function test (sign up) **")
+                #print("** function test (sign up) **")
                 user = User.objects.create_user(
                     # user model fields
                     username=request.POST["username"],
@@ -30,7 +46,7 @@ def signup(request):
                 )
                 # one to one
                 nickname = request.POST.get("nickname")
-                print(type(nickname))
+                #print(type(nickname))
                 profile = Profile(user=user, nickname=nickname)
                 profile.save()
                 auth.login(request,user)
@@ -41,7 +57,7 @@ def signup(request):
 def user_exist(request):
     user = request.POST["username"]
     nickname = request.POST["nickname"]
-    print("** function test (user_exist)**")
+    #print("** function test (user_exist)**")
     if User.objects.filter(username=user).exists():
         return True
     else:
