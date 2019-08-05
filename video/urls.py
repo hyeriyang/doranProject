@@ -12,5 +12,6 @@ urlpatterns =[
     path('vcreate/', views.vcreate, name="vcreate"),
     path('vupdate/<int:pk>', views.vupdate, name="vupdate"),
     path('vdelete/<int:pk>', views.vdelete, name="vdelete"),
-    path('<int:upload_id>/', views.udetail, name='udetail'),    
+    path('<int:upload_id>/', views.udetail, name='udetail'),
+
 ]

@@ -9,7 +9,7 @@ class Video(models.Model):
     body = models.TextField() # 영상 내용
     date = models.DateTimeField(auto_now=True) # 게시 날짜
     video_key=models.CharField(max_length=50, null=True) # 비디오 링크
-    tags = models.CharField(max_length=300) # 장르 및 태그 
+    tags = models.CharField(max_length=300, null=True) # 장르 및 태그 
 
     def __str__(self):
         return self.title

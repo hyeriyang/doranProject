@@ -9,6 +9,7 @@
         {%endif%}
         </iframe>
 <br/>
+
 <form method="POST" action="{% url 'vcsave' video.id %}">
         {% csrf_token %} 
     <input type="text" name="text">

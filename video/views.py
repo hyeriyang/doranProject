@@ -7,8 +7,8 @@ from .forms import UploadForm
 
 from django.utils import timezone
 from datetime import datetime
-
 from django.utils.dateformat import DateFormat
+from member.models import *
 
 ## 코드 정리하기
 def search(request, genre):
@@ -16,7 +16,7 @@ def search(request, genre):
         vs = Video.objects.filter(tags="발라드")
     if genre=='hip':
         vs = Video.obejcsts.filter(tags="랩/힙합")
-    if gnere=='fresh':
+    if genre=='fresh':
         vs = Video.obejcsts.filter(tags="청량한")
     if genre=='fun':
         vs = Video.obejcsts.filter(tags="신나는")
@@ -31,8 +31,6 @@ def videolist(request):
 # 지연 : 비디오 한개 보여주는 페이지 로드
 def vdetail(request,video_id):
     videos=Video.objects 
-    
-    
     video_detail=get_object_or_404(Video,pk=video_id)
     vcomments=VComment.objects.filter(vpost=video_detail)
     return render(request,'vdetail.html',{'video':video_detail,'vcomments':vcomments})
