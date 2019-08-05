@@ -106,3 +106,18 @@ def bdelete(request, board_id):
     board = Board.objects.get(id=board_id)
     board.delete()
     return redirect('bhome')
+
+#댓글 삭제
+def bcdelete(request, comment_id):
+    comment = get_object_or_404(Comment, pk=comment_id)
+    board_detail = get_object_or_404(Board, pk=comment.board.id)
+    comments = Comment.objects.filter(board_id=comment.board.id)
+    comment_form = BoardCommentForm()
+    comment.delete()
+    context = {
+                'board': board_detail,
+                'comments': comments,
+                'comment_form': comment_form
+             }
+    return render(request, 'bdetail.html',context)
+       

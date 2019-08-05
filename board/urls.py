@@ -9,5 +9,6 @@ urlpatterns =[
     path('bhits/<int:board_id>', views.bhits, name='bhits'),
     path('bupdate/<int:board_id>', views.bupdate, name='bupdate'),
     path('bdelete/<int:board_id>', views.bdelete, name='bdelete'),
+    path('bcdelete/<int:comment_id>',views.bcdelete, name='bcdelete'),
     
 ]

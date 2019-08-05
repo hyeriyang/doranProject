@@ -26,5 +26,10 @@
 <strong>{{comment.comment_user }}</strong>
 {{ comment.comment_textfield  }}
 {{ comment.comment_date }}
+
+{%if user.username == comment.comment_user %}
+<a href="{%url 'bcdelete' comment.id %}"><button>삭제</button></a>
+{%endif%}
+</form>
 <br>
 {% endfor %}
