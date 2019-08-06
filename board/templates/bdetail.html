@@ -180,7 +180,7 @@ margin-right: 7px;
         </div>
         </div>
     {%if user.username == board.name%}
-    <a href="{%url 'bupdate' board.id %}"><button class="btn btn-outline-primary">>글 수정</button></a>
+    <a href="{%url 'bupdate' board.id %}"><button class="btn btn-outline-primary">글 수정</button></a>
     <a href="{%url 'bdelete' board.id %}"><button class="btn btn-outline-primary">글 삭제</button></a>
     {%endif%}
 </div>
