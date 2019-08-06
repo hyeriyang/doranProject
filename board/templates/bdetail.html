@@ -16,6 +16,9 @@
 
 
 <style>
+/* 주희 : 배치 맞춤*/
+.bmd {margin-top:10px;margin-left:3px;}
+
 .card {
   box-shadow: 5px 5px 5px rgb(235, 235, 235);
 }
@@ -180,8 +183,8 @@ margin-right: 7px;
         </div>
         </div>
     {%if user.username == board.name%}
-    <a href="{%url 'bupdate' board.id %}"><button class="btn btn-outline-primary">>글 수정</button></a>
-    <a href="{%url 'bdelete' board.id %}"><button class="btn btn-outline-primary">글 삭제</button></a>
+    <a href="{%url 'bupdate' board.id %}"><button class="btn btn-outline-primary bmd">글 수정</button></a>
+    <a href="{%url 'bdelete' board.id %}"><button class="btn btn-outline-primary bmd">글 삭제</button></a>
     {%endif%}
 </div>
 

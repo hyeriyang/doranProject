@@ -5,6 +5,10 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
 <style>
+button[type=submit]{
+  border-style:none;
+  background-color:#fcc2ce;
+}
 table.pt {
   margin-left: auto; 
   margin-right: auto;
@@ -139,7 +143,7 @@ form:hover{
     cursor: pointer;
 }
 
-form:hover input{
+form:hover input{  
     display: block;
 }
 
@@ -147,6 +151,7 @@ form:hover .fa{
     background: white;
     color: #fcc2ce;
 }
+
 .my.pagination > .active > a, 
     .my.pagination > .active > span, 
     .my.pagination > .active > a:hover, 
@@ -168,16 +173,19 @@ form:hover .fa{
     .my.pagination a.active {
       border-radius: 50px;
     }
+    input[type=search]{
+      padding-left:15px;
+    }
   </style>
 
 <br>
 <table class="pt" width=700>
     <tr>
-        <td><a href="{%url 'bwrite' %}"
-          <button type="submit" class="btn-hover color-10">글쓰기</button> </a>   </td>
+        <td><a href="{%url 'bwrite' %}">
+          <button type="submit" class="btn-hover color-10">글쓰기</button> </a></td>
         <td><form action="" method="get">
             <input class="search" type="search" name="q" value="{{ q }}">
-            <i class="fa fa-search" type="submit" ></i>
+            <button class="fa fa-search" type="submit" ></button>
             </form>
         </td>
     </tr>

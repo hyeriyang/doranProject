@@ -10,16 +10,19 @@ from datetime import datetime
 from django.utils.dateformat import DateFormat
 from member.models import *
 
+# 로그인 데코레이터
+# from django.contrib.auth.decorators import login_required
+
 ## 코드 정리하기
 def search(request, genre):
     if genre=='bal':
         vs = Video.objects.filter(tags="발라드")
     if genre=='hip':
-        vs = Video.obejcsts.filter(tags="랩/힙합")
+        vs = Video.objects.filter(tags="랩/힙합")
     if genre=='fresh':
-        vs = Video.obejcsts.filter(tags="청량한")
+        vs = Video.objects.filter(tags="청량한")
     if genre=='fun':
-        vs = Video.obejcsts.filter(tags="신나는")
+        vs = Video.objects.filter(tags="신나는")
     return render(request,'videolist.html', {'vs':vs})
 
 
@@ -68,6 +71,7 @@ def vcreate(request):
         if form.is_valid():
             post = form.save(commit=False)
             post.pub_date = timezone.now()
+            post.uname = request.user
             post.save()
             return redirect('vread')
     else:
@@ -86,6 +90,7 @@ def vupdate(request, pk):
                         print(form.cleaned_data)
                         upload.utitle = form.cleaned_data['utitle']
                         upload.update_date=timezone.now()
+                        blog.uname = request.user
                         upload.ubody = form.cleaned_data['ubody']
                         upload.uvideo = form.cleaned_data['uvideo'] 
                         upload.save()

@@ -2,8 +2,9 @@
 from django.db import models
 from django.utils import timezone
 # title / date / video / body / link : video는 뭐쥬?
+# user 연결
+from django.contrib.auth.models import User
 
-# Create your models here.
 class Video(models.Model):
     title = models.CharField(max_length=200) # 영상 제목
     body = models.TextField() # 영상 내용
@@ -35,6 +36,7 @@ class VComment(models.Model):
 class Upload(models.Model):
     utitle = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
+    uname = models.CharField(max_length=30, blank=True)
     ubody = models.TextField()
     uvideo = models.FileField(upload_to="uploads/%Y/%m/%d", null=True)
 

@@ -11,7 +11,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',board.views.home,name='home'),
+    path('',main.views.main,name='main'),
     path('user/', include('member.urls')),
     path('video/', include('video.urls')),
     path('board/', include('board.urls')),
