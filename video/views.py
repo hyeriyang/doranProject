@@ -10,6 +10,9 @@ from datetime import datetime
 from django.utils.dateformat import DateFormat
 from member.models import *
 
+# 로그인 데코레이터
+# from django.contrib.auth.decorators import login_required
+
 ## 코드 정리하기
 def search(request, genre):
     if genre=='bal':
@@ -68,6 +71,7 @@ def vcreate(request):
         if form.is_valid():
             post = form.save(commit=False)
             post.pub_date = timezone.now()
+            post.uname = request.user
             post.save()
             return redirect('vread')
     else:
@@ -86,6 +90,7 @@ def vupdate(request, pk):
                         print(form.cleaned_data)
                         upload.utitle = form.cleaned_data['utitle']
                         upload.update_date=timezone.now()
+                        blog.uname = request.user
                         upload.ubody = form.cleaned_data['ubody']
                         upload.uvideo = form.cleaned_data['uvideo'] 
                         upload.save()
