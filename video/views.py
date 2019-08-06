@@ -15,11 +15,11 @@ def search(request, genre):
     if genre=='bal':
         vs = Video.objects.filter(tags="발라드")
     if genre=='hip':
-        vs = Video.obejcsts.filter(tags="랩/힙합")
+        vs = Video.objects.filter(tags="랩/힙합")
     if genre=='fresh':
-        vs = Video.obejcsts.filter(tags="청량한")
+        vs = Video.objects.filter(tags="청량한")
     if genre=='fun':
-        vs = Video.obejcsts.filter(tags="신나는")
+        vs = Video.objects.filter(tags="신나는")
     return render(request,'videolist.html', {'vs':vs})
 
 
