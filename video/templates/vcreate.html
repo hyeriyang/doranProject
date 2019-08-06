@@ -6,230 +6,19 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- 아이콘링크? -->
     <link rel="shortcut icon" href="favicon.ico">
-    <style>
-        @font-face { font-family: 'Chosunilbo_myungjo'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff') format('woff'); font-weight: normal; font-style: normal; }
-        body {
-            font-family: 'Chosunilbo_myungjo';
-            text-align: center;
-            background: linear-gradient( to bottom, #fff, #fbdbcd );
-            background-attachment: fixed;
-        }
-        .card {
-            margin-top: 8%;
-            margin-bottom: 8%;
-            padding-top: 3%;
-            padding-bottom: 3%;
-            display: inline-block;
-            width: 50rem;
-            background-color: rgba(255,255,255,0.5);
-            border:0;
-        }
-
-        /* 타이틀과 바디 스타일 */
-        .border {
-            border: none;
-        }
-        .create_form {
-            display: grid;
-            -webkit-text-size-adjust: 100%;
-            -webkit-font-smoothing: antialiased;
-        }
-        * {
-            box-sizing: border-box;
-        }
-        .inp {
-            position: relative;
-            margin: auto;
-            width: 100%;
-            max-width: 445.6px;
-        }
-        .border {
-            border:0 !important;
-        }
-        .inp .label {
-            position: absolute;
-            top: 16px;
-            left: 0;
-            font-size: 20px;
-            color: #9098a9;
-            font-weight: 500;
-            transform-origin: 0 0;
-            transition: all 0.2s ease;
-        }
-        .inp .border {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            height: 2px;
-            width: 100%;
-            background: #ff8b8b;
-            transform: scaleX(0);
-            transform-origin: 0 0;
-            transition: all 0.15s ease;
-        }
-        .inp input {
-            -webkit-appearance: none;
-            width: 100%;
-            border: 0;
-            font-family: inherit;
-            padding: 12px 0;
-            height: 48px;
-            font-size: 16px;
-            font-weight: 500;
-            border-bottom: 2px solid #c8ccd4;
-            background: none;
-            border-radius: 0;
-            color: #223254;
-            transition: all 0.15s ease;
-        }
-        .inp textarea {
-            -webkit-appearance: none;
-            width: 100%;
-            border: 0;
-            font-family: inherit;
-            padding: 12px 0;
-            font-size: 16px;
-            font-weight: 500;
-            border-bottom: 2px solid #c8ccd4;
-            background: none;
-            border-radius: 0;
-            color: #223254;
-            transition: all 0.15s ease;
-        }
-        .inp input:not(:placeholder-shown) + span {
-            color: #5a667f;
-            transform: translateY(-26px) scale(0.75);
-        }
-        .inp textarea:not(:placeholder-shown) + span {
-            color: #5a667f;
-            transform: translateY(-26px) scale(0.75);
-        }
-        .inp input:focus, .inp textarea:focus {
-            background: none;
-            outline: none;
-        }
-        .inp input:focus + span {
-            color: #ff8b8b;
-            transform: translateY(-26px) scale(0.75);
-        }
-        .inp textarea:focus + span {
-            color: #ff8b8b;
-            transform: translateY(-26px) scale(0.75);
-        }
-        .inp input:focus + span + .border {
-            transform: scaleX(1);
-        }
-        .inp textarea:focus + span + .border {
-            transform: translateY(-6.3px) scaleX(1);
-        }
-
-
-        /* 파일업로드 */
-        .box {
-            display: inline-block;
-            width: 445.6px;
-            border-left: 2px solid #c8ccd4;
-            border-right: 2px solid #c8ccd4;
-        }
-        .js .inputfile {
-            width: 0.1px;
-            height: 0.1px;
-            opacity: 0;
-            overflow: hidden;
-            position: absolute;
-            z-index: -1;
-        }
-
-        .inputfile + label {
-            max-width: 80%;
-            font-size: 1.25rem;
-            /* 20px */
-            font-weight: 500;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            cursor: pointer;
-            display: inline-block;
-            overflow: hidden;
-            padding: 0.625rem 1.25rem;
-            /* 10px 20px */
-        }
-
-        .no-js .inputfile + label {
-            display: none;
-        }
-
-        .inputfile:focus + label,
-        .inputfile.has-focus + label {
-            outline: 1px dotted #000;
-            outline: -webkit-focus-ring-color auto 5px;
-        }
-
-
-        .inputfile + label svg {
-            width: 1em;
-            height: 1em;
-            vertical-align: middle;
-            fill: currentColor;
-            margin-top: -0.25em;
-            /* 4px */
-            margin-right: 0.25em;
-            /* 4px */
-        }
-
-        .inputfile-4 + label {
-            color: #989898;
-        }
-
-        .inputfile-4:focus + label,
-        .inputfile-4.has-focus + label,
-        .inputfile-4 + label:hover {
-            color: #ffa781;
-        }
-
-        .inputfile-4 + label figure {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background-color: #989898;
-            display: block;
-            padding: 20px;
-            margin: 0 auto 10px;
-        }
-
-        .inputfile-4:focus + label figure,
-        .inputfile-4.has-focus + label figure,
-        .inputfile-4 + label:hover figure {
-            background-color: #fcb798;
-        }
-
-        .inputfile-4 + label svg {
-            width: 100%;
-            height: 100%;
-            fill: #fff;
-        }
-
-
-        @media screen and (max-width: 50em) {
-            .inputfile-6 + label strong {
-                display: block;
-            }
-        }
-
-        /* 버튼 스타일 */
-
-    </style>
+    <!-- 외부스타일시트 링크 -->
+    <link rel="stylesheet" href="/static/vcreate_style.css">
 
     <script>(function(e,t,n){var r=e.querySelectorAll("html")[0];r.className=r.className.replace(/(^|\s)no-js(\s|$)/,"$1js$2")})(document,window,0);</script>
 </head>
+
 <body>
-
-
 <br>
-
 <div class="card">
     <form method='POST' enctype="multipart/form-data">
     {% csrf_token %}
     <div class="card-body">
+        <!-- 제목 폼 -->
         <p class="create_form">
             <label for="inp" class="inp">
                 <input type="text" name="utitle" maxlength="200" id="inp" placeholder="&nbsp;">
@@ -237,58 +26,30 @@
                 <span class="border"></span>
             </label>
         </p>
+        <!-- 내용 폼 -->
         <p class="create_form">
-                <label for="inp" class="inp">
-                    <textarea name="ubody" cols="60" rows="10" placeholder="&nbsp;"></textarea>
-                    <span class="label">내용</span>
-                    <span class="border"></span>
-                </label>
-            </p>
+            <label for="inp" class="inp">
+                <textarea name="ubody" cols="60" rows="10" placeholder="&nbsp;"></textarea>
+                <span class="label">내용</span>
+                <span class="border"></span>
+            </label>
+        </p>
+        <!-- 파일 업로드 폼 -->
         <div class="box">
 			<input type="file" name="file-5[]" id="file-5" class="inputfile inputfile-4" data-multiple-caption="{count} files selected" multiple />
 			<label for="file-5"><figure><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg></figure> <span>동영상 업로드</span></label>
         </div>
-
-        
-        <script>
-            'use strict';
-
-            ;( function ( document, window, index )
-            {
-                var inputs = document.querySelectorAll( '.inputfile' );
-                Array.prototype.forEach.call( inputs, function( input )
-                {
-                    var label	 = input.nextElementSibling,
-                        labelVal = label.innerHTML;
-
-                    input.addEventListener( 'change', function( e )
-                    {
-                        var fileName = '';
-                        if( this.files && this.files.length > 1 )
-                            fileName = ( this.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', this.files.length );
-                        else
-                            fileName = e.target.value.split( '\\' ).pop();
-
-                        if( fileName )
-                            label.querySelector( 'span' ).innerHTML = fileName;
-                        else
-                            label.innerHTML = labelVal;
-                    });
-
-                    // Firefox bug fix
-                    input.addEventListener( 'focus', function(){ input.classList.add( 'has-focus' ); });
-                    input.addEventListener( 'blur', function(){ input.classList.remove( 'has-focus' ); });
-                });
-            }( document, window, 0 ));
-</script>
+        <script src="/static/vcreate_script.js"></script>
         <br>
-        <input type="submit" value="저장">
-        <button type="button"><a href="{% url 'vread' %}">취소</a></button>
+        <br>
+
+        <!-- 저장 버튼 -->
+        <button class="outline-button" type="submit">저장</button>
+        <!-- 취소 버튼 -->
+        <button class="outline-button" type="button"><a href="{% url 'vread' %}">취소</a></button>
     </div>
     </form>
   </div>
-
-
-
+  
 </body>
 </html>

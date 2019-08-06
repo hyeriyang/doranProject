@@ -1,0 +1,251 @@
+@font-face { font-family: 'Chosunilbo_myungjo'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff') format('woff'); font-weight: normal; font-style: normal; }
+body {
+    font-family: 'Chosunilbo_myungjo';
+    text-align: center;
+    background-image: url( "/static/bg4.png" );
+    background-repeat: repeat;
+    background-attachment: fixed;
+}
+.card {
+    margin-top: 8%;
+    margin-bottom: 8%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    display: inline-block;
+    width: 50rem;
+    background-color: rgba(255,255,255,0.7);
+}
+
+/* 제목과 내용 스타일 */
+.border {
+    border: none;
+}
+.create_form {
+    display: grid;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+}
+* {
+    box-sizing: border-box;
+}
+.inp {
+    position: relative;
+    margin: auto;
+    width: 100%;
+    max-width: 445.6px;
+}
+.border {
+    border:0 !important;
+}
+.inp .label {
+    position: absolute;
+    top: 16px;
+    left: 0;
+    font-size: 20px;
+    color: #9098a9;
+    font-weight: 500;
+    transform-origin: 0 0;
+    transition: all 0.2s ease;
+}
+.inp .border {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: #ff8b8b;
+    transform: scaleX(0);
+    transform-origin: 0 0;
+    transition: all 0.15s ease;
+}
+.inp input {
+    -webkit-appearance: none;
+    width: 100%;
+    border: 0;
+    font-family: inherit;
+    padding: 12px 0;
+    height: 48px;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 2px solid #c8ccd4;
+    background: none;
+    border-radius: 0;
+    color: #223254;
+    transition: all 0.15s ease;
+}
+.inp textarea {
+    -webkit-appearance: none;
+    width: 100%;
+    border: 0;
+    font-family: inherit;
+    padding: 12px 0;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 2px solid #c8ccd4;
+    background: none;
+    border-radius: 0;
+    color: #223254;
+    transition: all 0.15s ease;
+}
+.inp input:not(:placeholder-shown) + span {
+    color: #5a667f;
+    transform: translateY(-26px) scale(0.75);
+}
+.inp textarea:not(:placeholder-shown) + span {
+    color: #5a667f;
+    transform: translateY(-26px) scale(0.75);
+}
+.inp input:focus, .inp textarea:focus {
+    background: none;
+    outline: none;
+}
+.inp input:focus + span {
+    color: #ff8b8b;
+    transform: translateY(-26px) scale(0.75);
+}
+.inp textarea:focus + span {
+    color: #ff8b8b;
+    transform: translateY(-26px) scale(0.75);
+}
+.inp input:focus + span + .border {
+    transform: scaleX(1);
+}
+.inp textarea:focus + span + .border {
+    transform: translateY(-6.3px) scaleX(1);
+}
+
+
+/* 파일업로드 */
+.box {
+    display: inline-block;
+    width: 445.6px;
+    border-left: 2px solid #c8ccd4;
+    border-right: 2px solid #c8ccd4;
+    border-bottom: 2px solid #c8ccd4;
+}
+.js .inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.inputfile + label {
+    max-width: 80%;
+    font-size: 1.25rem;
+    /* 20px */
+    font-weight: 500;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    padding: 0.625rem 1.25rem;
+    /* 10px 20px */
+}
+
+.no-js .inputfile + label {
+    display: none;
+}
+
+.inputfile:focus + label,
+.inputfile.has-focus + label {
+    outline: 1px dotted #000;
+    outline: -webkit-focus-ring-color auto 5px;
+}
+
+
+.inputfile + label svg {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    fill: currentColor;
+    margin-top: -0.25em;
+    /* 4px */
+    margin-right: 0.25em;
+    /* 4px */
+}
+
+.inputfile-4 + label {
+    color: #989898;
+}
+
+.inputfile-4:focus + label,
+.inputfile-4.has-focus + label,
+.inputfile-4 + label:hover {
+    color: #ffa781;
+}
+
+.inputfile-4 + label figure {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #989898;
+    display: block;
+    padding: 20px;
+    margin: 0 auto 10px;
+}
+
+.inputfile-4:focus + label figure,
+.inputfile-4.has-focus + label figure,
+.inputfile-4 + label:hover figure {
+    background-color: #fcb798;
+}
+
+.inputfile-4 + label svg {
+    width: 100%;
+    height: 100%;
+    fill: #fff;
+}
+
+
+@media screen and (max-width: 50em) {
+    .inputfile-6 + label strong {
+        display: block;
+    }
+}
+
+/* 버튼 스타일 */
+.outline-button {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    box-shadow: 0 0 0 2px rgba(255, 164, 142, 0.3) inset;
+    color: #ffa48e;
+    margin: auto;
+    padding: 1rem 3rem;
+    position: relative;
+    cursor: pointer;
+    font-size: 20px
+}
+.outline-button::before, .outline-button::after {
+    content: "";
+    position: absolute;
+    height: 0;
+    width: 2px;
+    transition: height 0.4s 0.4s cubic-bezier(0.86, 0, 0.07, 1), width 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+}
+.outline-button::before {
+    box-shadow: 2px 2px 0 rgba(255, 164, 142, 1) inset;
+    bottom: 0;
+    left: 0;
+}
+.outline-button::after {
+    box-shadow: -2px -2px 0 rgba(255, 164, 142, 1) inset;
+    top: 0;
+    right: 0;
+}
+.outline-button:hover::before, .outline-button:hover::after {
+    height: 100%;
+    width: 100%;
+    transition: height 0.4s cubic-bezier(0.86, 0, 0.07, 1), width 0.4s 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+}
+a {
+    color: #ffa48e;
+}
+a:hover {
+    color: #ffa48e;
+    text-decoration: none;
+}
