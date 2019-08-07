@@ -1,15 +1,137 @@
-비디오 재생 및 목록<br>
-<p>장르</p>
+{% load staticfiles %}
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>dorandoran</title>
 
-<a href="{% url 'search' 'hip' %}">랩/힙합</a>
-<a href="{% url 'search' 'bal' %}">발라드</a>
-<a href="{% url 'search' 'fresh' %}">청량한</a>
-<a href="{% url 'search' 'fun' %}">신나는</a>
+	<!-- 부트스트랩 링크 -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<!-- 이미지 슬라이더 -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.map"></script>
+	<script src="/static/js/vlist_script.js"></script>
+	<!-- css파일 링크 -->
+	<link rel="stylesheet" href="/static/style/vlist_style.css?after">
 
-<hr>
-<p>비디오 테스트 중</p>
+</head>
+<body>
+	<!-- nav var -->
+	<div class = "header">
+		<div class = "nav"> Dorandoran </div><hr>
+	</div>
 
-{% for i in vs %}
+
+	<!-- 이미지 슬라이더 -->
+<!-- 	<div class = "img_slider">
+		<div class="slider">
+		  <input type="radio" name="slider" title="slide1" checked="checked" class="slider__nav"/>
+		  <input type="radio" name="slider" title="slide2" class="slider__nav"/>
+		  <input type="radio" name="slider" title="slide3" class="slider__nav"/>
+		  <input type="radio" name="slider" title="slide4" class="slider__nav"/>
+		  <div class="slider__inner">
+		    <div class="slider__contents"><img src = "https://img.sbs.co.kr/newimg/news/20171201/201120664_700.jpg">
+		    </div>
+		    <div class="slider__contents"><img src = "http://sldict.korean.go.kr/images/common/main_img.gif">
+		    </div>
+		    <div class="slider__contents"><img src = "http://img.hani.co.kr/imgdb/resize/2019/0421/00501917_20190421.JPG">
+		    </div>
+		    <div class="slider__contents"><img src = "https://i.ytimg.com/vi/uzRZosFtrKk/maxresdefault.jpg">
+		    </div>
+		  </div>
+		</div>
+	</div> -->
+	
+	<br><br><br><br><br><br><br><br><br><br><br>
+	<!-- 이미지 슬라이더 -->
+    <div id="pre">
+        <!-- 화살표 이미지 -->
+    	<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+		width="46.02px" height="46.02px" viewBox="0 0 46.02 46.02" style="enable-background:new 0 0 46.02 46.02; fill: #ffdad1;" xml:space="preserve">
+		<path d="M14.757,46.02c-1.412,0-2.825-0.521-3.929-1.569c-2.282-2.17-2.373-5.78-0.204-8.063l12.758-13.418L10.637,9.645
+			C8.46,7.37,8.54,3.76,10.816,1.582c2.277-2.178,5.886-2.097,8.063,0.179l16.505,17.253c2.104,2.2,2.108,5.665,0.013,7.872
+			L18.893,44.247C17.77,45.424,16.267,46.02,14.757,46.02z"/>
+		</svg>
+    </div>
+    <div id="main">
+        <div id="side1">
+            <a href="#"><img src="/static/img/live.jpg" height="100%" width="100%"/></a>
+        </div>
+        <div id="side2">
+            <a href="#"><img src="/static/img/btob.jpg" height="100%" width="100%"/></a>
+        </div>
+        <div id="side3">
+            <a href="#"><img src="/static/img/quiz.jpg" height="100%" width="100%"/></a>
+        </div>
+    </div>
+    <div id="nex">
+        <!-- 화살표이미지 -->
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+		width="46.02px" height="46.02px" viewBox="0 0 46.02 46.02" style="enable-background:new 0 0 46.02 46.02; fill: #ffdad1;" xml:space="preserve">
+		<path d="M14.757,46.02c-1.412,0-2.825-0.521-3.929-1.569c-2.282-2.17-2.373-5.78-0.204-8.063l12.758-13.418L10.637,9.645
+			C8.46,7.37,8.54,3.76,10.816,1.582c2.277-2.178,5.886-2.097,8.063,0.179l16.505,17.253c2.104,2.2,2.108,5.665,0.013,7.872
+			L18.893,44.247C17.77,45.424,16.267,46.02,14.757,46.02z"/>
+		</svg>
+    </div>
+	
+	<br>
+
+	<!-- 장르 선택 -->
+	<div class = "genre">
+		<div class="card">
+			<div class="card-header">
+			    원하는 장르와 분위기를 선택해보세요!
+			</div>
+			<div class="card-body">
+			    <p class="card-text">
+			    	<a href="{% url 'search' 'hip' %}"><button type ="button" class ="choose_genre">랩 / 힙합</button></a>
+			    	<a href="{% url 'search' 'bal' %}"><button type ="button" class ="choose_genre">발라드</button></a>
+			    	<button type ="button" class ="choose_genre">POP</button>
+			    	<br>
+			    	<button type ="button" class ="choose_genre">여름</button>
+			    	<button type ="button" class ="choose_genre">밤 / 새벽</button>
+			    	<a href="{% url 'search' 'fresh' %}"><button type ="button" class ="choose_genre">청량한</button></a>
+			    	<a href="{% url 'search' 'fun' %}"><button type ="button" class ="choose_genre">신나는</button></a>
+			    </p>
+			</div>
+		</div>
+	</div>
+	<br>
+
+	<!-- 비디오리스트들 -->
+	{%for video in videos.all%}
+	<div class = "video_list">
+		<a href ="{% url 'vdetail' video.id %}">
+		<div class="card">
+			<iframe width="280" height="200"
+	        {% if video.video_key %}
+	        src="https://www.youtube.com/embed/{{video.video_key}}" class="card-img-top">
+	        {% endif %}
+	        </iframe>
+			<div class="card-body">
+			<h5 class="card-title">{{video.title}}</h5>
+			<hr>
+			<p class="card-text">
+			<!-- 업로드날짜 -->{{video.date}}
+			 · 
+			<!-- 조회수 -->조회수 1,723,353회
+			</p>
+			<p class="card-text">
+			<!-- 업로드한 사람 --> {{user.username}}
+			</p>
+			</div>
+		</div>
+		</a>
+	</div>
+	{%endfor%}
+</body>
+</html>
+
+
+<!-- {% for i in vs %}
 <div class="container">
         <a href ="{% url 'vdetail' i.id %}">반응보기</a>
         <h1>제목: {{i.title}}</h1>
@@ -23,24 +145,4 @@
         </iframe>
     </div>
 
-{% endfor %}
-
-<hr>
-
-{% if user.is_authenticated %}
-{{user.username}}님 환영합니다!
-{%for video in videos.all%}
-    <div class="container">
-        <a href ="{% url 'vdetail' video.id %}">반응보기</a>
-        <h1>제목: {{video.title}}</h1>
-        </a>
-        <p> 내용 : {{video.body}}</p>
-        <small class="text-muted">{{video.date}}</small>
-        <iframe width="420" height="315"
-        {% if video.video_key %}
-        src="https://www.youtube.com/embed/{{video.video_key}}">
-        {%endif%}
-        </iframe>
-    </div>
-{%endfor%}
-{%endif%}
+{% endfor %} -->

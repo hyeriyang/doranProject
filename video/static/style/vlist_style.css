@@ -1,0 +1,131 @@
+/*폰트*/
+@font-face { font-family: 'Chosunilbo_myungjo'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Chosunilbo_myungjo';
+  text-align: center;
+  padding-top: 1rem;
+}
+
+/*이미지 슬라이더*/
+#main{
+    position: absolute;
+    top:20%;
+    left: 38%;
+}
+#side1,#side2,#side3 {
+    height: 150px;
+    width: 350px;
+    position: absolute;
+    border: 0;
+    box-shadow: 3px 4px 0px #cecece;
+    transition: all .5s;
+}
+#side1{
+    transform: translateX(0px) scale(1.5);
+    z-index: 99;
+}
+#side2{
+    transform: translateX(-200px);
+    z-index: 9;
+}
+#side3{
+    transform: translateX(200px);
+    z-index: 9;
+}
+#pre{
+    height: 40px;
+    width: 100px;
+    position: absolute;
+    top:30%;
+    left: 10%;
+    transform:rotate(180deg);
+}
+
+#pre:hover{
+    cursor: pointer;
+}
+#nex{
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    top:30%;
+    right: 10%;
+}
+#nex:hover{
+    cursor: pointer;
+}
+
+/*장르 선택 스타일*/
+.genre .card {
+  display: inline-block;
+  width: 75rem;
+  height: 11rem;
+  background: linear-gradient( to bottom, #fbdbcd, #ffe8f1 );
+  /*background-color: #fbdbcd;*/
+  border-style: none;
+}
+.card-header {
+  color: gray;
+  padding: .75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: rgba(255, 255, 255, 0.35);
+  border:none;
+}
+
+button {
+  border: none;
+  /*border-style: solid;*/
+  background-color: transparent;
+  margin-right: 1rem;
+  margin-bottom: 0.5rem;
+  font-family: 'Chosunilbo_myungjo';
+}
+button:hover {
+
+  background-color: #c5c5c5;
+  color:white;
+  /*background-color: white;*/
+}
+p {
+  font-size: 12px;
+}
+.choose_genre {
+  background-color: white;
+  /*border-style: none;*/
+  border-radius: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: gray;
+  width: 90px;
+  height: 36px;
+}
+
+/*비디오 리스트 스타일*/
+.video_list .card {
+  display: inline-block;
+  border-style: none;
+  border-radius: 10px;
+  width: 18rem;
+  margin-right: 0.5vw;
+}
+.video_list .card:hover {
+  box-shadow: 3px 4px 0px #cecece;
+}
+hr {
+  background: #c5c5c5;
+  height: 1px;
+}
+.card-title {
+  margin-top: -15px;
+}
+.card-text {
+  line-height:60% ;
+}
+.video_list .card-body {
+  color: gray;
+}
