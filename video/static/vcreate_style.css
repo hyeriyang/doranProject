@@ -16,7 +16,12 @@ body {
     background-color: rgba(255,255,255,0.7);
 }
 
-/* 제목과 내용 스타일 */
+.card-title{
+    color:#9098a9;
+    font-size: 20px;
+}
+
+/* 제목과 내용 폼 스타일 */
 .border {
     border: none;
 }
