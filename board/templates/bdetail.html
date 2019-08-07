@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -14,15 +17,19 @@
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
-
 <style>
+  @font-face { font-family: 'Chosunilbo_myungjo'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff') format('woff'); font-weight: normal; font-style: normal; }
+body {
+    font-family: 'Chosunilbo_myungjo';
+}
+
 /* 주희 : 배치 맞춤*/
 .bmd {margin-top:10px;margin-left:3px;}
 
 .card {
   box-shadow: 5px 5px 5px rgb(235, 235, 235);
 }
-body{ background: #fafafa;}
+
 
 body .no-padding {
 padding: 0;
@@ -43,7 +50,7 @@ width: 720px;
   float:right;
 }
 .btn:hover {
-  background-color:rgb(250, 213, 206);
+  background-color:#fad5ce;
   border-color:rgb(250, 213, 206);
 }
 
@@ -88,14 +95,13 @@ width: 720px;
 .dropdown > a > span.green:before {
 border-left-color: #2dcb73;
 }
-/*.status-upload form button > i {
-margin-right: 7px;
-}
-/*font Awesome http://fontawesome.io*/
+
 @import url(//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
 /*Comment List styles*/
 .comment-list .row {
+  
   margin-bottom: 0px;
+  width:760px;
 }
 .comment-list .panel .panel-heading {
   padding: 4px 15px;
@@ -169,9 +175,25 @@ margin-right: 7px;
 .comment-list .comment-post {
   margin-top: 6px;
 }
+
+.banner img {
+  width:350px;
+  height:300px;
+  float:right;
+  right:-400px;
+  top:-440px;
+  cursor: pointer;
+  float:right;
+  margin-right:190px;
+  margin-top:90px;
+}
+
 </style>
+</head>
+{% load staticfiles %}
 <!--게시물 디테일-->
 <br><br>
+<body>
 <div class="container">
         <div class="card">
         <h2 class="card-header">{{board.subject}}</h2>
@@ -187,6 +209,10 @@ margin-right: 7px;
     <a href="{%url 'bdelete' board.id %}"><button class="btn btn-outline-primary bmd">글 삭제</button></a>
     {%endif%}
 </div>
+
+<div class="banner">
+    <img href="{% url 'quiz' %}" class="bannerimg" src="{% static 'img/quiz.png' %}">
+  </div>
 
 <!--댓글 작성 폼-->
 <div class="container">
@@ -215,7 +241,7 @@ margin-right: 7px;
 </div>
           <br><br>
           {% for comment in comments.all %}
-          <!-- Comment -->
+          <!-- Comment 목록 -->
           <article class="row">
             <div class="col-md-2 col-sm-2 hidden-xs">
               <figure class="thumbnail">
@@ -239,3 +265,5 @@ margin-right: 7px;
             </div>
           </article>
           {% endfor %}
+        </body>
+        </html>

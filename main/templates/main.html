@@ -11,12 +11,12 @@
    <nav class="main-menu">
 			<ul>
                     {% if user.is_authenticated %}
-                    <li><a href="#" title="about" ><span>ABOUT</span></a></li>
+                    <li><a href="{% url 'about' %}" title="about"><span>ABOUT</span></a></li>
                     <li><a href="{% url 'bhome' %}" title="community"><span>COMMUNITY</span></a></li>
                     <li><a href="{% url 'videolist' %}" title="video"><span>VIDEO</span></a></li>
                     <li><a href="{% url 'mypage' %}" title="login"><span>MYPAGE</span></a></li>
                     {%else%}
-                    <li><a href="#" title="about" ><span>ABOUT</span></a></li>
+                    <li><a href="{% url 'about' %}" title="about" ><span>ABOUT</span></a></li>
                     <li><a href="#" title="community"><span>COMMUNITY</span></a></li>
                     <li><a href="{% url 'videolist' %}" title="video"><span>VIDEO</span></a></li>
                     <li><a href="{% url 'login' %}" title="login"><span>LOGIN</span></a></li>

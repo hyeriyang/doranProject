@@ -1,12 +1,211 @@
-글쓰는 곳
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <!-- 부트스트랩 링크 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+   <style>
+    @font-face { font-family: 'Chosunilbo_myungjo'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff') format('woff'); font-weight: normal; font-style: normal; }
+body {
+    font-family: 'Chosunilbo_myungjo';
+    text-align: center;
+    background:linear-gradient( to bottom, #fdfaf0, #fdede8 , #fad1c0);
+    background-repeat: repeat;
+    background-attachment: fixed;
+}
+.card {
+    border-radius:10px;
+    box-shadow:5px 5px 5px #f5c3b2;
+    margin-top: 8%;
+    margin-bottom: 8%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    display: inline-block;
+    width: 50rem;
+    background-color: rgba(255,255,255,0.7);
+}
 
-<div class='container'>
-    <form method='POST'>
-        {% csrf_token %}
-        <table>
-            {{form.as_table}}
-        </table>
-        <br>
-        <input class="btn btn-dark" type="submit" value="글쓰기">
+.card-title{
+    color:#9098a9;
+    font-size: 20px;
+}
+
+/* 제목과 내용 폼 스타일 */
+.border {
+    border: none;
+}
+.create_form {
+    display: grid;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+}
+* {
+    box-sizing: border-box;
+}
+.inp {
+    position: relative;
+    margin: auto;
+    width: 100%;
+    max-width: 445.6px;
+}
+.border {
+    border:0 !important;
+}
+.inp .label {
+    position: absolute;
+    top: 16px;
+    left: 0;
+    font-size: 20px;
+    color: #9098a9;
+    font-weight: 500;
+    transform-origin: 0 0;
+    transition: all 0.2s ease;
+}
+.inp .border {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: #ff8b8b;
+    transform: scaleX(0);
+    transform-origin: 0 0;
+    transition: all 0.15s ease;
+}
+.inp input {
+    -webkit-appearance: none;
+    width: 100%;
+    border: 0;
+    font-family: inherit;
+    padding: 12px 0;
+    height: 48px;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 2px solid #c8ccd4;
+    background: none;
+    border-radius: 0;
+    color: #223254;
+    transition: all 0.15s ease;
+}
+.inp textarea {
+    -webkit-appearance: none;
+    width: 100%;
+    border: 0;
+    font-family: inherit;
+    padding: 12px 0;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 2px solid #c8ccd4;
+    background: none;
+    border-radius: 0;
+    color: #223254;
+    transition: all 0.15s ease;
+}
+.inp input:not(:placeholder-shown) + span {
+    color: #5a667f;
+    transform: translateY(-26px) scale(0.75);
+}
+.inp textarea:not(:placeholder-shown) + span {
+    color: #5a667f;
+    transform: translateY(-26px) scale(0.75);
+}
+.inp input:focus, .inp textarea:focus {
+    background: none;
+    outline: none;
+}
+.inp input:focus + span {
+    color: #ff8b8b;
+    transform: translateY(-26px) scale(0.75);
+}
+.inp textarea:focus + span {
+    color: #ff8b8b;
+    transform: translateY(-26px) scale(0.75);
+}
+.inp input:focus + span + .border {
+    transform: scaleX(1);
+}
+.inp textarea:focus + span + .border {
+    transform: translateY(-6.3px) scaleX(1);
+}
+
+
+/* 버튼 스타일 */
+.outline-button {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    box-shadow: 0 0 0 2px rgba(255, 164, 142, 0.3) inset;
+    color: #ffa48e;
+    margin: auto;
+    padding: 1rem 3rem;
+    position: relative;
+    cursor: pointer;
+    font-size: 20px
+}
+.outline-button::before, .outline-button::after {
+    content: "";
+    position: absolute;
+    height: 0;
+    width: 2px;
+    transition: height 0.4s 0.4s cubic-bezier(0.86, 0, 0.07, 1), width 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+}
+.outline-button::before {
+    box-shadow: 2px 2px 0 rgba(255, 164, 142, 1) inset;
+    bottom: 0;
+    left: 0;
+}
+.outline-button::after {
+    box-shadow: -2px -2px 0 rgba(255, 164, 142, 1) inset;
+    top: 0;
+    right: 0;
+}
+.outline-button:hover::before, .outline-button:hover::after {
+    height: 100%;
+    width: 100%;
+    transition: height 0.4s cubic-bezier(0.86, 0, 0.07, 1), width 0.4s 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+}
+a {
+    color: #ffa48e;
+}
+a:hover {
+    color: #ffa48e;
+    text-decoration: none;
+}
+    </style>
+
+
+</head>
+
+<body>
+
+<div class="card">
+    <form method='POST' enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="card-body">
+        <p class="card-title">게시글 업로드</p>
+        <!-- 제목 폼 -->
+        <p class="create_form">
+                <label for="subject" class="inp"> 
+                <input type="text" name="subject" maxlength="200" required id="subject">
+                <span class="label">제목</span>
+                <span class="border"></span>
+            </label>
+        </p>
+        <!-- 내용 폼 -->
+        <p class="create_form">
+                <label for="memo" class="inp">
+                <textarea class="ubody"  name="memo" cols="60" rows="10" required id="memo"></textarea>
+                <span class="label">내용</span>
+                <span class="border"></span>
+            </label>
+        </p>
+        <!-- 저장 버튼 -->
+        <button class="outline-button" type="submit">게시</button>
+        <!-- 취소 버튼 -->
+        <button class="outline-button" type="button"><a href="{% url 'bhome' %}">취소</a></button>
+    </div>
     </form>
-</div>
+  </div>
+
+</body>
+</html>
