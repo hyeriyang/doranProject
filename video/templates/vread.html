@@ -18,7 +18,7 @@
                     {% for upload in uploads.all %}
                     <tbody>
                         <tr>
-                            <td>{{upload.unmae}}</td>
+                            <td>{{upload.uname}}</td>
                             <td><a href="{% url 'udetail' upload.id %}">{{upload.utitle}}</a></td>
                             <td>{{upload.pub_date|date:"Y-m-d"}}</td>
                         </tr>

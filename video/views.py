@@ -1,9 +1,12 @@
 from django.shortcuts import render,get_object_or_404,redirect
 import video.views
 # 지연 
-from .models import Video,VComment,Upload
+from .models import Video,VComment
 # 윤아
+from .models import Upload
 from .forms import UploadForm
+
+from django.http import HttpResponse
 
 from django.utils import timezone
 from datetime import datetime
@@ -64,7 +67,7 @@ def vread(request):
     uploads = Upload.objects.order_by('-id')
     return render(request, 'vread.html',{'uploads':uploads})
 
-# 비디어 업로드 폼 생성
+# 비디오 업로드 폼 생성
 def vcreate(request):
     if request.method == 'POST':
         form = UploadForm(request.POST, request.FILES)
