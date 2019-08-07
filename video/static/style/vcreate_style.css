@@ -2,7 +2,7 @@
 body {
     font-family: 'Chosunilbo_myungjo';
     text-align: center;
-    background-image: url( "/static/bg4.png" );
+    background-image: url( "../img/bg4.png" );
     background-repeat: repeat;
     background-attachment: fixed;
 }
