@@ -193,9 +193,7 @@
         <!-- 로그인 페이지-->
         {{error}}
   
-            <div style="height:250px; background-color:white;">
-                    <img id="logo" src="{% static 'img/logo.png' %}" style="width:130px; padding:25px 0px 25px 25px;" alt="로고">
-            </div>
+            
             <div class="overlay">
                     <!-- LOGN IN FORM by Omar Dsoky -->
                     <form method="POST">
@@ -203,14 +201,14 @@
                        <!--   con = Container  for items in the form-->
                        <div class="con" >
                        <!--     Start  header Content  -->
-                       <header class="head-form" style="margin-left:auto; margin-right:auto; position:absolute;top:40%;">
+                       <header class="head-form" style="margin-left:auto; margin-right:auto; position:relative;">
                           <p style="font-size:50px; font-family:Eoe_Zno_B;">Log In</p><br>
                           <!--     A welcome message or an explanation of the login form -->
                           <p>login here using your username and password</p>
                        </header>
                        <!--     End  header Content  -->
                        <br><br>
-                       <div class="field-set" style="margin-left:auto; margin-right:auto; position:absolute;top:60%;"><!--usernae, password, login 하얀색 버튼의 위치 설정-->
+                       <div class="field-set" style="margin-left:auto; margin-right:auto; position:relative;"><!--usernae, password, login 하얀색 버튼의 위치 설정-->
                                                  
                             <!--   user name Input-->
                              <input class="form-input" type="text" placeholder="UserName" name="username" required>
