@@ -3,12 +3,13 @@ body {
     font-family: 'Chosunilbo_myungjo';
     text-align: center;
     background:linear-gradient( to bottom, #fdfaf0, #fdede8 , #fad1c0);
-    background-repeat: repeat;
+    /* background-repeat: repeat; */
     background-attachment: fixed;
 }
 .card {
     border-radius:10px;
-    box-shadow:5px 5px 5px #f5c3b2;
+    border: 0;
+    box-shadow:5px 5px 0px #f5c3b2;
     margin-top: 8%;
     margin-bottom: 8%;
     padding-top: 3%;
