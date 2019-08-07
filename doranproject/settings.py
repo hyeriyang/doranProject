@@ -126,6 +126,7 @@ USE_TZ = False
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'quiz', 'static'),
     os.path.join(BASE_DIR, 'main', 'static'),
+    os.path.join(BASE_DIR, 'board', 'static'),
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
