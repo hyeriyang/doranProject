@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -5,7 +8,15 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
 <style>
-  @font-face { font-family: 'NIXGONM-Vb'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/NIXGONM-Vb.woff') format('woff'); font-weight: normal; font-style: normal; }
+ @font-face { font-family: 'Chosunilbo_myungjo'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff') format('woff'); font-weight: normal; font-style: normal; }
+body {
+    font-family: 'Chosunilbo_myungjo';
+}
+button[type=submit]{
+  border-style:none;
+  background-color:#fcb69f;
+}
+
 table.pt {
   margin-left: auto; 
   margin-right: auto;
@@ -90,7 +101,7 @@ table.pt {
 }
 
 input.write {
-  background-color:#FACFD8;
+  background-color:#fcb69f;
 }
 
 form{
@@ -99,15 +110,14 @@ form{
     transition: all 1s;
     width: 50px;
     height: 50px;
-    background: #fcc2ce;
+    background: #fcb69f;
     box-sizing: border-box;
     border-radius: 25px;
-    border: 4px solid #fcc2ce;
+    border: 4px solid #fcb69f;
     
 }
 
 input.search{
-  font-family: 'NIXGONM-Vb';
     position: absolute;
     top: 0;
     left: 0;
@@ -142,22 +152,23 @@ form:hover{
     cursor: pointer;
 }
 
-form:hover input{
+form:hover input{  
     display: block;
 }
 
 form:hover .fa{
     background: white;
-    color: #fcc2ce;
+    color: #fcb69f;
 }
+
 .my.pagination > .active > a, 
     .my.pagination > .active > span, 
     .my.pagination > .active > a:hover, 
     .my.pagination > .active > span:hover, 
     .my.pagination > .active > a:focus, 
     .my.pagination > .active > span:focus {
-      background: #fcc2ce;
-      border-color: #fcc2ce;
+      background: #fcb69f;
+      border-color: #fcb69f;
     }
     .my.pagination > li > a {
       color:black;
@@ -171,16 +182,21 @@ form:hover .fa{
     .my.pagination a.active {
       border-radius: 50px;
     }
+    input[type=search]{
+      padding-left:15px;
+    }
   </style>
+  </head>
 
+<body>
 <br>
 <table class="pt" width=700>
     <tr>
-        <td><a href="{%url 'bwrite' %}"
-          <button type="submit" class="btn-hover color-10">글쓰기</button> </a>   </td>
+        <td><a href="{%url 'bwrite' %}">
+          <button type="submit" class="btn-hover color-10">글쓰기</button> </a></td>
         <td><form action="" method="get">
             <input class="search" type="search" name="q" value="{{ q }}">
-            <i class="fa fa-search" type="submit" ></i>
+            <button class="fa fa-search" type="submit" ></button>
             </form>
         </td>
     </tr>
@@ -241,3 +257,5 @@ form:hover .fa{
   </ul>
 </nav>
 {% endif %}
+</body>
+</html>

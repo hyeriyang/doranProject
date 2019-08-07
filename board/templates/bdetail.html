@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -15,10 +18,15 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
 <style>
-   @font-face { font-family: 'NIXGONM-Vb'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/NIXGONM-Vb.woff') format('woff'); font-weight: normal; font-style: normal; }
+  @font-face { font-family: 'Chosunilbo_myungjo'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff') format('woff'); font-weight: normal; font-style: normal; }
+body {
+    font-family: 'Chosunilbo_myungjo';
+}
+
+/* 주희 : 배치 맞춤*/
+.bmd {margin-top:10px;margin-left:3px;}
 
 .card {
-  font-family: 'NIXGONM-Vb';
   box-shadow: 5px 5px 5px rgb(235, 235, 235);
 }
 
@@ -42,7 +50,7 @@ width: 720px;
   float:right;
 }
 .btn:hover {
-  background-color:rgb(250, 213, 206);
+  background-color:#fad5ce;
   border-color:rgb(250, 213, 206);
 }
 
@@ -181,7 +189,7 @@ border-left-color: #2dcb73;
 }
 
 </style>
-
+</head>
 {% load staticfiles %}
 <!--게시물 디테일-->
 <br><br>
@@ -197,8 +205,8 @@ border-left-color: #2dcb73;
         </div>
         </div>
     {%if user.username == board.name%}
-    <a href="{%url 'bupdate' board.id %}"><button class="btn btn-outline-primary">>글 수정</button></a>
-    <a href="{%url 'bdelete' board.id %}"><button class="btn btn-outline-primary">글 삭제</button></a>
+    <a href="{%url 'bupdate' board.id %}"><button class="btn btn-outline-primary bmd">글 수정</button></a>
+    <a href="{%url 'bdelete' board.id %}"><button class="btn btn-outline-primary bmd">글 삭제</button></a>
     {%endif%}
 </div>
 
@@ -233,7 +241,7 @@ border-left-color: #2dcb73;
 </div>
           <br><br>
           {% for comment in comments.all %}
-          <!-- Comment -->
+          <!-- Comment 목록 -->
           <article class="row">
             <div class="col-md-2 col-sm-2 hidden-xs">
               <figure class="thumbnail">
@@ -258,3 +266,4 @@ border-left-color: #2dcb73;
           </article>
           {% endfor %}
         </body>
+        </html>

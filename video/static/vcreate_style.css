@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" class="no-js">
-<head>
-    <!-- 부트스트랩 링크 -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
-   <style>
-    @font-face { font-family: 'Chosunilbo_myungjo'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Chosunilbo_myungjo'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff') format('woff'); font-weight: normal; font-style: normal; }
 body {
     font-family: 'Chosunilbo_myungjo';
     text-align: center;
@@ -129,6 +122,98 @@ body {
 }
 
 
+/* 파일업로드 */
+.box {
+    display: inline-block;
+    width: 445.6px;
+    border-left: 2px solid #c8ccd4;
+    border-right: 2px solid #c8ccd4;
+    border-bottom: 2px solid #c8ccd4;
+}
+.js .inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.inputfile + label {
+    max-width: 80%;
+    font-size: 1.25rem;
+    /* 20px */
+    font-weight: 500;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    padding: 0.625rem 1.25rem;
+    /* 10px 20px */
+}
+
+.no-js .inputfile + label {
+    display: none;
+}
+
+.inputfile:focus + label,
+.inputfile.has-focus + label {
+    outline: 1px dotted #000;
+    outline: -webkit-focus-ring-color auto 5px;
+}
+
+
+.inputfile + label svg {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    fill: currentColor;
+    margin-top: -0.25em;
+    /* 4px */
+    margin-right: 0.25em;
+    /* 4px */
+}
+
+.inputfile-4 + label {
+    color: #989898;
+}
+
+.inputfile-4:focus + label,
+.inputfile-4.has-focus + label,
+.inputfile-4 + label:hover {
+    color: #ffa781;
+}
+
+.inputfile-4 + label figure {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #989898;
+    display: block;
+    padding: 20px;
+    margin: 0 auto 10px;
+}
+
+.inputfile-4:focus + label figure,
+.inputfile-4.has-focus + label figure,
+.inputfile-4 + label:hover figure {
+    background-color: #fcb798;
+}
+
+.inputfile-4 + label svg {
+    width: 100%;
+    height: 100%;
+    fill: #fff;
+}
+
+
+@media screen and (max-width: 50em) {
+    .inputfile-6 + label strong {
+        display: block;
+    }
+}
+
 /* 버튼 스타일 */
 .outline-button {
     appearance: none;
@@ -171,41 +256,3 @@ a:hover {
     color: #ffa48e;
     text-decoration: none;
 }
-    </style>
-
-
-</head>
-
-<body>
-
-<div class="card">
-    <form method='POST' enctype="multipart/form-data">
-    {% csrf_token %}
-    <div class="card-body">
-        <p class="card-title">게시글 업로드</p>
-        <!-- 제목 폼 -->
-        <p class="create_form">
-                <label for="subject" class="inp"> 
-                <input type="text" name="subject" maxlength="200" required id="subject">
-                <span class="label">제목</span>
-                <span class="border"></span>
-            </label>
-        </p>
-        <!-- 내용 폼 -->
-        <p class="create_form">
-                <label for="memo" class="inp">
-                <textarea class="ubody"  name="memo" cols="60" rows="10" required id="memo"></textarea>
-                <span class="label">내용</span>
-                <span class="border"></span>
-            </label>
-        </p>
-        <!-- 저장 버튼 -->
-        <button class="outline-button" type="submit">게시</button>
-        <!-- 취소 버튼 -->
-        <button class="outline-button" type="button"><a href="{% url 'bhome' %}">취소</a></button>
-    </div>
-    </form>
-  </div>
-
-</body>
-</html>

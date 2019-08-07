@@ -10,6 +10,7 @@
                 <table class = "table table-striped">
                     <thead>
                         <tr>
+                            <td>작성자</td>
                             <td>제목</td>
                             <td>날짜</td>
                         </tr>
@@ -17,6 +18,7 @@
                     {% for upload in uploads.all %}
                     <tbody>
                         <tr>
+                            <td>{{upload.unmae}}</td>
                             <td><a href="{% url 'udetail' upload.id %}">{{upload.utitle}}</a></td>
                             <td>{{upload.pub_date|date:"Y-m-d"}}</td>
                         </tr>
