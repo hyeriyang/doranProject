@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html>
+    
     <head>
       <link rel="stylesheet" href="animate.min.css">
       <link rel="stylesheet" href="css/animate.css">
       <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
       
         <style>
-          @font-face { font-family: 'BBTreeGB'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/BBTreeGB.woff') format('woff'); font-weight: normal; font-style: normal; }
-            /*유토이미지고딕B*/
-          @font-face { font-family: 'BBTreeGR'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/BBTreeGR.woff') format('woff'); font-weight: normal; font-style: normal; }
-            /*유토이미지고딕R*/
-          @font-face { font-family: 'UhBeemysen'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_five@.2.0/UhBeemysen.woff') format('woff'); font-weight: normal; font-style: normal; }
-            /*김남 윤체*/
+          @font-face { font-family: 'Chosunilbo_myungjo'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff') format('woff'); font-weight: normal; font-style: normal; }
             body{
-                overflow-x:hidden; overflow-y:auto;
+                overflow-x:hidden; 
+                overflow-y:auto;
+                
             }
             .text1 {
 
-              background: url('/static/img/background.png') no-repeat center center fixed; -webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;
+              background: url('/static/img/background.png') no-repeat center center fixed; 
+              -webkit-background-size: cover;
+              -moz-background-size: cover;
+              -o-background-size: cover;
+              background-size: cover;
          }
            
             .about1{
@@ -80,6 +82,7 @@
         perspective: 1000px;
         display: inline-block;
         margin: 2.2%;
+        border-radius:10px;
         }
 
         .container:hover .flipper {
@@ -165,12 +168,8 @@
 
  
         </style>
-     
-
-
-        
     </head>
-
+    
     <body>
         {% load staticfiles %}
             <div class="header" style="height:250px; background-color:white;">
@@ -180,37 +179,22 @@
             <div class="content" style="width:100%;">
                 <div class="text1" style="height:500px;">
                     
-                    <div class="animated fadeInUp" style="position:absolute; padding:30px 0px 0px 100px; top:110px; font-family:Eoe_Zno_L;">
-                        <p style="font-size:70px; font-family:'BBTreeGB'">도란도란</p>
-                        <p style="font-size:35px; font-family:'UhBeemysen'; font-weight:bold; line-height:2em;">그대가 나의 손이 되었던 날들 그대의 손을 기억해요 그 따스한 손 고마운 손 내게 사랑을 건네주었죠
-                          <br>-그대의손/염평안-</p>
-                        <p style="width:60%; font-size:40px; line-height:2em; font-family:'BBTreeGR'">도란도란은 농인들을 위한 음악 플랫폼 서비스입니다.</p>
+                    <div class="animated fadeInUp" style="position:absolute; padding:30px 0px 0px 100px; top:110px; ">
+                        <p style="font-size:70px; font-family: 'Chosunilbo_myungjo'">도란도란,</p>
+                        <p style="font-size:15px;  font-family: 'Chosunilbo_myungjo', cursive;line-height:2em; color:rgb(88, 88, 88);" >"그대가 나의 손이 되었던 날들, 그대의 손을 기억해요<br>그 따스한 손 고마운 손 내게 사랑을 건네주었죠"
+                          <br>-그대의 손/염평안-</p><br>
+                        <p style="font-size:22px; line-height:2em; font-family: 'Chosunilbo_myungjo'">
+                          도란도란은 농인들을 위한 음악 플랫폼 서비스로써,
+                          <br>수어 기반 영상 서비스를 바탕으로 농인과 청인이 서로의 음악문화를 이해하도록 합니다
+                          <br> 여태껏 음악은 소리를 들을 수 있는 청인들만의 문화영역으로 여겨졌습니다.<br>그러나 도란도란은 Barrier-free라는 말처럼 
+                          <br> 장애와는 상관없이 농인들이 문화 소비자로서 주체적 권리를 행사하도록 합니다.
+                          </p>
                     </div>
                     <div style="position:absolute; top:310px; left:65%; height:200px;"> <!--absolute일때의 top값과 left값임. static일 때는 영향 주지 않음-->
                         <img class="animated fadeInRight" id="phone" src="{% static 'img/IPHONE.png' %}" alt="폰화면">
                     </div>
                 </div>
-                
-                <div class="text2" style="clear:both; height:300px; margin-top:8%; font-family:Eoe_Zno_L;">
-                        <div style="position:absolute; left:57%;">
-                                <p style="font-size:70px; font-family:'BBTreeGB'">도란도란</h2>
-                                <p style="width:92%; font-size:40px; line-height:2em; font-family:'BBTreeGR'">도란도란은 농인들이 문화 소비자로서 주체적 권리를 행사하도록 합니다.</p>
-                        </div>
-
-                      
-                    
-
-                </div>
-                <div class="text3" style="margin-top:6%;" >
-                    
-                    <div  style="clear:both; position:relative; padding:80px 0px 0px 100px; font-family:Eoe_Zno_L;">
-                        <p style="font-size:70px; font-family:'BBTreeGB'">도란도란</p>
-                        <p style="width:45%; font-size:40px; line-height:2em; font-family:'BBTreeGR'">도란도란은 수어 기반 영상 서비스를<br> 바탕으로 농인과 청인이 서로의<br> 음악문화를 이해하도록 합니다.</p>
-                    </div>
-                    
-                </div>
-                        
-
+      
                 <br>
                 
                                 <div id="content" >
@@ -336,19 +320,9 @@
 
                   </div> <!--손모양 카드 div 마침-->
                       
-
-        
             <div style="clear:both; height:150px;">
             </div>
 
-            <div style="padding-left:20px; font-family:'BBTreeGR'; font-size:30px; line-height:2em;">
-              <p>도란도란은 비영리단체로 수익금 일부가 영상제작과 사이트 운영기금으로 사용됩니다. 
-                <br>후원문의는 아래 연락처를 이용해주세요.</p>
-            </div>
-
-            <div id="footer" style="clear:both; height:100px;">
-            </div>
-        
           <script>
             const element =  document.querySelector('.my-element')
             element.classList.add('animated', 'fadeInUp')

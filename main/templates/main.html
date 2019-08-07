@@ -17,7 +17,7 @@
                     <li><a href="{% url 'mypage' %}" title="mypage"><span>MYPAGE</span></a></li>
                     {%else%}
                     <li><a href="{% url 'about' %}" title="about" ><span>ABOUT</span></a></li>
-                    <li><a href="#" title="community"><span>COMMUNITY</span></a></li>
+                    <li><a href="{% url 'bhome' %}" title="community"><span>COMMUNITY</span></a></li>
                     <li><a href="{% url 'videolist' %}" title="video"><span>VIDEO</span></a></li>
                     <li><a href="{% url 'login' %}" title="login"><span>LOGIN</span></a></li>
                     {% endif %}
