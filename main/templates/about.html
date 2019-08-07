@@ -1,3 +1,5 @@
+{% extends 'base.html' %}
+{% block content %}
 <!DOCTYPE html>
 <html>
     
@@ -14,7 +16,6 @@
                 
             }
             .text1 {
-
               background: url('/static/img/background.png') no-repeat center center fixed; 
               -webkit-background-size: cover;
               -moz-background-size: cover;
@@ -172,8 +173,8 @@
     
     <body>
         {% load staticfiles %}
-            <div class="header" style="height:250px; background-color:white;">
-            </div>
+        <div class="head" style="height:250px; background-color:white;">
+          </div>
 
             
             <div class="content" style="width:100%;">
@@ -319,7 +320,7 @@
                   </div> <!--second_line div마침-->
 
                   </div> <!--손모양 카드 div 마침-->
-                      
+                      <br>
             <div style="clear:both; height:150px;">
             </div>
 
@@ -358,3 +359,4 @@
           </script>
     </body>
 </html>
+{% endblock %}
