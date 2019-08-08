@@ -14,11 +14,11 @@
     <br>
 
     {% if user.username == upload.uname %}
-    <button><a href="{% url 'vupdate' pk=upload.pk %}">수정</a></button>
-    <button><a href="{% url 'vdelete' pk=upload.pk %}">삭제</a></button>
-    <button><a href="{{upload.uvideo.url}}">다운로드</a></button>
+    <input type = "button" class = "outline-button" value = "수정" onClick="location.href='{% url 'vupdate' pk=upload.pk %}'">
+    <input type = "button" class = "outline-button" value = "삭제" onClick="location.href='{% url 'vdelete' pk=upload.pk %}'">
+    <input type = "button" class = "outline-button" value = "다운로드" onClick="location.href='{{upload.uvideo.url}}'">
     {% endif %}
-    <button><a href="{% url 'vread' %}">돌아가기</a></button>
+    <input type = "button" class = "outline-button" value = "돌아가기" onClick="location.href='{% url 'vread' %}'">
 </div>
   {% endif %}
 
