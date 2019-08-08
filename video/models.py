@@ -13,6 +13,7 @@ class Video(models.Model):
     tags = models.CharField(max_length=300, null=True) # 장르 및 태그 
     likes = models.ManyToManyField(User, related_name='likes') # 좋아요
     author=models.CharField(default = "작성자",max_length=200) # 작성자
+    vhits = models.IntegerField(null=True,blank=True,default=0) # 조회수
    # like_count = models.PositiveIntegerField(default=0) 
 
     def __str__(self):
