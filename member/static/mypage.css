@@ -63,4 +63,17 @@ margin: 1em 1em 1em 0em;
     text-align:center;
     font-family: 'Chosunilbo_myungjo';
 }
+.cardlike{
+    border-radius:10px;
+    display:inline-block;
+    position:relative;
+}
+.cardlike:hover {
+     box-shadow: 3px 4px 0px #cecece;
+     cursor:pointer;
+      }    
+.cardlike-body {
+    text-align:center;
+    font-family: 'Chosunilbo_myungjo';
+}
 .vds, .list {margin-left:2.5em;}
