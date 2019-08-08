@@ -11,6 +11,9 @@ class Video(models.Model):
     date = models.DateTimeField(auto_now=True) # 게시 날짜
     video_key=models.CharField(max_length=50, null=True) # 비디오 링크
     tags = models.CharField(max_length=300, null=True) # 장르 및 태그 
+    likes = models.ManyToManyField(User, related_name='likes') # 좋아요
+    author=models.CharField(default = "작성자",max_length=200) # 작성자
+   # like_count = models.PositiveIntegerField(default=0) 
 
     def __str__(self):
         return self.title

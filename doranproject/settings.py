@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'main.apps.MainConfig',
+    'like.apps.LikeConfig',
     'quiz.apps.QuizConfig',
     'video.apps.VideoConfig',
     'member.apps.MemberConfig',

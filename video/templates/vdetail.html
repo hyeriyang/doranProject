@@ -37,6 +37,11 @@
 	<!--게시물 디테일-->
 	<br>
 	<div class="container">
+        <!--지연 : 좋아요 테스트 중 start-->
+        <a href="{% url 'post_like' pk=video.pk%}">좋아요! {{vlikes}}</a>
+	
+		
+        <!--지연 : 좋아요 테스트 중 end-->
 	        <div class="card">
 		        <h2 class="card-header">{{video.title}}</h2>
                 <br>
@@ -87,16 +92,9 @@
                             <br>
                             <textarea name="text" cols="95" rows="3" placeholder="&nbsp;"></textarea>
 		                    <!-- <input type="text" name="text"> -->
-		                    {% if user.is_authenticated %}
+		                    
                              <input type="hidden" name="author" value={{user.username}}>
-                            {% else %}
-    <script>
-        
-    alert("로그인 후 이용가능합니다");
-    window.location.href="../../user/login/";
-    </script>
-    {% endif %}
-
+                           
 		                    <input type="hidden" name="created_date">
 	                        <button type="submit" class="btn-hover color-10">submit</button>
 	                    </form>
