@@ -2,10 +2,54 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import auth,messages
 from .models import Profile
+from video.models import Video
 import json
 
 def mypage(request):
-    return render(request, 'mypage.html')
+    video=Video.objects.all()
+    polldict={}
+    user=request.user
+    real=[]
+    for poll in Video.objects.all():
+        index=poll.title
+        choicedict={}
+        
+        choicedict[index] = poll.likes.all()
+        sedex=0
+        for x in choicedict[index]:
+            if x==user:
+                real.append(index)
+
+        polldict[index]=choicedict
+        #print(polldict[index])
+
+    # real이 진짜 좋아요를 누른 영상들
+    # video객체를 가져 오겠다
+    like_videos=[]
+    for y in real:
+        #like_videos.append(Video.objects.filter(title=y).values('video_key'))
+        like_videos.append(Video.objects.filter(title=y))
+
+    yyy=[]
+    for ob in like_videos:
+        for o in ob:
+            for vo in video:
+                if vo.title==o:
+                    yyy.append(vo)
+                else:
+                    yyy.append(o)
+    yyy = list(set(yyy))                
+
+        #obs=Video.objects.filter(title=ob)
+    #like_videos = Video.objects.filter(title="1")
+
+    return render(request, 'mypage.html',{'video':video,
+                                            'yyy':yyy,
+                                            'real':real,
+                                            'like_videos':like_videos
+                                        })
+
+
 
 def edit(request, pk): # 개인정보 수정
     if request.method=="POST":
