@@ -10,9 +10,11 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
 <style>
- @font-face { font-family: 'Chosunilbo_myungjo'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'NIXGONM-Vb'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/NIXGONM-Vb.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Chosunilbo_myungjo'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff') format('woff'); font-weight: normal; font-style: normal; }
 body {
-    font-family: 'Chosunilbo_myungjo';
+    /* font-family: 'Chosunilbo_myungjo'; */
+    font-family: 'NIXGONM-Vb';
 }
 button[type=submit]{
   border-style:none;
@@ -23,7 +25,13 @@ table.pt {
   margin-left: auto; 
   margin-right: auto;
 }
-
+.btitle {
+  width:600px;
+}
+#content_title {
+  text-align:left;
+  padding-left: 50px;
+}
 .btn-hover {
   position:relative;
   width: 100px;
@@ -89,6 +97,18 @@ table.pt {
 .td {
   display:inline;
 }
+td a:link {
+  color:black;
+}
+td a:visited {
+  color:black;
+}
+td a:hover {
+  text-decoration: none;
+  color:gray;
+}
+
+
 .table {
   font-family: 'NIXGONM-Vb';
   width: 1000px;
@@ -216,8 +236,8 @@ window.location.href="../user/login";
   <thead>
     <tr class="top">
       <th scope="col">번호</th>
-      <th scope="col">이름</th>
-      <th scope="col">제목</th>
+      <th scope="col" class = "btitle">제목</th>
+      <th scope="col">작성자</th>
       <th scope="col">등록일</th>
       <th scope="col">조회수</th>
     </tr>
@@ -228,8 +248,8 @@ window.location.href="../user/login";
       {% for boardRow in boards %}
       <tr>
         <th scope="row">{{ boardRow.id }}</th>
+        <td id="content_title"><a href="{%url 'bhits' boardRow.id%}" title="{{ boardRow.memo}}">{{ boardRow.subject }}</a></td>
         <td>{{ boardRow.name }}</td>
-        <td><a href="{%url 'bhits' boardRow.id%}" title="{{ boardRow.memo}}">{{ boardRow.subject }}</a></td>
         <td>{{ boardRow.created_date }}</td>
         <td>{{ boardRow.hits }}</td>
       </tr>
