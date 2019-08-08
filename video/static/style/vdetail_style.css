@@ -1,0 +1,288 @@
+/*body {
+	text-align: center;
+}
+.video {
+	display: inline-block;
+	width: 75rem;
+}
+.video .card {
+	border: 0;
+	display: inline-block;
+	width: 60rem;
+  box-shadow: 3px 3px 0px #ffdad1;
+	background: linear-gradient( to bottom, #fbdbcd, #ffe8f1 );
+}
+.video .card iframe {
+	margin-top: 30px;
+}
+.video .card .card-body {
+	text-align: left;
+	margin: 15px;
+	background-color: rgba( 255, 255, 255, 0.3 );
+}
+.card-text {
+	vertical-align: middle;
+}
+#user_logo {
+	border-radius: 50%;
+	width: 60px
+}
+*/
+
+@font-face { font-family: 'NIXGONM-Vb'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/NIXGONM-Vb.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Chosunilbo_myungjo'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff') format('woff'); font-weight: normal; font-style: normal; }
+body {
+    font-family: 'Chosunilbo_myungjo';
+    font-family: 'NIXGONM-Vb';
+    
+}
+
+/* 주희 : 배치 맞춤*/
+.bmd {margin-top:10px;margin-left:3px;}
+
+.card {
+  box-shadow: 5px 5px 0px rgb(235, 235, 235);
+  text-align:center;
+}
+
+.card-header {
+  font-family: 'NIXGONM-Vb';
+  text-align:left;
+  margin-left: 30px;
+  margin-right: 30px;
+  background: transparent;
+  border-bottom: 1px solid gray;
+}
+.card-body h4 {
+  font-family: 'NIXGONM-Vb';
+  text-align:left;
+  margin-left: 30px;
+}
+body .no-padding {
+padding: 0;
+}
+
+.status-upload form {
+float: center;
+width: 720px;
+}
+
+
+.btn {
+  border-color:rgb(250, 213, 206);
+  border-width:3px;
+  color:#6E7783;
+  font-weight:3px;
+  float:right;
+}
+.btn:hover {
+  background-color:#fad5ce;
+  border-color:rgb(250, 213, 206);
+}
+
+
+.btn-hover {
+    width: 150px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin: 20px;
+    height: 40px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+    float:right;
+
+    border-radius: 50px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btn-hover:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btn-hover:focus {
+    outline: none;
+}
+
+.btn-hover.color-10 {
+        background-image: linear-gradient(to right, #ed6ea0, #ec8c69, #f7186a , #FBB03B);
+    box-shadow: 0 4px 15px 0 rgba(236, 116, 149, 0.75);
+}
+
+.dropdown > a > span.green:before {
+border-left-color: #2dcb73;
+}
+
+@import url(//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
+/*Comment List styles*/
+.comment-list .row {
+  
+  margin-bottom: 0px;
+  width:760px;
+}
+.comment-list .panel .panel-heading {
+  padding: 4px 15px;
+  position: absolute;
+  border:none;
+  /*Panel-heading border radius*/
+  border-top-right-radius:0px;
+  top: 1px;
+}
+.comment-list .panel .panel-heading.right {
+  border-right-width: 0px;
+  /*Panel-heading border radius*/
+  border-top-left-radius:0px;
+  right: 16px;
+}
+.comment-list .panel .panel-heading .panel-body {
+  padding-top: 6px;
+}
+.comment-list figcaption {
+  /*For wrapping text in thumbnail*/
+  word-wrap: break-word;
+}
+/* Portrait tablets and medium desktops */
+@media (min-width: 768px) {
+  .comment-list .arrow:after, .comment-list .arrow:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: transparent;
+  }
+  .comment-list .panel.arrow.left:after, .comment-list .panel.arrow.left:before {
+    border-left: 0;
+  }
+  /*****Left Arrow*****/
+  /*Outline effect style*/
+  .comment-list .panel.arrow.left:before {
+    left: 0px;
+    top: 30px;
+    /*Use boarder color of panel*/
+    border-right-color: inherit;
+    border-width: 16px;
+  }
+  /*Background color effect*/
+  .comment-list .panel.arrow.left:after {
+    left: 1px;
+    top: 31px;
+    /*Change for different outline color*/
+    border-right-color: #FFFFFF;
+    border-width: 15px;
+  }
+  /*****Right Arrow*****/
+  /*Outline effect style*/
+  .comment-list .panel.arrow.right:before {
+    right: -16px;
+    top: 30px;
+    /*Use boarder color of panel*/
+    border-left-color: inherit;
+    border-width: 16px;
+  }
+  /*Background color effect*/
+  .comment-list .panel.arrow.right:after {
+    right: -14px;
+    top: 31px;
+    /*Change for different outline color*/
+    border-left-color: #FFFFFF;
+    border-width: 15px;
+  }
+}
+.comment-list .comment-post {
+  margin-top: 6px;
+}
+
+.banner img {
+  width:350px;
+  height:300px;
+  float:right;
+  right:-400px;
+  top:-440px;
+  cursor: pointer;
+  float:right;
+  margin-right:190px;
+  margin-top:90px;
+}
+
+
+/*좋아요버튼*/
+
+.favorite {
+  height:50px;
+  margin:0 auto;
+  position: relative;
+}
+
+#like {
+  cursor:pointer;
+  padding:10px 17px 7px;
+  background: transparent;
+  display:inline-block;
+  margin:0 0 10px;
+  color:#aaa;
+  transition:.2s;
+  font-size: 30px; /*하트 크기 바꾸기*/
+  border:0;
+  border-radius:50%;
+}
+
+span {
+  position: absolute;
+  bottom:70px;
+  left:0;
+  right:0;
+  visibility: hidden;
+  transition:.6s;
+  z-index:-2;
+  font-size:2px;
+  border-radius:50%;
+  color:red;
+  font-weight:400;
+}
+
+#like:hover {
+  color:#666;
+  
+}
+
+#like:before {
+  font-family:fontawesome;
+  content:'\f004';
+  font-style:normal;
+}
+
+
+#like.press {
+  animation: size .4s;
+  color:#ff6e6e;
+}
+
+span.press {
+  bottom:120px;
+  font-size:14px;
+  visibility:visible;
+  animation: fade 1s;
+}
+
+@keyframes fade {
+  0% {color:transparent;}
+  50% {color:#ff6e6e;}
+  100% {color:transparent;}
+}
+
+@keyframes size {
+  0% {padding:10px 17px 7px;;}
+  50% {padding:14px 20px 30px 12px;  
+    margin-top:-4px;}
+  100% {padding:10px 17px 7px;;}
+}

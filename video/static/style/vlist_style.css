@@ -111,7 +111,8 @@ p {
   border-style: none;
   border-radius: 10px;
   width: 18rem;
-  margin-right: 0.5vw;
+  margin-right: 0.5rem;
+  margin-bottom: 50px;
 }
 .video_list .card:hover {
   box-shadow: 3px 4px 0px #cecece;

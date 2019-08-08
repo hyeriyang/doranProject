@@ -1,42 +1,142 @@
-비디오 {{video.id}}
-<h1>제목: {{video.title}}</h1>
-        </a>
-        <p> 내용 : {{video.body}}</p>
-        <small class="text-muted">{{video.date}}</small>
-        <iframe width="420" height="315"
-        {% if video.video_key %}
-        src="https://www.youtube.com/embed/{{video.video_key}}">
-        {%endif%}
-        </iframe>
-<br/>
-댓글:
-<form method="POST" action="{% url 'vcsave' video.id %}">
-        {% csrf_token %} 
-    <input type="text" name="text">
-    {% if user.is_authenticated %}
-    <input type="hidden" name="author" value={{user.username}}>
-    {% else %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Dorandoran</title>
+	<!-- 부트스트랩 링크 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- 스타일을 위한 링크 -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <link rel="stylesheet" href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+
+	<!-- 외부 스타일시트 -->
+	<link rel="stylesheet" href="/static/style/vdetail_style.css">
+</head>
+<body>
+	<!-- nav var -->
+	<div class = "header">
+		<div class = "nav"> Dorandoran </div><hr>
+	</div>
+
+	{% load staticfiles %}
+	<!--게시물 디테일-->
+	<br>
+	<div class="container">
+	        <div class="card">
+		        <h2 class="card-header">{{video.title}}</h2>
+                <br>
+                <div class = "video">
+                    <iframe width="858" height="500"
+                    {% if video.video_key %}
+                    src="https://www.youtube.com/embed/{{video.video_key}}">
+                    {%endif%}
+                    </iframe>
+                </div>
+	            <div class="card-body"><h4>{{video.body}}</h4></p>
+	                <br>
+	        <footer class="blockquote-footer">유저이름 | {{video.date}}</footer><br>
+    		<div>
+    			<!-- 좋아요버튼 -->
+		    	<div class = "favorite">
+					<i id ="like"></i>
+                    <span></span>
+				</div>
+				<script src="/static/js/vdetail_script.js"></script>
+			</div>
+	        <a href="{% url 'videolist' %}" ><button class="btn btn-outline-primary">목록</button></a>
+
+	        </div>
+	        </div>
+	</div>
+
+	<div class="banner">
+	    <img href="{% url 'quiz' %}" class="bannerimg" src="{% static 'img/quiz.png' %}">
+	  </div>
+
+	<!--댓글 작성 폼-->
+	<div class="container">
+	  <div class="row">
+	    <div class="col-md-8">
+	      
+	        <section class="comment-list">
+	          <h3 class="page-header">Comments</h3>
+	          <div class="container">    
+	    <div class="row">
+	    
+	    <div class="col-md-6">
+	    						<div class="widget-area no-padding blank">
+									<div class="status-upload">
+	                    <form method="POST" action="{% url 'vcsave' video.id %}">
+	                        {% csrf_token %}
+                            <div class = "username">'{{user.username}}'으로 댓글이 달립니다</div>
+                            <br>
+                            <textarea name="text" cols="95" rows="3" placeholder="&nbsp;"></textarea>
+		                    <!-- <input type="text" name="text"> -->
+		                    {% if user.is_authenticated %}
+                             <input type="hidden" name="author" value={{user.username}}>
+                            {% else %}
     <script>
         
     alert("로그인 후 이용가능합니다");
     window.location.href="../../user/login/";
     </script>
     {% endif %}
-    <input type="hidden" name="created_date">
 
-    <input type="submit" value="제출">
-</form>        
-<br/>
+		                    <input type="hidden" name="created_date">
+	                        <button type="submit" class="btn-hover color-10">submit</button>
+	                    </form>
+									</div>
+								</div>
+							</div>
+	        
+	    </div>
+	</div>
+	          <br><br>
+	          {%for vcomment in vcomments.all%}
+	          <!-- Comment 목록 -->
+	          <article class="row">
+	            <div class="col-md-2 col-sm-2 hidden-xs">
+	              <figure class="thumbnail">
+	                  <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+	              </figure>
+	            </div>
+	            <div class="col-md-10 col-sm-10">
+	              <div class="panel panel-default arrow left">
+	                <div class="panel-body">
+	                  <header class="text-left">
+	                    <div class="comment-user"><i class="fa fa-user"></i> <strong>{{vcomment.author}}</strong></div>
+	                    <time class="comment-date" ><i class="fa fa-clock-o"></i> <footer class="blockquote-footer">{{vcomment.created_date}}</footer></time>
+	                  </header>
+	                  <div class="comment-post">
+	                    <p>
+	                        {{vcomment.text}}
+	                    </p>
+	                  </div>
+	                </div>
+	              </div>
+	            </div>
+	          </article>
+	          {% endfor %}
 
-{%for vcomment in vcomments.all%}
-    <div class="container">
-        
-        
-        <h1>작성자: {{vcomment.author}}</h1>
-        </a>
-        <p> 작성일 : {{vcomment.created_date}}</p>
-        내용 :<small class="text-muted">{{vcomment.text}}</small>
-        
-    </div>
-{%endfor%}
 
+
+
+
+
+</body>
+</html>
