@@ -6,7 +6,8 @@
                  /* Fonts Form Google Font ::- https://fonts.google.com/  -:: */
                  @import url('https://fonts.googleapis.com/css?family=Abel|Abril+Fatface|Alegreya|Arima+Madurai|Dancing+Script|Dosis|Merriweather|Oleo+Script|Overlock|PT+Serif|Pacifico|Playball|Playfair+Display|Share|Unica+One|Vibur');
                  @font-face { font-family: 'Chosunilbo_myungjo'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff') format('woff'); font-weight: normal; font-style: normal; }
-                /* End Fonts */
+                 @font-face { font-family: 'Chosunilbo_myungjo'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff') format('woff'); font-weight: normal; font-style: normal; }
+
                 /* Start Global rules */
                 * {
                     padding: 0;
@@ -16,22 +17,19 @@
                 /* End Global rules */
                 
                 /* Start body rules */
-                body {
-                
+                body ,html{
+                margin:0;padding:0;
+                height:50%;
                 background-image: linear-gradient(-225deg, #FADAD8 0%, #fff0da 100%);
 
                 background-attachment: fixed;
-                  background-repeat: no-repeat;
+                background-repeat: no-repeat;
                 
-                    font-family: 'Vibur', cursive;
+                font-family: 'Vibur', cursive;
                 /*   the main font */
-                    font-family: 'Abel', sans-serif;
+                font-family: 'Abel', sans-serif;
                 opacity: .95;
                 /* background-image: linear-gradient(to top, #d9afd9 0%, #97d9e1 100%); */
-                }
-      
-                .head-form {
-                  
                 }
                 /* End body rules */
                 
@@ -58,9 +56,9 @@
                     -webkit-flex-wrap: wrap;
                     flex-wrap: wrap;
                   
-                      margin: 0 auto;
-                }
+                    margin: 0 auto;
                 
+                }
                 /* the header form form */
                 header {
                     margin: 2% auto 10% auto;
@@ -83,8 +81,6 @@
                     padding: 14.5px 0px 15px 9px;
                     border-radius: 5px 0px 0px 5px;
                 }
-                
-                
                 
                 /* Show/hide password Font Icon */
                 #eye {
@@ -129,9 +125,6 @@
                     transform: translateX(-2px);
                     border-radius: 5px;
                 }
-                
-                /* //////////////////////////////////////////// */
-                /* //////////////////////////////////////////// */
                 
                 /* input[type="text"] {min-width: 250px;} */
                 /* buttons  */
@@ -189,6 +182,165 @@
                         transform: translateY(5px);
                     }
                 }
+
+     
+   #contain{
+        padding: 0 20px;
+        max-width: 960px;
+        margin: 0 auto;
+   }
+    #container {
+      min-height:100%;
+      position:relative;
+   }
+    header {
+      font-family: 'Montserrat', sans-serif;
+      margin:0;padding:0;
+      padding: 0px 0;
+   
+    }
+
+   #footer { 
+      display: flex;
+      position:absolute;
+      bottom:0;
+      width:100%;
+      height:60px;         /* Height of the footer */
+      background:rgb(184, 182, 182);
+   }
+   /* other non-essential CSS */
+   #footer p {
+      margin:0;
+      padding:10px;
+   }
+    .logo-box {
+        float: left;
+        margin-right: 20px;
+    }
+    .logo-box a {
+        outline: none;
+        display: block;
+        text-decoration: none;
+        display: block;
+        position: relative;
+        color: #0f0f0f;
+        text-transform: uppercase;
+        display: inline-block;
+        margin-left: 25px;
+        height: 70px;
+        line-height: 70px;
+        transition: .5s linear;  
+    }
+    nav {
+        overflow: hidden;
+    }
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        float: right;
+    }
+    nav li {
+        display: inline-block;
+        margin-left: 50px;
+        height: 60px;
+        line-height: 70px;
+        transition: .5s linear;
+    }
+    nav a {
+        text-decoration: none;
+        display: block;
+        position: relative;
+        color: #070707;
+        text-transform: uppercase;
+    }
+    nav a:after {
+        content: "";
+        width: 0;
+        height: 2px;
+        position: absolute;
+        left: 0;
+        bottom: 15px;
+        background: #f79067;
+        transition: width .5s linear;  
+    }
+    nav a:hover:after {width: 100%;}
+        
+    @media screen and (max-width: 660px) {
+        header {text-align: center;}
+        .logo-box {
+        float: none;
+        display: inline-block;
+        margin: 0 0 16px 0;    
+        }
+        ul {float: none;}
+        nav li:first-of-type {margin-left: 0;}
+    }
+    @media screen and (max-width: 550px) {
+        nav {overflow: visible;}
+        nav li {
+          display: block;
+          margin: 0;
+          height: 40px;
+          line-height: 40px;
+        }
+        nav li:hover {background: rgba(0,0,0,.1);}
+        nav a:after {content: none;}
+        }
+        #dr {text-decoration: none; font-size:1.5em;}
+        #yo {
+  display: inline-grid;
+  grid-auto-flow: row;
+  grid-gap: 24px;
+  justify-items: center;
+  margin: auto;
+ 
+}
+#yolo{
+  font-family: 'Chosunilbo_myungjo';
+  text-align:center;
+  color:white;
+  font-size: 10px;
+}
+
+@media (min-width: 500px) {
+  #yo {
+    grid-auto-flow: column;
+  }
+}
+
+#fun {
+  color: white;
+  text-decoration: none;
+  box-shadow: inset 0 -1px 0 hsla(0, 0%, 100%, 0.4);
+}
+
+#fun:hover {
+  box-shadow: inset 0 -1.2em 0 hsla(0, 0%, 100%, 0.4);
+}
+
+li:last-child {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
+li:hover ~ li p {
+  animation: wave-animation 0.3s infinite;
+}
+
+@keyframes wave-animation {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(20deg);
+  }
+  75% {
+    transform: rotate(-15deg);
+  }
+}
+
         </style>
     </head>
 
@@ -197,7 +349,32 @@
         <!-- 로그인 페이지-->
         {{error}}
   
-            
+    <header>
+    <div id="contain">
+        <div class="logo-box">
+            <a id="dr" href="{% url 'main' %}" title="main">DORANDORAN</a>
+        </div>
+            <nav>
+                <ul>
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'about' %}" title="about">ABOUT</a></li>
+                    <li><a href="{% url 'bhome' %}" title="community">COMMUNITY</a></li>
+                    <li><a href="{% url 'videolist' %}" title="video">VIDEO</a></li>
+                    <li><a href="{% url 'mypage' %}" title="login">MYPAGE</a></li>
+                    <li><a href="{% url 'logout' %}" title="logout">LOGOUT</a></li>
+                    {%else%}
+                    <li><a href="{% url 'about' %}" title="about" >ABOUT</a></li>
+                    <li><a href="{% url 'bhome' %}" title="community">COMMUNITY</a></li>
+                    <li><a href="{% url 'videolist' %}" title="video">VIDEO</a></li>
+                    <li><a href="{% url 'login' %}" title="login">LOGIN</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </header>
+    </body>
+    
+  
             <div class="overlay">
                     <!-- LOGN IN FORM by Omar Dsoky -->
                     <form method="POST">
@@ -277,5 +454,18 @@
                 }, false);
                 
                 </script>
-    </body>>
+    </body>
+    <div id="container">
+        <div id="footer">
+       <!-- Footer start -->
+           <ul id="yo">
+                <li id="yolo">
+                  이 사이트는 저작권법에 보호를 받는 사이트이므로 내용을 블로그, 인터넷 카페, 웹 사이트 등에 무단으로 게시할 수 없습니다.<br>
+                  사이트 주소를 링크, SNS 공유 등은 가능합니다.<br>
+                  Copyright 2019. DORANDORAN inc. all rights reserved.</li>
+                <li><p>♪</p></li>
+            </ul>
+       <!-- Footer end -->
+        </div>
+    </div>
 </html>
