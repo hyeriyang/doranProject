@@ -1,6 +1,5 @@
-{% extends 'base.html' %}
+
 {% load staticfiles %}
-{% block content %}
 <!-- BOOTSTAP CDN -->
 <!-- base.html 생기면 지우고 base.html 사용하기 -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -19,15 +18,9 @@
   <p id="user" style="margin-top:3em">{{ user.username }} 님, 반갑습니다 :)</p>
   <br>
   <div id="m2">
-<<<<<<< HEAD
-  <a class="uu" href="{% url 'logout' %}" >로그아웃</a>
-  <a class="uu" href="{% url 'edit' user.id %}">개인정보 수정</a>
-  <a class="uu" href="{% url 'vcreate' %}">동영상 올리기</a>
-=======
   <a href="{% url 'logout' %}" >로그아웃</a>
   <a href="{% url 'edit' user.id %}">개인정보 수정</a>
-  <a href="{% url 'vread' %}">동영상 올리기</a>
->>>>>>> 344d82d0b2cb2c3e071b2f6a0b7420dce30957f0
+  <a href="{% url 'vcreate' %}">동영상 올리기</a>
   </div>
 </div><br><br>
 <!-- video list 출력하기 -->
