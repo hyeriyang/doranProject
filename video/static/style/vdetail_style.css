@@ -29,20 +29,35 @@
 }
 */
 
-
-  @font-face { font-family: 'Chosunilbo_myungjo'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'NIXGONM-Vb'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/NIXGONM-Vb.woff') format('woff'); font-weight: normal; font-style: normal; }
+@font-face { font-family: 'Chosunilbo_myungjo'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff') format('woff'); font-weight: normal; font-style: normal; }
 body {
     font-family: 'Chosunilbo_myungjo';
+    font-family: 'NIXGONM-Vb';
+    
 }
 
 /* 주희 : 배치 맞춤*/
 .bmd {margin-top:10px;margin-left:3px;}
 
 .card {
-  box-shadow: 5px 5px 5px rgb(235, 235, 235);
+  box-shadow: 5px 5px 0px rgb(235, 235, 235);
+  text-align:center;
 }
 
-
+.card-header {
+  font-family: 'NIXGONM-Vb';
+  text-align:left;
+  margin-left: 30px;
+  margin-right: 30px;
+  background: transparent;
+  border-bottom: 1px solid gray;
+}
+.card-body h4 {
+  font-family: 'NIXGONM-Vb';
+  text-align:left;
+  margin-left: 30px;
+}
 body .no-padding {
 padding: 0;
 }
@@ -51,7 +66,6 @@ padding: 0;
 float: center;
 width: 720px;
 }
-
 
 
 .btn {
@@ -209,27 +223,17 @@ border-left-color: #2dcb73;
   position: relative;
 }
 
-i {
+#like {
   cursor:pointer;
-  padding:10px 12px 8px;
-  /*background: #fff;*/
+  padding:10px 17px 7px;
   background: transparent;
-/*  border-radius:50%;*/
   display:inline-block;
-  margin:0 0 15px;
+  margin:0 0 10px;
   color:#aaa;
   transition:.2s;
-  font-size: 25px; /*하트 크기 바꾸기*/
-}
-
-i:hover {
-  color:#666;
-}
-
-i:before {
-  font-family:fontawesome;
-  content:'\f004';
-  font-style:normal;
+  font-size: 30px; /*하트 크기 바꾸기*/
+  border:0;
+  border-radius:50%;
 }
 
 span {
@@ -241,11 +245,24 @@ span {
   transition:.6s;
   z-index:-2;
   font-size:2px;
-  color:transparent;
+  border-radius:50%;
+  color:red;
   font-weight:400;
 }
 
-i.press {
+#like:hover {
+  color:#666;
+  
+}
+
+#like:before {
+  font-family:fontawesome;
+  content:'\f004';
+  font-style:normal;
+}
+
+
+#like.press {
   animation: size .4s;
   color:#ff6e6e;
 }
@@ -258,14 +275,14 @@ span.press {
 }
 
 @keyframes fade {
-  0% {color:#transparent;}
+  0% {color:transparent;}
   50% {color:#ff6e6e;}
-  100% {color:#transparent;}
+  100% {color:transparent;}
 }
 
 @keyframes size {
-  0% {padding:10px 12px 8px;}
-  50% {padding:14px 16px 12px;  
+  0% {padding:10px 17px 7px;;}
+  50% {padding:14px 20px 30px 12px;  
     margin-top:-4px;}
-  100% {padding:10px 12px 8px;}
+  100% {padding:10px 17px 7px;;}
 }
