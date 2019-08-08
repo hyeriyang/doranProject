@@ -33,6 +33,11 @@
 	<!--게시물 디테일-->
 	<br>
 	<div class="container">
+        <!--지연 : 좋아요 테스트 중 start-->
+        
+	
+		
+        <!--지연 : 좋아요 테스트 중 end-->
 	        <div class="card">
 		        <h2 class="card-header">{{video.title}}</h2>
                 <br>
@@ -43,17 +48,22 @@
                     {%endif%}
                     </iframe>
                 </div>
-	            <div class="card-body"><h4>{{video.body}}</h4></p>
-	                <br>
-	        <footer class="blockquote-footer">{{video.author}} | {{video.date}}</footer><br>
-    		<div>
-    			<!-- 좋아요버튼 -->
-		    	<div class = "favorite">
-					<i id ="like"></i>
-                    <span></span>
-				</div>
-				<script src="/static/js/vdetail_script.js"></script>
-			</div>
+	            <div class="card-body"><h4>{{video.body}}</h4>
+	            <br>
+	            <footer class="blockquote-footer">{{video.date}} | {{video.vhits}}회</footer><br>
+    		    <div>
+				    <!-- 좋아요버튼 -->
+                    {{vlikes}}
+                    <div class = "favorite">
+                            <a href="{% url 'post_like' pk=video.pk%}">
+                        <i id ="like"></i>
+                        </a>
+                        <span></span>
+                    </div>
+                    <script src="/static/js/vdetail_script.js"></script>
+			    </div>
+                <br>
+                <p class = author>{{video.author}}</p>
 	        <a href="{% url 'videolist' %}" ><button class="btn btn-outline-primary">목록</button></a>
 
 	        </div>
@@ -79,20 +89,13 @@
 									<div class="status-upload">
 	                    <form method="POST" action="{% url 'vcsave' video.id %}">
 	                        {% csrf_token %}
-                            <div class = "username">'{{user.username}}'으로 댓글이 달립니다</div>
+                            <div class = "username">'{{user.profile.nickname}}'으로 댓글이 달립니다</div>
                             <br>
                             <textarea name="text" cols="95" rows="3" placeholder="&nbsp;"></textarea>
 		                    <!-- <input type="text" name="text"> -->
-		                    {% if user.is_authenticated %}
+		                    
                              <input type="hidden" name="author" value={{user.username}}>
-                            {% else %}
-    <script>
-        
-    alert("로그인 후 이용가능합니다");
-    window.location.href="../../user/login/";
-    </script>
-    {% endif %}
-
+                           
 		                    <input type="hidden" name="created_date">
 	                        <button type="submit" class="btn-hover color-10">submit</button>
 	                    </form>

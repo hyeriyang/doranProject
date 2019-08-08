@@ -117,6 +117,9 @@ p {
 .video_list .card:hover {
   box-shadow: 3px 4px 0px #cecece;
 }
+.card iframe {
+  border:0;
+}
 hr {
   background: #c5c5c5;
   height: 1px;
@@ -128,5 +131,16 @@ hr {
   line-height:60% ;
 }
 .video_list .card-body {
+  color: gray;
+}
+.card-body a:link {
+  color: gray;
+}
+.card-body a:hover {
+  text-decoration : none;
+  color: gray;
+}
+.card-body a:visited {
+  text-decoration : none;
   color: gray;
 }

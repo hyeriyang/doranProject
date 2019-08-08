@@ -17,7 +17,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.map"></script>
 	<script src="/static/js/vlist_script.js"></script>
 	<!-- css파일 링크 -->
-	<link rel="stylesheet" href="/static/style/vlist_style.css?after">
+	<link rel="stylesheet" href="/static/style/vlist_style.css">
 
 </head>
 <body>
@@ -88,10 +88,15 @@
 	        {% endif %}
 	        </iframe>
 			<div class="card-body">
-			<h5 class="card-title">{{v.title}}</h5>
+			<a href="{% url 'vhits' v.id %}"><h5 class="card-title">{{v.title}}</h5></a>
 			<hr>
 			<p class="card-text">
 			<!-- 업로드날짜 -->{{v.date}}
+			 · 
+			<!-- 조회수 -->조회수 {{v.vhits}}회
+			</p>
+			<p class="card-text">
+			<!-- 업로드한 사람 -->{{video.author}}
 			</p>
 			</div>
 		</div>
@@ -114,11 +119,14 @@
 	        {% endif %}
 	        </iframe>
 			<div class="card-body">
-			<h5 class="card-title">{{video.title}}</h5>
+			<a href="{% url 'vhits' video.id %}"><h5 class="card-title">{{video.title}}</h5></a>
 			<hr>
 			<p class="card-text">
 			<!-- 업로드날짜 -->{{video.date}}
 			 · 
+			<!-- 조회수 -->조회수 {{video.vhits}}회
+			</p>
+			<p class="card-text">
 			<!-- 업로드한 사람 -->{{video.author}}
 			</p>
 			</div>

@@ -8,10 +8,13 @@ from django.contrib.auth.models import User
 class Video(models.Model):
     title = models.CharField(max_length=200) # 영상 제목
     body = models.TextField() # 영상 내용
-    author = models.CharField(max_length=200,null=True) #영상 게시자
     date = models.DateTimeField(auto_now=True) # 게시 날짜
     video_key=models.CharField(max_length=50, null=True) # 비디오 링크
     tags = models.CharField(max_length=300, null=True) # 장르 및 태그 
+    likes = models.ManyToManyField(User, related_name='likes') # 좋아요
+    author=models.CharField(default = "작성자",max_length=200) # 작성자
+    vhits = models.IntegerField(null=True,blank=True,default=0) # 조회수
+   # like_count = models.PositiveIntegerField(default=0) 
 
     def __str__(self):
         return self.title

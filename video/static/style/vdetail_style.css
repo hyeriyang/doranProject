@@ -59,14 +59,16 @@ body {
   margin-left: 30px;
 }
 body .no-padding {
-padding: 0;
+  padding: 0;
 }
 
 .status-upload form {
-float: center;
-width: 720px;
+  float: center;
+  width: 720px;
 }
-
+.card-body .author {
+  font-size: 30px
+}
 
 .btn {
   border-color:rgb(250, 213, 206);

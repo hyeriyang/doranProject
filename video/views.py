@@ -16,7 +16,7 @@ from member.models import *
 # 로그인 데코레이터
 # from django.contrib.auth.decorators import login_required
 
-## 코드 정리하기
+## 장르별 영상 보여주기 : minjuhui
 def search(request, genre):
     if genre==1: # 랩/힙합
         vs = Video.objects.filter(tags="1")
@@ -34,6 +34,13 @@ def search(request, genre):
         vs = Video.objects.filter(tags="7")
     return render(request,'videolist.html', {'vs':vs})
 
+## 동영상 조회수 : minjuhui
+def vhits(request, video_id):
+    video_detail=get_object_or_404(Video, pk=video_id)
+    if video_detail.vhits==None:
+        video_detail.vhits=0
+    Video.objects.filter(id=video_detail.pk).update(vhits=video_detail.vhits +1)
+    return redirect('/video/vdetail/'+str(video_detail.id))
 
 # 지연 : 비디오 재생 페이지를 로드
 def videolist(request):
@@ -45,7 +52,11 @@ def vdetail(request,video_id):
     videos=Video.objects 
     video_detail=get_object_or_404(Video,pk=video_id)
     vcomments=VComment.objects.filter(vpost=video_detail)
-    return render(request,'vdetail.html',{'video':video_detail,'vcomments':vcomments})
+    vlikes=video_detail.likes.count()
+    if vlikes is None:
+        vlikes="a"
+  
+    return render(request,'vdetail.html',{'video':video_detail,'vcomments':vcomments,'vlikes':vlikes})
 
 # 지연 : 댓글 저장 기능만 하는 함수
 def vcsave(request,video_id):
@@ -64,8 +75,40 @@ def vcsave(request,video_id):
         #return redirect('/video/vdetail',pk=video_id)
     else:
         return render(request, 'comment.html', {'form': form})
+def post_like(request, pk):
+    video_detail=get_object_or_404(Video,pk=pk)
 
-    
+    if request.method=="POST":
+        vcomment=VComment()
+        vcomment.vpost=video_detail
+        vcomment.author = request.POST['author']
+        
+        vcomment.text = request.POST['text']
+        vcomment.save()
+
+        vcomments=VComment.objects.filter(vpost=video_detail)
+    # 포스트 정보 받아옴
+    post = get_object_or_404(Video, pk=pk)
+
+    # 사용자가 로그인 된건지 확인
+    if not request.user.is_active:
+        return redirect('vdetail',pk=pk, username=post.author, url=post.url)    
+
+    # 사용자 정보 받아옴
+    user = User.objects.get(username=request.user)
+    # 좋아요에 사용자가 존재하면
+    if post.likes.filter(id = user.id).exists():
+        # 사용자를 지움
+        post.likes.remove(user)
+    else:
+        # 아니면 사용자를 추가
+        post.likes.add(user)
+    vlikes=post.likes.count()
+    if vlikes is None:
+        vlikes="a"    
+    # 포스트로 리디렉션
+    return render(request,'vdetail.html',{'video':video_detail,'vlikes':vlikes})
+    #return redirect('vdetail',pk=pk, username=post.author, url=post.url)  
 
 # 윤아
 # 비디오 업로드 목록
@@ -119,3 +162,4 @@ def vdelete(request, pk):
 def udetail(request, upload_id):
     upload = get_object_or_404(Upload, pk=upload_id)
     return render(request,'udetail.html',{'upload':upload})
+
