@@ -1,0 +1,79 @@
+@font-face { font-family: 'Chosunilbo_myungjo'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff') format('woff'); font-weight: normal; font-style: normal; }
+html,body {width:100%; margin:0; padding:0;}
+
+#m {
+    font-family: 'Chosunilbo_myungjo';
+    display:inline-block;
+    margin-left:1em;
+    position:relative;
+    right:-550px;
+}
+
+iframe {border-style: none;}
+#user {
+    font-family: 'Chosunilbo_myungjo';
+    font-size:1.5em;
+    display:inline-block;
+    font-weight:600;
+    }
+#mimg {display:inline-block;
+    margin-left:2em;
+    margin-top:1em;
+    position:relative;
+    right:-500px;}
+a{
+    background-color:white;
+    border-style: solid;
+    border-radius:40px;
+    border-color: rgb(204, 204, 204);
+    padding:5px;
+    width:7.5em;
+    height:2em;
+    font-size:10pt;
+    color:black;
+    text-decoration:none;
+}
+.uu:active, .uu:hover {
+    color:black;
+    text-decoration:none;
+}
+.list {
+    position:relative;
+    right:-350px;
+    background-image: url("../../static/mypage.png");
+    background-repeat: no-repeat;
+    height:3.5em;
+    font-family: 'Chosunilbo_myungjo';
+}
+.list p {padding-left:1.5em;
+padding-top:1em;
+margin: 1em 1em 1em 0em;
+}
+.card{
+    border-radius:10px;
+    display:inline-block;
+    position:relative;
+    right:-350px;}
+
+.card:hover {
+     box-shadow: 3px 4px 0px #cecece;
+     cursor:pointer;
+      }    
+.card-body {
+    text-align:center;
+    font-family: 'Chosunilbo_myungjo';
+}
+.cardlike{
+    border-radius:10px;
+    display:inline-block;
+    position:relative;
+}
+.cardlike:hover {
+     box-shadow: 3px 4px 0px #cecece;
+     cursor:pointer;
+      }    
+.cardlike-body {
+    text-align:center;
+    font-family: 'Chosunilbo_myungjo';
+}
+.vds, .list {margin-left:2.5em;}
