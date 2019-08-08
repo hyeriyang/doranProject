@@ -1,15 +1,19 @@
-
 <!DOCTYPE html>
 <html>
 <head>
    <style>
-   html,body {
-        font-family: 'Montserrat', sans-serif;
+     
+   html{
       margin:0;padding:0;
       height:100%;
-        background: rgb(255, 255, 255);
+      background: rgb(255, 255, 255);
    }
-   .container {
+   #bty{
+      margin:0;padding:0;
+      height:100%;
+      background: rgb(255, 255, 255);
+   }
+   #contain{
         padding: 0 20px;
         max-width: 960px;
         margin: 0 auto;
@@ -19,10 +23,11 @@
       position:relative;
    }
     header {
-        padding: 0px 0;
-        box-shadow: 0 4px 6px rgb(112, 111, 111);  
+      font-family: 'Montserrat', sans-serif;
+      margin:0;padding:0;
+      padding: 0px 0;
+      box-shadow: 0 4px 6px rgb(112, 111, 111);  
     }
-
 
    #footer { 
         display: flex;
@@ -66,8 +71,8 @@
     }
     nav li {
         display: inline-block;
-        margin-left: 25px;
-        height: 70px;
+        margin-left: 50px;
+        height: 60px;
         line-height: 70px;
         transition: .5s linear;
     }
@@ -85,7 +90,7 @@
         position: absolute;
         left: 0;
         bottom: 15px;
-        background: #070707;
+        background: #f79067;
         transition: width .5s linear;  
     }
     nav a:hover:after {width: 100%;}
@@ -111,7 +116,7 @@
         nav li:hover {background: rgba(0,0,0,.1);}
         nav a:after {content: none;}
         }
-        #dr {font-size:1.5em;}
+        #dr {text-decoration: none; font-size:1.5em;}
         #yo {
   display: inline-grid;
   grid-auto-flow: row;
@@ -165,25 +170,35 @@ li:hover ~ li p {
 }
    </style>
 </head>
-<body>
+<body id="bty">
 
 <header>
-<div class="container">
+<div id="contain">
     <div class="logo-box">
-        <a id="dr" href="/">DORANDORAN</a>
+        <a id="dr" href="{% url 'main' %}" title="main">DORANDORAN</a>
     </div>
         <nav>
             <ul>
-                <li><a href="">HOME</a></li>
-                <li><a href="">ABOUT</a></li>
-                <li><a href="">COMMUNITY</a></li>
-                <li><a href="">VIDEO</a></li>
-                <li><a href="">MYPAGE</a></li>
-                <li><a href="">LOGOUT</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'about' %}" title="about">ABOUT</a></li>
+                <li><a href="{% url 'bhome' %}" title="community">COMMUNITY</a></li>
+                <li><a href="{% url 'videolist' %}" title="video">VIDEO</a></li>
+                <li><a href="{% url 'mypage' %}" title="login">MYPAGE</a></li>
+                <li><a href="{% url 'logout' %}" title="logout">LOGOUT</a></li>
+                {%else%}
+                <li><a href="{% url 'about' %}" title="about" >ABOUT</a></li>
+                <li><a href="{% url 'bhome' %}" title="community">COMMUNITY</a></li>
+                <li><a href="{% url 'videolist' %}" title="video">VIDEO</a></li>
+                <li><a href="{% url 'login' %}" title="login">LOGIN</a></li>
+                {% endif %}
             </ul>
         </nav>
     </div>
 </header>
+{% block content%}
+{% endblock %}
+</body>
+</html>
 
 <div id="container">
     <div id="footer">
@@ -193,11 +208,8 @@ li:hover ~ li p {
               이 사이트는 저작권법에 보호를 받는 사이트이므로 내용을 블로그, 인터넷 카페, 웹 사이트 등에 무단으로 게시할 수 없습니다.<br>
               사이트 주소를 링크, SNS 공유 등은 가능합니다.<br>
               Copyright 2019. DORANDORAN inc. all rights reserved.</li>
-            <li><p>👋</p></li>
+            <li><p>♪</p></li>
         </ul>
    <!-- Footer end -->
     </div>
 </div>
-
-</body>
-</html>
