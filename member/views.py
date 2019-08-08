@@ -53,17 +53,17 @@ def mypage(request):
 
 def edit(request, pk): # 개인정보 수정
     if request.method=="POST":
-        if request.POST["password1"]==request.POST["password2"]:
-            user = User.objects.get(id=pk)
-            user.email=request.POST["email"]
-            user.password=request.POST["password1"]
-            
-            profile=Profile.objects.get(user_id=pk)
-            profile.nickname=request.POST["nickname"]
-            user.save()
-            profile.save()
-            auth.login(request,user)
-            return redirect('main')
+        #if request.POST["password1"]==request.POST["password2"]:
+        user = User.objects.get(id=pk)
+        user.email=request.POST["email"]
+        #user.password=request.POST["password1"]
+        
+        profile=Profile.objects.get(user_id=pk)
+        profile.nickname=request.POST["nickname"]
+        user.save()
+        profile.save()
+        auth.login(request,user)
+        return redirect('main')
             
     return render(request, 'edit.html')
 
