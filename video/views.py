@@ -70,6 +70,7 @@ def vcsave(request,video_id):
         return render(request, 'comment.html', {'form': form})
 def post_like(request, pk):
     video_detail=get_object_or_404(Video,pk=pk)
+
     if request.method=="POST":
         vcomment=VComment()
         vcomment.vpost=video_detail
@@ -95,9 +96,11 @@ def post_like(request, pk):
     else:
         # 아니면 사용자를 추가
         post.likes.add(user)
-        
+    vlikes=post.likes.count()
+    if vlikes is None:
+        vlikes="a"    
     # 포스트로 리디렉션
-    return render(request,'vdetail.html',{'video':video_detail})
+    return render(request,'vdetail.html',{'video':video_detail,'vlikes':vlikes})
     #return redirect('vdetail',pk=pk, username=post.author, url=post.url)  
 
 # 윤아
