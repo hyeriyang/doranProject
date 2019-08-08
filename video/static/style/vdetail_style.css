@@ -30,9 +30,9 @@
 */
 
 @font-face { font-family: 'NIXGONM-Vb'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/NIXGONM-Vb.woff') format('woff'); font-weight: normal; font-style: normal; }
-@font-face { font-family: 'Chosunilbo_myungjo'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff') format('woff'); font-weight: normal; font-style: normal; }
+/* @font-face { font-family: 'Chosunilbo_myungjo'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff') format('woff'); font-weight: normal; font-style: normal; } */
 body {
-    font-family: 'Chosunilbo_myungjo';
+    /* font-family: 'Chosunilbo_myungjo'; */
     font-family: 'NIXGONM-Vb';
     
 }
@@ -53,20 +53,23 @@ body {
   background: transparent;
   border-bottom: 1px solid gray;
 }
+
 .card-body h4 {
   font-family: 'NIXGONM-Vb';
   text-align:left;
   margin-left: 30px;
 }
 body .no-padding {
-padding: 0;
+  padding: 0;
 }
 
 .status-upload form {
-float: center;
-width: 720px;
+  float: center;
+  width: 720px;
 }
-
+.card-body .author {
+  font-size: 30px
+}
 
 .btn {
   border-color:rgb(250, 213, 206);
