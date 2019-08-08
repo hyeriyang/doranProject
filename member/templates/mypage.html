@@ -18,9 +18,9 @@
   <p id="user" style="margin-top:3em">{{ user.username }} 님, 반갑습니다 :)</p>
   <br>
   <div id="m2">
-  <a class="uu" href="{% url 'logout' %}" >로그아웃</a>
-  <a class="uu" href="{% url 'edit' user.id %}">개인정보 수정</a>
-  <a class="uu" href="{% url 'vread' %}">동영상 올리기</a>
+  <a href="{% url 'logout' %}" >로그아웃</a>
+  <a href="{% url 'edit' user.id %}">개인정보 수정</a>
+  <a href="{% url 'vcreate' %}">동영상 올리기</a>
   </div>
 </div><br><br>
 <!-- video list 출력하기 -->
@@ -67,7 +67,7 @@
 <p>좋아요한 영상</p>
 
 {% for y in yyy%}
-<div class="cardlike" style="width: 250;padding:3px;margin:0.8em;" >
+<div class="card" style="width: 250;padding:3px;margin:0.8em;" >
     <!-- model 연결되면 수정하기 -->
    <iframe width="240" height="125"
         src="https://www.youtube.com/embed/{{y.video_key}}">
