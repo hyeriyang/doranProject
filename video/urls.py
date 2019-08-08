@@ -11,7 +11,7 @@ urlpatterns =[
     path('vdetail/<int:pk>/like', views.post_like, name='post_like'),
     #path('post_like_toggle/<int:post_id>/', views.post_like_toggle, name="post_like_toggle"),
     #path('post_like_toggle/<int:post_id>/', views.post_like_toggle, name="post_like_toggle"),
-
+    path('vhits/<int:video_id>', views.vhits, name='vhits'), # 조회수
     
     # 윤아 : 비디오 업로드
     path('vread/', views.vread, name="vread"),

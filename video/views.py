@@ -16,7 +16,7 @@ from member.models import *
 # 로그인 데코레이터
 # from django.contrib.auth.decorators import login_required
 
-## 코드 정리하기
+## 장르별 영상 보여주기 : minjuhui
 def search(request, genre):
     if genre==1: # 랩/힙합
         vs = Video.objects.filter(tags="1")
@@ -34,6 +34,13 @@ def search(request, genre):
         vs = Video.objects.filter(tags="7")
     return render(request,'videolist.html', {'vs':vs})
 
+## 동영상 조회수 : minjuhui
+def vhits(request, video_id):
+    video_detail=get_object_or_404(Video, pk=video_id)
+    if video_detail.vhits==None:
+        video_detail.vhits=0
+    Video.objects.filter(id=video_detail.pk).update(vhits=video_detail.vhits +1)
+    return redirect('/video/vdetail/'+str(video_detail.id))
 
 # 지연 : 비디오 재생 페이지를 로드
 def videolist(request):

@@ -88,10 +88,11 @@
 	        {% endif %}
 	        </iframe>
 			<div class="card-body">
-			<h5 class="card-title">{{v.title}}</h5>
+			<a href="{% url 'vhits' v.id %}"><h5 class="card-title">{{v.title}}</h5></a>
 			<hr>
 			<p class="card-text">
 			<!-- 업로드날짜 -->{{v.date}}
+			<!-- 조회수 -->조회수 {{v.vhits}}
 			</p>
 			</div>
 		</div>
@@ -116,12 +117,12 @@
 	        {% endif %}
 	        </iframe>
 			<div class="card-body">
-			<h5 class="card-title">{{video.title}}</h5>
+			<a href="{% url 'vhits' video.id %}"><h5 class="card-title">{{video.title}}</h5></a>
 			<hr>
 			<p class="card-text">
 			<!-- 업로드날짜 -->{{video.date}}
 			 · 
-			<!-- 조회수 -->조회수 1,723,353회
+			<!-- 조회수 -->조회수 {{video.vhits}}
 			</p>
 			</div>
 		</div>
