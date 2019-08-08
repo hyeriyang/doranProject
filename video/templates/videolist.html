@@ -89,14 +89,14 @@
 			</div>
 			<div class="card-body">
 			    <p class="card-text">
-			    	<a href="{% url 'search' 'hip' %}"><button type ="button" class ="choose_genre">랩 / 힙합</button></a>
-			    	<a href="{% url 'search' 'bal' %}"><button type ="button" class ="choose_genre">발라드</button></a>
-			    	<button type ="button" class ="choose_genre">POP</button>
+			    	<a href="{% url 'search' 1 %}"><button type ="button" class ="choose_genre">랩 / 힙합</button></a>
+			    	<a href="{% url 'search' 2 %}"><button type ="button" class ="choose_genre">발라드</button></a>
+			    	<a href="{% url 'search' 3 %}"><button type ="button" class ="choose_genre">POP</button></a>
 			    	<br>
-			    	<button type ="button" class ="choose_genre">여름</button>
-			    	<button type ="button" class ="choose_genre">밤 / 새벽</button>
-			    	<a href="{% url 'search' 'fresh' %}"><button type ="button" class ="choose_genre">청량한</button></a>
-			    	<a href="{% url 'search' 'fun' %}"><button type ="button" class ="choose_genre">신나는</button></a>
+			    	<a href="{% url 'search' 4 %}"><button type ="button" class ="choose_genre">여름</button></a>
+			    	<a href="{% url 'search' 5 %}"><button type ="button" class ="choose_genre">밤 / 새벽</button></a>
+			    	<a href="{% url 'search' 6 %}"><button type ="button" class ="choose_genre">청량한</button></a>
+			    	<a href="{% url 'search' 7 %}"><button type ="button" class ="choose_genre">신나는</button></a>
 			    </p>
 			</div>
 		</div>
@@ -104,6 +104,38 @@
 	<br>
 
 	<!-- 비디오리스트들 -->
+	{%for v in vs%}
+	<div class = "video_list">
+		<a href ="{% url 'vdetail' v.id %}">
+		<div class="card">
+			<iframe width="280" height="200"
+	        {% if v.video_key %}
+	        src="https://www.youtube.com/embed/{{v.video_key}}" class="card-img-top">
+	        {% endif %}
+	        </iframe>
+			<div class="card-body">
+			<h5 class="card-title">{{v.title}}</h5>
+			<hr>
+			<p class="card-text">
+			<!-- 업로드날짜 -->{{v.date}}
+			 · 
+			<!-- 조회수 -->조회수 1,723,353회
+			</p>
+			<p class="card-text">
+			<!-- 업로드한 사람 --> {{user.username}}
+			</p>
+			</div>
+		</div>
+		</a>
+	</div>
+	{%endfor%}
+</body>
+</html>
+
+
+
+<!-- 비디오리스트들 -->
+<!-- 장르 css 추가함-->
 	{%for video in videos.all%}
 	<div class = "video_list">
 		<a href ="{% url 'vdetail' video.id %}">
@@ -129,23 +161,24 @@
 		</a>
 	</div>
 	{%endfor%}
-</body>
-</html>
 
 
-<!-- {% for i in vs %}
+
+{% comment %} {% for i in vs %}
 <div class="container">
         <a href ="{% url 'vdetail' i.id %}">반응보기</a>
         <h1>제목: {{i.title}}</h1>
         </a>
         <p> 내용 : {{i.body}}</p>
         <small class="text-muted">{{i.date}}</small>
-        <iframe width="420" height="315"
+        <iframe width="420" height="315" class="card-img-top"
         {% if i.video_key %}
         src="https://www.youtube.com/embed/{{i.video_key}}">
         {%endif%}
         </iframe>
     </div>
 
-{% endfor %} -->
+{% endfor %} 
+
+ {% endcomment %}
 {% endblock %}

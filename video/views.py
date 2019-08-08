@@ -18,14 +18,20 @@ from member.models import *
 
 ## 코드 정리하기
 def search(request, genre):
-    if genre=='bal':
-        vs = Video.objects.filter(tags="발라드")
-    if genre=='hip':
-        vs = Video.objects.filter(tags="랩/힙합")
-    if genre=='fresh':
-        vs = Video.objects.filter(tags="청량한")
-    if genre=='fun':
-        vs = Video.objects.filter(tags="신나는")
+    if genre==1: # 랩/힙합
+        vs = Video.objects.filter(tags="1")
+    if genre==2: # 발라드
+        vs = Video.objects.filter(tags="2")
+    if genre==3: # POP
+        vs = Video.objects.filter(tags="3")
+    if genre==4: # 여름
+        vs = Video.objects.filter(tags="4")
+    if genre==5: # 밤/새벽
+        vs = Video.objects.filter(tags="5")
+    if genre==6: # 청량한
+        vs = Video.objects.filter(tags="6")
+    if genre==7: # 신나는
+        vs = Video.objects.filter(tags="7")
     return render(request,'videolist.html', {'vs':vs})
 
 
