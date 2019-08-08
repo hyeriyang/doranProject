@@ -11,6 +11,10 @@ body {
   padding-top: 1rem;
 }
 
+.video_list {
+  display:inline-block;
+  width:75rem;
+}
 /*이미지 슬라이더*/
 #main{
     position: absolute;
@@ -67,7 +71,7 @@ body {
   height: 11rem;
   background: linear-gradient( to bottom, #fbdbcd, #ffe8f1 );
   /*background-color: #fbdbcd;*/
-  border-style: none;
+  border: 0;
 }
 .card-header {
   color: gray;
@@ -108,11 +112,11 @@ p {
 /*비디오 리스트 스타일*/
 .video_list .card {
   display: inline-block;
-  border-style: none;
   border-radius: 10px;
   width: 18rem;
   margin-right: 0.5rem;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
+  border: 1px solid #e4e4e4;
 }
 .video_list .card:hover {
   box-shadow: 3px 4px 0px #cecece;
