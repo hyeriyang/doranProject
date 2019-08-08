@@ -1,3 +1,4 @@
+
 {% load staticfiles %}
 <!-- BOOTSTAP CDN -->
 <!-- base.html 생기면 지우고 base.html 사용하기 -->
@@ -9,7 +10,9 @@
 <!-- css file-->
 <link rel="stylesheet" href="{% static 'mypage.css' %}">
 
-<img id="mimg"src="{% static 'user.png' %}" style="margin-top:-1.5em;"width="15%" height="27%">
+<body>
+<br><br>
+<img id="mimg"src="{% static 'user.jpg' %}" style="margin-top:-1.5em;"width="13%" height="27%">
 {% if user.is_authenticated %}
 <div id="m">
   <p id="user" style="margin-top:3em">{{ user.username }} 님, 반갑습니다 :)</p>
@@ -19,11 +22,11 @@
   <a href="{% url 'edit' user.id %}">개인정보 수정</a>
   <a href="{% url 'vcreate' %}">동영상 올리기</a>
   </div>
-</div>
+</div><br><br>
 <!-- video list 출력하기 -->
 <div class="list">
 <p>업로드한 영상</p>
-</div>
+</div><br>
 <div class="vds">
 <!-- for 문 사용 -->
 <div class="card" style="width: 250;padding:3px;margin:0.8em;" >
@@ -32,7 +35,7 @@
         src="https://www.youtube.com/embed/9Vf8hhDtbIs">
     </iframe>
   <div class="card-body">
-    <h5 class="card-title">Video title</h5>
+    <h5 class="card-title">Video title</h5><hr>
     <p class="card-text">눈으로 보는 노래, 도란도란</p>
   </div>
 </div>
@@ -43,7 +46,7 @@
         src="https://www.youtube.com/embed/9Vf8hhDtbIs">
     </iframe>
   <div class="card-body">
-    <h5 class="card-title">Video title</h5>
+    <h5 class="card-title">Video title</h5><hr>
     <p class="card-text">눈으로 보는 노래, 도란도란</p>
   </div>
 </div>
@@ -54,7 +57,7 @@
         src="https://www.youtube.com/embed/9Vf8hhDtbIs">
     </iframe>
   <div class="card-body">
-    <h5 class="card-title">Video title</h5>
+    <h5 class="card-title">Video title</h5><hr>
     <p class="card-text">눈으로 보는 노래, 도란도란</p>
   </div>
 </div>
@@ -62,7 +65,7 @@
 
 <div class="list">
 <p>좋아요한 영상</p>
-</div>
+</div><br>
 <div class="vds">
 <!-- for 문 사용 -->
 <div class="card" style="width: 250;padding:3px;margin:0.8em;" >
@@ -71,7 +74,7 @@
         src="https://www.youtube.com/embed/9Vf8hhDtbIs">
     </iframe>
   <div class="card-body">
-    <h5 class="card-title">Video title</h5>
+    <h5 class="card-title">Video title</h5><hr>
     <p class="card-text">눈으로 보는 노래, 도란도란</p>
   </div>
 </div>
@@ -82,7 +85,7 @@
         src="https://www.youtube.com/embed/9Vf8hhDtbIs">
     </iframe>
   <div class="card-body">
-    <h5 class="card-title">Video title</h5>
+    <h5 class="card-title">Video title</h5><hr>
     <p class="card-text">눈으로 보는 노래, 도란도란</p>
   </div>
 </div>
@@ -93,7 +96,7 @@
         src="https://www.youtube.com/embed/9Vf8hhDtbIs">
     </iframe>
   <div class="card-body">
-    <h5 class="card-title">Video title</h5>
+    <h5 class="card-title">Video title</h5><hr>
     <p class="card-text">눈으로 보는 노래, 도란도란</p>
   </div>
 </div>
@@ -107,3 +110,4 @@ alert("로그인 후 이용가능합니다");
 window.location.href="../../user/login/";
 </script>
 {% endif %}
+</body>
