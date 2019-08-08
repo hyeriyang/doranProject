@@ -1,26 +1,159 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-	<title></title>
+	<title>DORANDORAN</title>
+  	<!-- 부트스트랩 링크 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- 스타일을 위한 링크 -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <link rel="stylesheet" href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css">
+
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style>
+    @font-face { font-family: 'NIXGONM-Vb'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/NIXGONM-Vb.woff') format('woff'); font-weight: normal; font-style: normal; }
+    @font-face { font-family: 'Chosunilbo_myungjo'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff') format('woff'); font-weight: normal; font-style: normal; }
+    body {
+        font-family: 'NIXGONM-Vb';
+        /* font-family: 'Chosunilbo_myungjo'; */
+    }
+
+    /* 주희 : 배치 맞춤*/
+    .bmd {margin-top:10px;margin-left:3px;}
+
+    .card {
+      box-shadow: 5px 5px 0px rgb(235, 235, 235);
+      text-align: center;
+    }
+
+
+    body .no-padding {
+      padding: 0;
+    }
+
+    .status-upload form {
+      float: center;
+      width: 720px;
+    }
+
+    .card-header {
+      font-family: 'NIXGONM-Vb';
+      /* font-family: 'Chosunilbo_myungjo'; */
+      text-align:left;
+      margin-left: 30px;
+      margin-right: 30px;
+      background: transparent;
+      border-bottom: 1px solid gray;
+    }
+    .card-body h4 {
+      font-family: 'NIXGONM-Vb';
+      /* font-family: 'Chosunilbo_myungjo'; */
+      text-align:left;
+      margin-left: 30px;
+    }
+  
+    .btn {
+      border-color:rgb(250, 213, 206);
+      border-width:3px;
+      color:#6E7783;
+      font-weight:3px;
+      float:right;
+    }
+    .btn:hover {
+      background-color:#fad5ce;
+      border-color:rgb(250, 213, 206);
+    }
+
+
+    .btn-hover {
+        width: 150px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #fff;
+        cursor: pointer;
+        margin: 20px;
+        height: 40px;
+        text-align:center;
+        border: none;
+        background-size: 300% 100%;
+        float:right;
+
+        border-radius: 50px;
+        moz-transition: all .4s ease-in-out;
+        -o-transition: all .4s ease-in-out;
+        -webkit-transition: all .4s ease-in-out;
+        transition: all .4s ease-in-out;
+    }
+
+    .btn-hover:hover {
+        background-position: 100% 0;
+        moz-transition: all .4s ease-in-out;
+        -o-transition: all .4s ease-in-out;
+        -webkit-transition: all .4s ease-in-out;
+        transition: all .4s ease-in-out;
+    }
+
+    .btn-hover:focus {
+        outline: none;
+    }
+
+    .btn-hover.color-10 {
+        background-image: linear-gradient(to right, #ed6ea0, #ec8c69, #f7186a , #FBB03B);
+        box-shadow: 0 4px 15px 0 rgba(236, 116, 149, 0.75);
+    }
+    .comment {
+      margin-top:10px;
+      font-size: 20px;
+    }
+    @import url(//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
+
+    </style>
+
 </head>
 <body>
-<h1>비디오 업로드 - 자세히</h1>
-<div class = "container">
-    <h1>{{upload.utitle}}</h1>
-    <p>작성자 : {{upload.uname}}</p>
-    <p>{{upload.pub_date|date:"Y-m-d"}}</p>
-    <p>{{upload.ubody|linebreaksbr}}</p>
-    {% if upload.uvideo %}
-    <br>
 
-    {% if user.username == upload.uname %}
-    <input type = "button" class = "outline-button" value = "수정" onClick="location.href='{% url 'vupdate' pk=upload.pk %}'">
-    <input type = "button" class = "outline-button" value = "삭제" onClick="location.href='{% url 'vdelete' pk=upload.pk %}'">
-    <input type = "button" class = "outline-button" value = "다운로드" onClick="location.href='{{upload.uvideo.url}}'">
-    {% endif %}
-    <input type = "button" class = "outline-button" value = "돌아가기" onClick="location.href='{% url 'vread' %}'">
-</div>
-  {% endif %}
+	<!--게시물 디테일-->
+	<br>
+	<div class="container">
+	  <div class="card">
+		  <h2 class="card-header">{{upload.utitle}}</h2>
+      <br>
+	    <div class="card-body">
+        <h4>{{upload.ubody|linebreaksbr}}</h4>
+        <br>
+        <footer class="blockquote-footer">{{upload.uname}} | {{upload.pub_date|date:"Y-m-d"}}</footer>
+        <br><br>
+        {% if upload.uvideo %}
+          {% if user.username == upload.uname %}
+            <button class="btn btn-outline-primary bmd" onClick="location.href='{% url 'vupdate' pk=upload.pk %}'">수정</button>
+            <button class="btn btn-outline-primary bmd" onClick="location.href='{% url 'vdelete' pk=upload.pk %}'">삭제</button>
+            <button class="btn btn-outline-primary bmd" onClick="location.href='{{upload.uvideo.url}}'">동영상 열기</button>
+          {%endif%}
+          <button class="btn btn-outline-primary bmd" onClick="location.href='{% url 'vread' %}'">돌아가기</button>
+        {% endif %}
+	    </div>
+	  </div>
+    <div class="card">
+      <div class="card-body">
+        <p class = "comment"> 위 영상은 운영진들을 거쳐 선발해 업로드 될 예정입니다! 조금만 기다려 주세요 :) </p>
+      </div>
+    </div>
+	</div>
+
+
+
+
+
+
 
 </body>
 </html>

@@ -1,10 +1,174 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>vread</title>
+	<title>DORANDORAN</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+
+    <style>
+    
+    @font-face { font-family: 'NIXGONM-Vb'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/NIXGONM-Vb.woff') format('woff'); font-weight: normal; font-style: normal; }
+    body {
+        /* font-family: 'Chosunilbo_myungjo'; */
+        font-family: 'NIXGONM-Vb';
+    }
+    .btn-hover{
+        border-style:none;
+        background-color:#fcb69f;
+    }
+    table.pt {
+        margin-left: auto; 
+        margin-right: auto;
+    }
+    .btitle {
+        width:600px;
+    }
+    #content_title {
+        text-align:left;
+        padding-left: 50px;
+    }
+    .btn-hover {
+        position:relative;
+        width: 150px;
+        left:-150px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #fff;
+        cursor: pointer;
+        margin: 20px;
+        height: 40px;
+        text-align:center;
+        border: none;
+        background-size: 300% 100%;
+        float:left;
+        line-height:40px;
+
+
+        border-radius: 50px;
+        moz-transition: all .4s ease-in-out;
+        -o-transition: all .4s ease-in-out;
+        -webkit-transition: all .4s ease-in-out;
+        transition: all .4s ease-in-out;
+    }
+
+
+    .btn-hover:hover {
+        background-position: 100% 0;
+        moz-transition: all .4s ease-in-out;
+        -o-transition: all .4s ease-in-out;
+        -webkit-transition: all .4s ease-in-out;
+        transition: all .4s ease-in-out;
+        color:white;
+    }
+
+    .btn-hover:focus {
+        outline: none;
+    }
+
+    .btn-hover.color-10 {
+            background-image: linear-gradient(to right, #ed6ea0, #ec8c69, #f7186a , #FBB03B);
+        box-shadow: 0 4px 15px 0 rgba(236, 116, 149, 0.75);
+    }
+
+    .td {
+    display:inline;
+    }
+    td a:link {
+    color:black;
+    }
+    td a:visited {
+    color:black;
+    }
+    td a:hover {
+    text-decoration: none;
+    color:gray;
+    }
+
+
+    .table {
+    font-family: 'NIXGONM-Vb';
+    width:1000px;
+    margin:auto;
+    }
+
+    .table tr {
+    text-align:center;
+    }
+
+    input.write {
+    background-color:#fcb69f;
+    }
+
+    form{
+        right:-270px;
+        position: relative;
+        transition: all 1s;
+        width: 50px;
+        height: 50px;
+        background: #fcb69f;
+        box-sizing: border-box;
+        border-radius: 25px;
+        border: 4px solid #fcb69f;
+        
+    }
+
+    input.search{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;;
+        height: 42.5px;
+        line-height: 30px;
+        outline: 0;
+        border: 0;
+        display: none;
+        font-size: 1em;
+        border-radius: 20px;
+
+    }
+
+    .fa{
+        box-sizing: border-box;
+        padding: 10px;
+        width: 42.5px;
+        height: 42.5px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        border-radius: 50%;
+        color: white;
+        text-align: center;
+        font-size: 1.2em;
+        transition: all 1s;
+    }
+
+    form:hover{
+        width: 200px;
+        cursor: pointer;
+    }
+
+    form:hover input{  
+        display: block;
+    }
+
+    form:hover .fa{
+        background: white;
+        color: #fcb69f;
+    }
+
+    </style>
 </head>
 <body>
-    <h1>비디오 업로드 - 목록</h1>
+
+
+
+
+    <!-- <h1>비디오 업로드 - 목록</h1>
     <input type = "button" class = "outline-button" value = "생성" onClick="location.href='{% url 'vcreate' %}'">
         <div class="container">
                 {% for upload in uploads.all %}
@@ -27,6 +191,48 @@
                 </table>
                 {% endif %}
                 {% endfor %}
-            </div>
+            </div> -->
+
+
+
+
+
+<br>
+<table class="pt" width=700>
+    <tr>
+        <td>
+          <button class="btn-hover color-10" onClick="location.href='{% url 'vcreate' %}'">비디오 업로드</button></td>
+    </tr>
+</table>
+
+<table class="table">
+  <thead>
+    <tr class="top">
+      <th scope="col" class = "btitle">제목</th>
+      <th scope="col">작성자</th>
+      <th scope="col">등록일</th>
+    </tr>
+  </thead>
+  {% for upload in uploads.all %}
+  {% if user.username == upload.uname %}
+  <tbody>
+  <ul>
+      <tr>
+        <td id="content_title"><a href="{% url 'udetail' upload.id %}">{{upload.utitle}}</a></td>
+        <td>{{upload.uname}}</td>
+        <td>{{upload.pub_date|date:"Y-m-d"}}</td>
+      </tr>
+  </ul>
+</tbody>
+  {% endif %}
+  {% endfor %}
+</table>
+
+
+
+
+
+
+
 </body>
 </html>
