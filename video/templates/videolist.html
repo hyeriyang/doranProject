@@ -105,6 +105,7 @@
 
 <!-- 비디오리스트들 -->
 <!-- 장르 css 추가함-->
+{{videos.all}}
 	{%for video in videos.all%}
 	<div class = "video_list">
 		<a href ="{% url 'vdetail' video.id %}">
