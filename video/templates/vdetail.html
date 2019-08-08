@@ -9,19 +9,28 @@
         {%endif%}
         </iframe>
 <br/>
-
+댓글:
 <form method="POST" action="{% url 'vcsave' video.id %}">
         {% csrf_token %} 
     <input type="text" name="text">
-    <input type="hidden" name="author" value="변경">
+    {% if user.is_authenticated %}
+    <input type="hidden" name="author" value={{user.username}}>
+    {% else %}
+    <script>
+        
+    alert("로그인 후 이용가능합니다");
+    window.location.href="../../user/login/";
+    </script>
+    {% endif %}
     <input type="hidden" name="created_date">
 
     <input type="submit" value="제출">
 </form>        
 <br/>
-댓글:
+
 {%for vcomment in vcomments.all%}
     <div class="container">
+        
         
         <h1>작성자: {{vcomment.author}}</h1>
         </a>
