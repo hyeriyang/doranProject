@@ -33,11 +33,6 @@
 	<!--게시물 디테일-->
 	<br>
 	<div class="container">
-        <!--지연 : 좋아요 테스트 중 start-->
-        
-	
-		
-        <!--지연 : 좋아요 테스트 중 end-->
 	        <div class="card">
 		        <h2 class="card-header">{{video.title}}</h2>
                 <br>
@@ -72,70 +67,63 @@
 
 	<div class="banner">
 	    <img href="{% url 'quiz' %}" class="bannerimg" src="{% static 'img/quiz.png' %}">
-	  </div>
+	</div>
 
 	<!--댓글 작성 폼-->
 	<div class="container">
-	  <div class="row">
-	    <div class="col-md-8">
-	      
-	        <section class="comment-list">
-	          <h3 class="page-header">Comments</h3>
-	          <div class="container">    
-	    <div class="row">
-	    
-	    <div class="col-md-6">
+	  	<div class="row">
+	    	<div class="col-md-8">
+	    		<section class="comment-list">
+	          		<h3 class="page-header">Comments</h3>
+	          		<div class="container">    
+	    				<div class="row">
+	    					<div class="col-md-6">
 	    						<div class="widget-area no-padding blank">
 									<div class="status-upload">
-	                    <form method="POST" action="{% url 'vcsave' video.id %}">
-	                        {% csrf_token %}
-                            <div class = "username">'{{user.profile.nickname}}'으로 댓글이 달립니다</div>
-                            <br>
-                            <textarea name="text" cols="95" rows="3" placeholder="&nbsp;"></textarea>
-		                    <!-- <input type="text" name="text"> -->
-		                    
-                             <input type="hidden" name="author" value={{user.username}}>
-                           
-		                    <input type="hidden" name="created_date">
-	                        <button type="submit" class="btn-hover color-10">submit</button>
-	                    </form>
+	                    				<form method="POST" action="{% url 'vcsave' video.id %}">
+	                        				{% csrf_token %}
+                            				<div class = "username">'{{user.profile.nickname}}'으로 댓글이 달립니다</div>
+                            				<br>
+                            				<textarea name="text" cols="95" rows="3" placeholder="&nbsp;"></textarea>
+                            				<input type="hidden" name="author" value={{user.username}}>
+		                    				<input type="hidden" name="created_date">
+	                        				<button type="submit" class="btn-hover color-10">submit</button>
+	                    				</form>
 									</div>
 								</div>
 							</div>
-	        
-	    </div>
+	        			</div>
+					</div>
+	          		<br><br>
+	          		{%for vcomment in vcomments.all%}
+	          		<!-- Comment 목록 -->
+	          		<article class="row">
+	            		<div class="col-md-2 col-sm-2 hidden-xs">
+	              			<figure class="thumbnail">
+	                  			<img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+	              			</figure>
+	            		</div>
+	            		<div class="col-md-10 col-sm-10">
+	              			<div class="panel panel-default arrow left">
+	                			<div class="panel-body">
+	                  				<header class="text-left">
+	                    				<div class="comment-user">
+											<i class="fa fa-user"></i> <strong class="comment_author">{{vcomment.author}}</strong>
+											&nbsp;
+											<time class="comment-date" ><i class="fa fa-clock-o"></i> {{vcomment.created_date}}</time>
+										</div>
+									</header>
+	                  				<div class="comment-post">
+	                    				<p>{{vcomment.text}}</p>
+	                  				</div>
+	                			</div>
+	              			</div>
+	            		</div>
+	          		</article>
+	          		{% endfor %}
+				</section>
+			</div>
+		</div>
 	</div>
-	          <br><br>
-	          {%for vcomment in vcomments.all%}
-	          <!-- Comment 목록 -->
-	          <article class="row">
-	            <div class="col-md-2 col-sm-2 hidden-xs">
-	              <figure class="thumbnail">
-	                  <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
-	              </figure>
-	            </div>
-	            <div class="col-md-10 col-sm-10">
-	              <div class="panel panel-default arrow left">
-	                <div class="panel-body">
-	                  <header class="text-left">
-	                    <div class="comment-user"><i class="fa fa-user"></i> <strong>{{vcomment.author}}</strong></div>
-	                    <time class="comment-date" ><i class="fa fa-clock-o"></i> <footer class="blockquote-footer">{{vcomment.created_date}}</footer></time>
-	                  </header>
-	                  <div class="comment-post">
-	                    <p>
-	                        {{vcomment.text}}
-	                    </p>
-	                  </div>
-	                </div>
-	              </div>
-	            </div>
-	          </article>
-	          {% endfor %}
-
-
-
-
-
-
 </body>
 </html>
