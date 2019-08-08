@@ -28,10 +28,6 @@
 	<link rel="stylesheet" href="/static/style/vdetail_style.css">
 </head>
 <body>
-	<!-- nav var -->
-	<div class = "header">
-		<div class = "nav"> Dorandoran </div><hr>
-	</div>
 
 	{% load staticfiles %}
 	<!--게시물 디테일-->
@@ -49,7 +45,7 @@
                 </div>
 	            <div class="card-body"><h4>{{video.body}}</h4></p>
 	                <br>
-	        <footer class="blockquote-footer">유저이름 | {{video.date}}</footer><br>
+	        <footer class="blockquote-footer">{{video.author}} | {{video.date}}</footer><br>
     		<div>
     			<!-- 좋아요버튼 -->
 		    	<div class = "favorite">

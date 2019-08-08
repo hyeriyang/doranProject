@@ -98,15 +98,14 @@
 		</a>
 	</div>
 	{%endfor%}
-</body>
-</html>
 
 
 
 <!-- 비디오리스트들 -->
 <!-- 장르 css 추가함-->
-	{%for video in videos.all%}
+	
 	<div class = "video_list">
+	{%for video in videos.all%}
 		<a href ="{% url 'vdetail' video.id %}">
 		<div class="card">
 			<iframe width="280" height="200"
@@ -120,13 +119,13 @@
 			<p class="card-text">
 			<!-- 업로드날짜 -->{{video.date}}
 			 · 
-			<!-- 조회수 -->조회수 1,723,353회
+			<!-- 업로드한 사람 -->{{video.author}}
 			</p>
 			</div>
 		</div>
 		</a>
-	</div>
 	{%endfor%}
+	</div>
 
 
 
@@ -148,3 +147,6 @@
 
  {% endcomment %}
 {% endblock %}
+
+</body>
+</html>
