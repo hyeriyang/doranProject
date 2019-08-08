@@ -5,10 +5,9 @@
 </head>
 <body>
     <h1>비디오 업로드 - 목록</h1>
+    <input type = "button" class = "outline-button" value = "마이페이지" onClick="location.href='{% url 'mypage' %}'">
     <input type = "button" class = "outline-button" value = "생성" onClick="location.href='{% url 'vcreate' %}'">
         <div class="container">
-                {% for upload in uploads.all %}
-                {% if user.username == upload.uname %}
                 <table class = "table table-striped">
                     <thead>
                         <tr>
@@ -17,6 +16,8 @@
                             <td>날짜</td>
                         </tr>
                     </thead>
+                    {% for upload in uploads.all %}
+                    {% if user.username == upload.uname %}
                     <tbody>
                         <tr>
                             <td>{{upload.uname}}</td>
