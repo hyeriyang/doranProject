@@ -28,10 +28,6 @@
 	<link rel="stylesheet" href="/static/style/vdetail_style.css">
 </head>
 <body>
-	<!-- nav var -->
-	<div class = "header">
-		<div class = "nav"> Dorandoran </div><hr>
-	</div>
 
 	{% load staticfiles %}
 	<!--게시물 디테일-->
@@ -52,21 +48,22 @@
                     {%endif%}
                     </iframe>
                 </div>
-	            <div class="card-body"><h4>{{video.body}}</h4></p>
-	                <br>
-	        <footer class="blockquote-footer">유저이름 | {{video.date}}</footer><br>
-    		<div>
-				<!-- 좋아요버튼 -->
-				{{vlikes}}
-		    	<div class = "favorite">
-						<a href="{% url 'post_like' pk=video.pk%}">
-					<i id ="like"></i>
-					</a>
-                    <span></span>
-				</div>
-				<script src="/static/js/vdetail_script.js"></script>
-			</div>
-			조회수{{video.vhits}}
+	            <div class="card-body"><h4>{{video.body}}</h4>
+	            <br>
+	            <footer class="blockquote-footer">{{video.date}} | {{video.vhits}}회</footer><br>
+    		    <div>
+				    <!-- 좋아요버튼 -->
+                    {{vlikes}}
+                    <div class = "favorite">
+                            <a href="{% url 'post_like' pk=video.pk%}">
+                        <i id ="like"></i>
+                        </a>
+                        <span></span>
+                    </div>
+                    <script src="/static/js/vdetail_script.js"></script>
+			    </div>
+                <br>
+                <p class = author>{{video.author}}</p>
 	        <a href="{% url 'videolist' %}" ><button class="btn btn-outline-primary">목록</button></a>
 
 	        </div>
@@ -92,7 +89,7 @@
 									<div class="status-upload">
 	                    <form method="POST" action="{% url 'vcsave' video.id %}">
 	                        {% csrf_token %}
-                            <div class = "username">'{{user.username}}'으로 댓글이 달립니다</div>
+                            <div class = "username">'{{user.profile.nickname}}'으로 댓글이 달립니다</div>
                             <br>
                             <textarea name="text" cols="95" rows="3" placeholder="&nbsp;"></textarea>
 		                    <!-- <input type="text" name="text"> -->
