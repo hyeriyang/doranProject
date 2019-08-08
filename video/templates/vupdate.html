@@ -1,36 +1,62 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
-<html>
+<html lang="en" class="no-js">
 <head>
-	<title></title>
+	<title>vupdate</title>
+    <!-- 부트스트랩 링크 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- 파일업로드 아이콘 링크 -->
+    <link rel="shortcut icon" href="favicon.ico">
+    <!-- 외부스타일시트 링크 -->
+    <link rel="stylesheet" type="text/css" href="/static/style/vcreate_style.css?after">
+    <!-- 파일업로드에 필요한 js (가져온거라잘모름) -->
+    <script>(function(e,t,n){var r=e.querySelectorAll("html")[0];r.className=r.className.replace(/(^|\s)no-js(\s|$)/,"$1js$2")})(document,window,0);</script>
 </head>
+
 <body>
-<h1>비디오 업로드 폼 - 수정</h1>
-<br>
-<div class="container">
+<div class="card">
 	<form method = 'POST'enctype="multipart/form-data">
-        {% csrf_token %}
-        <table>
-            <div class = "title">
-                <span>제목</span>
-                {{form.utitle}} 
-            </div>
-            <div class = "body">
-                <span>내용</span>
-                <br>
+    {% csrf_token %}
+    <div class = "card-body">
+        <p class="card-title">동영상 업로드</p>
+        <!-- 제목 폼 -->
+        <div class = "title">
+        <p class="create_form">
+            <label for="inp" class="inp">
+                {{form.utitle}}
+                <span class="label">제목</span>
+                <span class="border"></span>
+            </label>
+        </p>
+        </div>
+        <!-- 내용 폼 -->
+        <div class = "body">
+        <p class="create_form">
+            <label for="inp" class="inp">
                 {{form.ubody}}
-            </div>
-            <div class = "file">
-                <span>파일</span>
-                <br>
-                현재 : <a href = "/media/{{form.uvideo.value}}">{{form.uvideo.value}}</a>
-                <br>
-                수정 후 : <input type="file" name="uvideo" id="id_uvideo" value="{{upload.uvideo}}">
-                <br>
-            </div>
-        </table>
-	  <br>
-      <input type="submit" value="저장">
+                <span class="label">내용</span>
+                <span class="border"></span>
+            </label>
+        </p>
+        </div>
+        <!-- 파일 업로드 폼 -->
+        <div class = "file">
+        <div class="box">
+            <label for = "id_uvideo"></label>
+            <input type="file" name="uvideo" required id="id_uvideo" class="inputfile inputfile-4" data-multiple-caption="{count} files selected" multiple />
+			<label for="id_uvideo"><figure><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg></figure> <span>동영상 업로드</span></label>
+        </div>
+        </div>
+        <!-- 파일 업로드 외부 js 링크 -->
+        <script src="/static/js/vcreate_script.js"></script>
+        <br>
+        <br>
+      <!-- 저장 버튼 -->
+      <button class="outline-button" type="submit">게시</button>
+      <!-- 취소 버튼 -->
       <input type = "button" class = "outline-button" value = "취소" onClick="location.href='{% url 'vread' %}'">
+    </div>
   </form>
 </div>
 </body>
