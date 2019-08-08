@@ -171,6 +171,10 @@ li:hover ~ li p {
     transform: rotate(-15deg);
   }
 }
+
+/* nav bar 수정*/
+.an {color:#070707;}
+.an:hover {color:#070707;text-decoration:none;}
    </style>
 </head>
 <body id="bty">
@@ -178,21 +182,21 @@ li:hover ~ li p {
 <header>
 <div id="contain">
     <div class="logo-box">
-        <a id="dr" href="{% url 'main' %}" title="main">DORANDORAN</a>
+        <a id="dr" class="an" href="{% url 'main' %}" title="main">DORANDORAN</a>
     </div>
         <nav>
             <ul>
                 {% if user.is_authenticated %}
-                <li><a href="{% url 'about' %}" title="about">ABOUT</a></li>
-                <li><a href="{% url 'bhome' %}" title="community">COMMUNITY</a></li>
-                <li><a href="{% url 'videolist' %}" title="video">VIDEO</a></li>
-                <li><a href="{% url 'mypage' %}" title="login">MYPAGE</a></li>
-                <li><a href="{% url 'logout' %}" title="logout">LOGOUT</a></li>
+                <li><a href="{% url 'about' %}" class="an" title="about">ABOUT</a></li>
+                <li><a href="{% url 'bhome' %}" class="an" title="community">COMMUNITY</a></li>
+                <li><a href="{% url 'videolist' %}" class="an" title="video">VIDEO</a></li>
+                <li><a href="{% url 'mypage' %}" class="an" title="mypage">MYPAGE</a></li>
+                <li><a href="{% url 'logout' %}"  class="an"title="logout">LOGOUT</a></li>
                 {%else%}
-                <li><a href="{% url 'about' %}" title="about" >ABOUT</a></li>
-                <li><a href="{% url 'bhome' %}" title="community">COMMUNITY</a></li>
-                <li><a href="{% url 'videolist' %}" title="video">VIDEO</a></li>
-                <li><a href="{% url 'login' %}" title="login">LOGIN</a></li>
+                <li><a href="{% url 'about' %}" class="an" title="about" >ABOUT</a></li>
+                <li><a href="{% url 'bhome' %}" class="an" title="community">COMMUNITY</a></li>
+                <li><a href="{% url 'videolist' %}" class="an" title="video">VIDEO</a></li>
+                <li><a href="{% url 'login' %}" class="an" title="login">LOGIN</a></li>
                 {% endif %}
             </ul>
         </nav>
