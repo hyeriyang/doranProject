@@ -5,8 +5,10 @@
 </head>
 <body>
     <h1>비디오 업로드 - 목록</h1>
-    <a href="{% url 'vcreate' %}"><h4>생성</h4></a>
+    <input type = "button" class = "outline-button" value = "생성" onClick="location.href='{% url 'vcreate' %}'">
         <div class="container">
+                {% for upload in uploads.all %}
+                {% if user.username == upload.uname %}
                 <table class = "table table-striped">
                     <thead>
                         <tr>
@@ -15,7 +17,6 @@
                             <td>날짜</td>
                         </tr>
                     </thead>
-                    {% for upload in uploads.all %}
                     <tbody>
                         <tr>
                             <td>{{upload.uname}}</td>
@@ -23,9 +24,9 @@
                             <td>{{upload.pub_date|date:"Y-m-d"}}</td>
                         </tr>
                     </tbody>
-                    {% endfor %}
                 </table>
+                {% endif %}
+                {% endfor %}
             </div>
-
 </body>
 </html>
