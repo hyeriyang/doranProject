@@ -5,6 +5,7 @@
                @font-face { font-family: 'Eoe_Zno_L'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/Eoe_Zno_L.woff') format('woff'); font-weight: normal; font-style: normal; }
                  /* Fonts Form Google Font ::- https://fonts.google.com/  -:: */
                  @import url('https://fonts.googleapis.com/css?family=Abel|Abril+Fatface|Alegreya|Arima+Madurai|Dancing+Script|Dosis|Merriweather|Oleo+Script|Overlock|PT+Serif|Pacifico|Playball|Playfair+Display|Share|Unica+One|Vibur');
+                 @font-face { font-family: 'Chosunilbo_myungjo'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff') format('woff'); font-weight: normal; font-style: normal; }
                 /* End Fonts */
                 /* Start Global rules */
                 * {
@@ -29,7 +30,9 @@
                 /* background-image: linear-gradient(to top, #d9afd9 0%, #97d9e1 100%); */
                 }
       
-                
+                .head-form {
+                  
+                }
                 /* End body rules */
                 
                 /* Start form  attributes */
@@ -76,7 +79,7 @@
                 
                 .input-item {
                     background: #fff;
-                    color: #333;
+                    color: rgb(233, 221, 221);
                     padding: 14.5px 0px 15px 9px;
                     border-radius: 5px 0px 0px 5px;
                 }
@@ -105,7 +108,7 @@
                 input[class="form-input"]{
                     width: 300px;/*password 입력 공간 길이*/
                     height: 50px;
-                  
+
                     margin-top: 4%;
                     padding: 20px;
                     
@@ -203,35 +206,35 @@
                        <div class="con" >
                        <!--     Start  header Content  -->
                        <header class="head-form" style="margin-left:auto; margin-right:auto; position:relative;">
-                          <p style="font-size:50px; font-family:Eoe_Zno_L; font-weight:bold;">Log In</p><br><br>
+                          <br><br>
                           <!--     A welcome message or an explanation of the login form -->
-                          <p>login here using your username and password</p>
+                          <p style="font-size:35px;  font-family: 'Chosunilbo_myungjo'; color:#494949">로그인</p>
                        </header>
                        <!--     End  header Content  -->
-                       <br><br>
+                       
                        <div class="field-set" style="margin-left:auto; margin-right:auto; position:absolute; top:42%;"><!--usernae, password, login 하얀색 버튼의 위치 설정-->
                                                  
                             <!--   user name Input-->
-                             <input class="form-input" type="text" placeholder="UserName" name="username" required>
+                             <input class="form-input" type="text" placeholder="ID" name="username" required>
                          <br><br>
            
                           <!--   Password Input-->
-                          <input class="form-input" type="password" placeholder="Password" name="password" required>
+                          <input class="form-input" type="password" placeholder="PASSWORD" name="password" required>
                          
                    
                          
                           <br><br>
                     <!--        buttons -->
                     <!--      button LogIn -->
-                          <button class="log-in" type="submit"><a href="{% url 'login' %}" style="text-decoration:none; color:#252537;">Log In</a> </button>
+                          <button class="log-in" type="submit"><a href="{% url 'login' %}" style="font-family: 'Chosunilbo_myungjo';text-decoration:none; color:#252537;">Log In</a> </button>
                        </div>
                       
                     <!--   other buttons -->
                        <div class="other" style="position:absolute; margin-top:27%;"> <!--forgot button과 sign up버튼의 위치-->
                     <!--      Forgot Password button-->
-                          <button class="btn submits frgt-pass">Forgot Password</button>
+                          <button class="btn submits frgt-pass" style="font-family: 'Chosunilbo_myungjo'; color:#626263">Forgot Password</button>
                     <!--     Sign Up button -->
-                          <button class="btn submits sign-up" type="button"><a href="{% url 'signup' %}" style="text-decoration:none; color:#252537;">Sign Up</a></button>
+                          <button class="btn submits sign-up" type="button"><a href="{% url 'signup' %}" style="font-family: 'Chosunilbo_myungjo';text-decoration:none; color:#626263;">Sign Up</a></button>
                     <!--         Sign Up font icon -->
                           <i class="fa fa-user-plus" aria-hidden="true"></i>
                           </button>
