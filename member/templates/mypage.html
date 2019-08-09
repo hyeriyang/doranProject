@@ -65,9 +65,9 @@
 
 <div class="list">
 <p>좋아요한 영상</p>
-
+<div>
 {% for y in yyy%}
-<div class="card" style="width: 250;padding:3px;margin:0.8em;" >
+<div class="cardlike" style="width: 250;padding:3px;margin:0.8em;" >
     <!-- model 연결되면 수정하기 -->
    <iframe width="240" height="125"
         src="https://www.youtube.com/embed/{{y.video_key}}">
@@ -79,7 +79,7 @@
 </div>
 {%endfor%}
 
-</div><br>
+<br>
 
 
 
