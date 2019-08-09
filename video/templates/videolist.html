@@ -40,7 +40,7 @@
             <a href="#"><img src="/static/img/btob.jpg" height="100%" width="100%"/></a>
         </div>
         <div id="side3">
-            <a href="#"><img src="/static/img/quiz.jpg" height="100%" width="100%"/></a>
+            <a href="{% url 'quiz' %}"><img src="/static/img/quiz.jpg" height="100%" width="100%"/></a>
         </div>
     </div>
     <div id="nex">
@@ -78,9 +78,10 @@
 	<br>
 
 	<!-- 비디오리스트들 -->
-	{%for v in vs%}
 	<div class = "video_list">
+	{%for v in vs%}
 		<a href ="{% url 'vdetail' v.id %}">
+		<a href="{% url 'vhits' v.id %}">
 		<div class="card">
 			<iframe width="280" height="200"
 	        {% if v.video_key %}
@@ -88,7 +89,7 @@
 	        {% endif %}
 	        </iframe>
 			<div class="card-body">
-			<a href="{% url 'vhits' v.id %}"><h5 class="card-title">{{v.title}}</h5></a>
+			<h5 class="card-title">{{v.title}}</h5>
 			<hr>
 			<p class="card-text">
 			<!-- 업로드날짜 -->{{v.date}}
@@ -101,8 +102,9 @@
 			</div>
 		</div>
 		</a>
-	</div>
+		</a>
 	{%endfor%}
+	</div>
 
 
 
@@ -112,6 +114,7 @@
 	<div class = "video_list">
 	{%for video in videos.all%}
 		<a href ="{% url 'vdetail' video.id %}">
+		<a href="{% url 'vhits' video.id %}">
 		<div class="card">
 			<iframe width="280" height="200"
 	        {% if video.video_key %}
@@ -119,7 +122,7 @@
 	        {% endif %}
 	        </iframe>
 			<div class="card-body">
-			<a href="{% url 'vhits' video.id %}"><h5 class="card-title">{{video.title}}</h5></a>
+			<h5 class="card-title">{{video.title}}</h5>
 			<hr>
 			<p class="card-text">
 			<!-- 업로드날짜 -->{{video.date}}
@@ -131,6 +134,7 @@
 			</p>
 			</div>
 		</div>
+		</a>
 		</a>
 	{%endfor%}
 	</div>
