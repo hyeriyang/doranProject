@@ -115,7 +115,8 @@ def vcsave(request,video_id):
         vcomment.save()
 
         vcomments=VComment.objects.filter(vpost=video_detail)
-        return render(request,'vdetail.html',{'video':video_detail,'vcomments':vcomments})
+        #return render(request,'vdetail.html',{'video':video_detail,'vcomments':vcomments})
+        return redirect('/video/vdetail/'+str(video_detail.id))
         #return redirect('/video/vdetail',pk=video_id)
     else:
         return render(request, 'comment.html', {'form': form})
@@ -154,7 +155,8 @@ def post_like(request, pk):
     if vlikes is None:
         vlikes="a"    
     # 포스트로 리디렉션
-    return render(request,'vdetail.html',{'video':video_detail,'flag':flag,'vlikes':vlikes})
+    #return render(request,'vdetail.html',{'video':video_detail,'flag':flag,'vlikes':vlikes})
+    return redirect('/video/vdetail/'+str(video_detail.id))
     #return redirect('vdetail',pk=pk, username=post.author, url=post.url)  
 
 # 윤아
