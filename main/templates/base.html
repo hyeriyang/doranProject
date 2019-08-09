@@ -63,30 +63,30 @@
         line-height: 70px;
         transition: .5s linear;  
     }
-    nav {
+    .nav_icon {
         overflow: hidden;
     }
-    nav ul {
+    .nav_icon ul {
         list-style: none;
         margin: 0;
         padding: 0;
         float: right;
     }
-    nav li {
+    .nav_icon li {
         display: inline-block;
         margin-left: 50px;
         height: 60px;
         line-height: 70px;
         transition: .5s linear;
     }
-    nav a {
+    .nav_icon a {
         text-decoration: none;
         display: block;
         position: relative;
         color: #070707;
         text-transform: uppercase;
     }
-    nav a:after {
+    .nav_icon a:after {
         content: "";
         width: 0;
         height: 2px;
@@ -96,7 +96,7 @@
         background: #f79067;
         transition: width .5s linear;  
     }
-    nav a:hover:after {width: 100%;}
+    .nav_icon a:hover:after {width: 100%;}
         
     @media screen and (max-width: 660px) {
         header {text-align: center;}
@@ -105,19 +105,19 @@
         display: inline-block;
         margin: 0 0 16px 0;    
         }
-        nav ul {float: none;}
-        nav li:first-of-type {margin-left: 0;}
+        .nav_icon ul {float: none;}
+        .nav_icon li:first-of-type {margin-left: 0;}
     }
     @media screen and (max-width: 550px) {
-        nav {overflow: visible;}
-        nav li {
+        .nav_icon {overflow: visible;}
+        .nav_icon li {
           display: block;
           margin: 0;
           height: 40px;
           line-height: 40px;
         }
-        nav li:hover {background: rgba(0,0,0,.1);}
-        nav a:after {content: none;}
+        .nav_icon li:hover {background: rgba(0,0,0,.1);}
+        .nav_icon a:after {content: none;}
         }
         #dr {text-decoration: none; font-size:1.5em;}
         #yo {
@@ -185,7 +185,7 @@ li:hover ~ li p {
     <div class="logo-box">
         <a id="dr" class="an" href="{% url 'main' %}" title="main">DORANDORAN</a>
     </div>
-        <nav>
+        <nav class="nav_icon">
             <ul>
                 {% if user.is_authenticated %}
                 <li><a href="{% url 'about' %}" class="an" title="about">ABOUT</a></li>

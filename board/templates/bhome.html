@@ -208,6 +208,26 @@ form:hover .fa{
     input[type=search]{
       padding-left:15px;
     }
+
+  .banner {
+    position:absolute;
+    position:fixed;
+    top:480px;
+    right:-170px;
+  }
+
+    .banner img {
+  box-shadow: 3px 4px 0px #cecece;
+  width:240px;
+  height:110px;
+  float:right;
+  right:-400px;
+  top:-440px;
+  cursor: pointer;
+  float:right;
+  margin-right:190px;
+  margin-top:90px;
+}
   </style>
   </head>
 
@@ -219,7 +239,7 @@ alert("로그인 후 이용가능합니다.");
 window.location.href="../user/login";
 </script>
 {% endif %}
-
+{% load staticfiles %}
 <br>
 <table class="pt" width=700>
     <tr>
@@ -288,6 +308,11 @@ window.location.href="../user/login";
   </ul>
 </nav>
 {% endif %}
+<div class="banner">
+    <a href="{% url 'quiz' %}"><img class="bannerimg" src="{% static 'img/배너2.png' %}"></a>
+  </div>
 </body>
 </html>
 {% endblock %}
+
+

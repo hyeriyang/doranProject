@@ -34,7 +34,7 @@ def bwrite(request):
         if form.is_valid():
             board = form.save(commit = False)
             board.created_date=timezone.now()
-            board.name=request.user
+            board.name=request.user.profile.nickname
             board.hits=0
             board.save()
             return redirect('/board/bdetail/'+str(board.id))
@@ -55,7 +55,7 @@ def bdetail(request,board_id):
             content = comment_form.cleaned_data['comment_textfield']
             com = comment_form.save(commit=False)
             com.board_id=board_id
-            com.comment_user=request.user
+            com.comment_user=request.user.profile.nickname
             com.comment_date=timezone.now()
             com.save()
             comment_form = BoardCommentForm()

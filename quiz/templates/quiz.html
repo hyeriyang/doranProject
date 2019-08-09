@@ -12,13 +12,13 @@ var i = 1;
     if (i<17){
     i+=1;
     var img = document.getElementById("quiz");
-    img.src="/static/슬라이드"+i+".jpg";}  
+    img.src="/static/슬라이드"+i+".";}  
  }
  function Back(){
    if (i!=1){
      i-=1;
      var img = document.getElementById("quiz");
-     img.src="/static/슬라이드"+i+".jpg";
+     img.src="/static/슬라이드"+i+".JPG";
    } 
  }
 </script>
@@ -139,7 +139,7 @@ table.pt {
 <div class="container">
 <form name="form">
     <br>
-<img id="quiz" style="width:50%; height: 75%" src="{% static '슬라이드1.jpg' %}" alt="오잉?">
+<img id="quiz" style="width:50%; height: 75%" src="{% static '슬라이드1.JPG' %}" alt="오잉?">
  <br><br>
  <table class="pt" width=700>
     <tr>

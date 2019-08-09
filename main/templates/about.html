@@ -88,7 +88,7 @@
         perspective: 1000px;
         display: inline-block;
         margin: 2.2%;
-        border-radius:10px;
+        color: gray;
         }
 
         .container:hover .flipper {
@@ -116,15 +116,21 @@
         left: 0;
         width: 180px;
         height: 180px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        box-shadow: 3px 4px 0px #fbdbcd;
+
+        border-radius:10px;
         }
 
         .front {
         z-index: 2;
         }
 
+        .front img {
+          border-radius:10px;
+        }
         .back {
         transform: rotateY(180deg);
+        padding-top: 50px;
         }
 
         #content {
@@ -219,8 +225,13 @@
                       <br> 장애와는 상관없이 농인들이 문화 소비자로서 주체적 권리를 행사하도록 합니다.
                       </p>
                 </div>
+<<<<<<< HEAD
                 <div style="position:absolute; top:342px; left:65%; height:200px;"> <!--absolute일때의 top값과 left값임. static일 때는 영향 주지 않음-->
                     <img id="phone" src="{% static 'img/IPHONE.png' %}" alt="폰화면" style= " animation-name: fadeInUp;
+=======
+                <div style="position:absolute; top:341px; left:65%; height:200px;"> <!--absolute일때의 top값과 left값임. static일 때는 영향 주지 않음-->
+                    <img class="animated fadeInRight" id="phone" src="{% static 'img/IPHONE.png' %}" alt="폰화면" style= " animation-name: fadeInUp;
+>>>>>>> 18387d8b567d2f9d8dcf917ca2d2284766f4097a
                     animation-duration: 2.5s;">
                 </div>
             </div>
