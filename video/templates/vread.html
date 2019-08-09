@@ -176,6 +176,11 @@
     </tr>
 </table>
 
+ {% if novd %}
+  <h3 style="text-align:center">{{novd}}</h3>
+  <h6 style="text-align:center">개성넘치는 동영상을 업로드하여 도란도란에 참여해보세요!</h6>
+  {% else %}
+
 <table class="table">
   <thead>
     <tr class="top">
@@ -195,9 +200,9 @@
       </tr>
   </ul>
 </tbody> 
-    {% else %}
     {% endif %}
   {% endfor %}
+  {% endif %}
 </table>
 
 
