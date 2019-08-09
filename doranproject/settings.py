@@ -25,7 +25,7 @@ SECRET_KEY = 'xt$vclid&u1x14&+0d(@ach3i8sf4r^v&ye_fuwdu+saa1q*f)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['d-env.btptpy9zja.us-west-2.elasticbeanstalk.com']
+ALLOWED_HOSTS = []
 # d-env.btptpy9zja.us-west-2.elasticbeanstalk.com
 
 
