@@ -38,6 +38,7 @@ iframe {border-style: none;}
     text-decoration:none;
 }
 .list {
+    width:700px;
     position:relative;
     right:-350px;
     background-image: url("../../static/mypage.png");
@@ -61,6 +62,11 @@ margin: 1em 1em 1em 0em;
      box-shadow: 3px 4px 0px #cecece;
      cursor:pointer;
       }    
+
+/*좋아요한 영상*/
+.likelist {
+    width:1000px;
+}
 .card-body {
     text-align:center;
     font-family: 'Chosunilbo_myungjo';
@@ -69,6 +75,8 @@ margin: 1em 1em 1em 0em;
     border-radius:10px;
     display:inline-block;
     position:relative;
+    right:-395px;
+
 }
 .cardlike:hover {
      box-shadow: 3px 4px 0px #cecece;
