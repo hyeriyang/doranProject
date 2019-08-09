@@ -48,7 +48,9 @@
 	            <footer class="blockquote-footer">{{video.date}} | {{video.vhits}}회</footer><br>
     		    <div>
 				    <!-- 좋아요버튼 -->
-                    {{vlikes}}
+					{{vlikes}}
+					<!-- 좋아요 색을 판별하기 위한 hidden -->
+					<input id="like_color" type="hidden" value={{flag}}>
                     <div class = "favorite">
                             <a href="{% url 'post_like' pk=video.pk%}">
                         <i id ="like"></i>
@@ -126,4 +128,25 @@
 		</div>
 	</div>
 </body>
+<script>
+	var like_color=(String)(document.getElementById('like_color').value);
+	// 하트 가져오기
+	
+	if(like_color=="True"){
+		var like=document.getElementById('like');
+		like.style.color='red';
+	}
+	/*
+	if(like_color.equals("True")){
+		alert("dd");
+		//var like=document.getElementById('like');
+		//like.style.backgroundColor='red';
+	}
+	else{
+		alert("kkkkk");
+	}
+	*/
+
+
+</script>
 </html>
