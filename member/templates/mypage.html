@@ -1,4 +1,6 @@
+{% extends 'base.html' %}
 {% load staticfiles %}
+{% block content %}
 <!-- BOOTSTAP CDN -->
 <!-- base.html 생기면 지우고 base.html 사용하기 -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -92,3 +94,4 @@ window.location.href="../../user/login/";
 </script>
 {% endif %}
 </body>
+{% endblock %}

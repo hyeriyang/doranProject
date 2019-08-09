@@ -114,7 +114,11 @@ def post_like(request, pk):
 # 비디오 업로드 목록
 def vread(request):
     uploads = Upload.objects.order_by('-id')
-    return render(request, 'vread.html',{'uploads':uploads})
+    up = uploads.filter(uname=request.user)
+    if not up: ## 현재 로그인 한 유저가 올린 비디오가 없는 경우
+        return render(request, 'vread.html', {'novd':'업로드한 동영상이 없습니다.'})
+    else: ## 업로드 한 비디오가 있는 경우
+        return render(request, 'vread.html',{'uploads':uploads})
 
 # 비디오 업로드 폼 생성
 def vcreate(request):
