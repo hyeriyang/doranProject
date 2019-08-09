@@ -55,7 +55,7 @@ def bdetail(request,board_id):
             content = comment_form.cleaned_data['comment_textfield']
             com = comment_form.save(commit=False)
             com.board_id=board_id
-            com.comment_user=request.user
+            com.comment_user=request.user.profile.nickname
             com.comment_date=timezone.now()
             com.save()
             comment_form = BoardCommentForm()
