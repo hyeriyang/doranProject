@@ -94,7 +94,7 @@ def bupdate(request, board_id):
         if form.is_valid():
             board = form.save(commit = False)
             board.created_date=timezone.now()
-            board.name=request.user
+            board.name=request.user.profile.nickname
             board.hits=0
             board.save()
             return redirect('/board/bdetail/'+str(board.id))
