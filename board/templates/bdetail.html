@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html lang="ko">
     <head>
+<<<<<<< HEAD
+      <!-- favicon -->
+ <link rel="icon" href="/static/img/favicon-32x32.png">
+ <title>DORANDORAN</title>
+=======
     <link rel="icon" href="/static/img/favicon-32x32.png">
+>>>>>>> 18387d8b567d2f9d8dcf917ca2d2284766f4097a
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -13,6 +19,8 @@
 
  <link rel="stylesheet" href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css">
 
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
@@ -194,6 +202,9 @@ border-left-color: #2dcb73;
   margin-top: 6px;
 }
 
+.comment-user strong {
+  font-family: 'NIXGONM-Vb';
+}
 .banner img {
   width:350px;
   height:300px;
@@ -467,7 +478,7 @@ li:hover ~ li p {
                 <div class="panel-body">
                   <header class="text-left">
                     <div class="comment-user"><i class="fa fa-user"></i> <strong>{{comment.comment_user }}</strong></div>
-                    <time class="comment-date" ><i class="fa fa-clock-o"></i> <footer class="blockquote-footer">{{ comment.comment_date }}</footer></time>
+                    <time class="comment-date" ><i class="fa fa-clock-o"></i> {{ comment.comment_date }}</time>
                   </header>
                   <div class="comment-post">
                     <p>
