@@ -15,7 +15,8 @@ body {
 }
 .card {
     border-radius:10px;
-    box-shadow:5px 5px 5px #f5c3b2;
+    border:0;
+    box-shadow:5px 5px 0px #f5c3b2;
     margin-top: 8%;
     margin-bottom: 8%;
     padding-top: 3%;
@@ -182,7 +183,7 @@ a:hover {
     <form method='POST' enctype="multipart/form-data">
     {% csrf_token %}
     <div class="card-body">
-        <p class="card-title">게시글 업로드</p>
+        <p class="card-title">게시글 수정</p>
         <!-- 제목 폼 -->
         <p class="create_form">
                 <label for="subject" class="inp"> 

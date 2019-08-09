@@ -1,8 +1,7 @@
-{% extends 'base.html' %}
-{% block content %}
 <!DOCTYPE html>
 <html lang="ko">
     <head>
+    <link rel="icon" href="/static/img/favicon-32x32.png">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -207,8 +206,203 @@ border-left-color: #2dcb73;
   margin-top:90px;
 }
 
+html{
+      margin:0;padding:0;
+      height:100%;
+      background: rgb(255, 255, 255);
+   }
+   #bty{
+      margin:0;padding:0;
+      height:100%;
+      background: rgb(255, 255, 255);
+   }
+   #contain{
+        padding: 0 20px;
+        max-width: 960px;
+        margin: 0 auto;
+   }
+    #container {
+      min-height:100%;
+      position:relative;
+   }
+    header {
+      font-family: 'Montserrat', sans-serif;
+      margin:0;padding:0;
+      padding: 0px 0;
+   
+    }
+
+   #footer { 
+      display: flex;
+      position:absolute;
+      bottom:0;
+      width:100%;
+      height:60px;         /* Height of the footer */
+      background:rgb(184, 182, 182);
+   }
+   /* other non-essential CSS */
+   #footer p {
+      margin:0;
+      padding:10px;
+   }
+    .logo-box {
+        float: left;
+        margin-right: 20px;
+    }
+    .logo-box a {
+        outline: none;
+        display: block;
+        text-decoration: none;
+        display: block;
+        position: relative;
+        color: #0f0f0f;
+        text-transform: uppercase;
+        display: inline-block;
+        margin-left: 25px;
+        height: 70px;
+        line-height: 70px;
+        transition: .5s linear;  
+    }
+    nav {
+        overflow: hidden;
+    }
+    nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        float: right;
+    }
+    nav li {
+        display: inline-block;
+        margin-left: 50px;
+        height: 60px;
+        line-height: 70px;
+        transition: .5s linear;
+    }
+    nav a {
+        text-decoration: none;
+        display: block;
+        position: relative;
+        color: #070707;
+        text-transform: uppercase;
+    }
+    nav a:after {
+        content: "";
+        width: 0;
+        height: 2px;
+        position: absolute;
+        left: 0;
+        bottom: 15px;
+        background: #f79067;
+        transition: width .5s linear;  
+    }
+    nav a:hover:after {width: 100%;}
+        
+    @media screen and (max-width: 660px) {
+        header {text-align: center;}
+        .logo-box {
+        float: none;
+        display: inline-block;
+        margin: 0 0 16px 0;    
+        }
+        nav ul {float: none;}
+        nav li:first-of-type {margin-left: 0;}
+    }
+    @media screen and (max-width: 550px) {
+        nav {overflow: visible;}
+        nav li {
+          display: block;
+          margin: 0;
+          height: 40px;
+          line-height: 40px;
+        }
+        nav li:hover {background: rgba(0,0,0,.1);}
+        nav a:after {content: none;}
+        }
+        #dr {text-decoration: none; font-size:1.5em;}
+        #yo {
+  display: inline-grid;
+  grid-auto-flow: row;
+  grid-gap: 24px;
+  justify-items: center;
+  margin: auto;
+ 
+}
+#yolo{
+  font-family: 'Chosunilbo_myungjo';
+  text-align:center;
+  color:white;
+  font-size: 10px;
+}
+
+@media (min-width: 500px) {
+  #yo {
+    grid-auto-flow: column;
+  }
+}
+
+#fun {
+  color: white;
+  text-decoration: none;
+  box-shadow: inset 0 -1px 0 hsla(0, 0%, 100%, 0.4);
+}
+
+#fun:hover {
+  box-shadow: inset 0 -1.2em 0 hsla(0, 0%, 100%, 0.4);
+}
+
+li:last-child {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
+li:hover ~ li p {
+  animation: wave-animation 0.3s infinite;
+}
+
+@keyframes wave-animation {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(20deg);
+  }
+  75% {
+    transform: rotate(-15deg);
+  }
+}
+
+/* nav bar 수정*/
+.an {color:#070707;}
+.an:hover {color:#070707;text-decoration:none;}
 </style>
 </head>
+<body id="bty">
+
+    <header>
+    <div id="contain">
+        <div class="logo-box">
+            <a id="dr" class="an" href="{% url 'main' %}" title="main">DORANDORAN</a>
+        </div>
+            <nav>
+                <ul>
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'about' %}" class="an" title="about">ABOUT</a></li>
+                    <li><a href="{% url 'bhome' %}" class="an" title="community">COMMUNITY</a></li>
+                    <li><a href="{% url 'videolist' %}" class="an" title="video">VIDEO</a></li>
+                    <li><a href="{% url 'mypage' %}" class="an" title="mypage">MYPAGE</a></li>
+                    <li><a href="{% url 'logout' %}"  class="an"title="logout">LOGOUT</a></li>
+                    {%else%}
+                    <li><a href="{% url 'about' %}" class="an" title="about" >ABOUT</a></li>
+                    <li><a href="{% url 'bhome' %}" class="an" title="community">COMMUNITY</a></li>
+                    <li><a href="{% url 'videolist' %}" class="an" title="video">VIDEO</a></li>
+                    <li><a href="{% url 'login' %}" class="an" title="login">LOGIN</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </header>
 {% load staticfiles %}
 <!--게시물 디테일-->
 <br><br>
@@ -286,6 +480,6 @@ border-left-color: #2dcb73;
           </article>
           {% endfor %}
         </body>
+        
         </html>
 
-        {% endblock %}
