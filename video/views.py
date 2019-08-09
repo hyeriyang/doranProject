@@ -109,7 +109,7 @@ def vcsave(request,video_id):
     if request.method=="POST":
         vcomment=VComment()
         vcomment.vpost=video_detail
-        vcomment.author = request.POST['author']
+        vcomment.author = request.user.profile.nickname
         
         vcomment.text = request.POST['text']
         vcomment.save()
@@ -125,7 +125,7 @@ def post_like(request, pk):
     if request.method=="POST":
         vcomment=VComment()
         vcomment.vpost=video_detail
-        vcomment.author = request.POST['author']
+        vcomment.author = request.user.profile.nickname
         
         vcomment.text = request.POST['text']
         vcomment.save()
