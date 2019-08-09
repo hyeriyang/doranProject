@@ -29,6 +29,7 @@ ALLOWED_HOSTS = []
 # d-env.btptpy9zja.us-west-2.elasticbeanstalk.com
 
 
+
 # Application definition
 
 INSTALLED_APPS = [
