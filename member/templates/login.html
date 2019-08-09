@@ -411,7 +411,7 @@ li:hover ~ li p {
                     <!--      Forgot Password button-->
                           <button class="btn submits frgt-pass" style="font-family: 'Chosunilbo_myungjo'; color:#626263">Forgot Password</button>
                     <!--     Sign Up button -->
-                          <button class="btn submits sign-up" type="button"><a href="{% url 'signup' %}" style="font-family: 'Chosunilbo_myungjo';text-decoration:none; color:#626263;">Sign Up</a></button>
+                        <button class="btn submits sign-up" style="font-family: 'Chosunilbo_myungjo';text-decoration:none; color:#626263;" onClick="location.href='{% url 'signup' %}'">Sign Up</button>
                     <!--         Sign Up font icon -->
                           <i class="fa fa-user-plus" aria-hidden="true"></i>
                           </button>
