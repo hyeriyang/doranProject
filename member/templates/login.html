@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
+    <link rel="icon" href="/static/img/favicon-32x32.png">
+ 
         <style>
                @font-face { font-family: 'Eoe_Zno_L'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/Eoe_Zno_L.woff') format('woff'); font-weight: normal; font-style: normal; }
                  /* Fonts Form Google Font ::- https://fonts.google.com/  -:: */
@@ -158,10 +160,10 @@
                 }
                 
                 /*       Forgot Password button FAF3DD  */
-                .frgt-pass {background: transparent;}
+                /*.frgt-pass {background: transparent;}*/
                 
                 /*     Sign Up button  */
-                .sign-up {background: #f5f5dc;}
+                .sign-up {background: #f5f5dc; width:150px; margin: 3% auto;}
                 
                 
                 /* buttons hover */
@@ -341,7 +343,7 @@ li:hover ~ li p {
   }
 }
 
-        </style>
+    </style>
     </head>
 
     <body>
@@ -382,14 +384,14 @@ li:hover ~ li p {
                        <!--   con = Container  for items in the form-->
                        <div class="con" >
                        <!--     Start  header Content  -->
-                       <header class="head-form" style="margin-left:auto; margin-right:auto; position:relative;">
+                       <header class="head-form" style="margin-left:auto; margin-right:auto; position:absolute; top:30%;">
                           <br><br>
                           <!--     A welcome message or an explanation of the login form -->
                           <p style="font-size:35px;  font-family: 'Chosunilbo_myungjo'; color:#494949">로그인</p>
                        </header>
                        <!--     End  header Content  -->
                        
-                       <div class="field-set" style="margin-left:auto; margin-right:auto; position:absolute; top:42%;"><!--usernae, password, login 하얀색 버튼의 위치 설정-->
+                       <div class="field-set" style="margin-left:auto; margin-right:auto; position:absolute; top:45%;"><!--usernae, password, login 하얀색 버튼의 위치 설정-->
                                                  
                             <!--   user name Input-->
                              <input class="form-input" type="text" placeholder="ID" name="username" required>
@@ -407,11 +409,9 @@ li:hover ~ li p {
                        </div>
                       
                     <!--   other buttons -->
-                       <div class="other" style="position:absolute; margin-top:27%;"> <!--forgot button과 sign up버튼의 위치-->
-                    <!--      Forgot Password button-->
-                          <button class="btn submits frgt-pass" style="font-family: 'Chosunilbo_myungjo'; color:#626263">Forgot Password</button>
+                       <div class="other" style="position:absolute; top:82%;"> <!--forgot button과 sign up버튼의 위치-->
                     <!--     Sign Up button -->
-                          <button class="btn submits sign-up" type="button"><a href="{% url 'signup' %}" style="font-family: 'Chosunilbo_myungjo';text-decoration:none; color:#626263;">Sign Up</a></button>
+                        <button class="btn submits sign-up" style="font-family: 'Chosunilbo_myungjo';text-decoration:none; color:#626263;" onClick="location.href='{% url 'signup' %}'">Sign Up</button>
                     <!--         Sign Up font icon -->
                           <i class="fa fa-user-plus" aria-hidden="true"></i>
                           </button>

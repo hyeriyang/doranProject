@@ -47,16 +47,60 @@ def videolist(request):
     videos=Video.objects 
     return render(request,'videolist.html',{'videos':videos})
 
+
 # 지연 : 비디오 한개 보여주는 페이지 로드
 def vdetail(request,video_id):
     videos=Video.objects 
     video_detail=get_object_or_404(Video,pk=video_id)
     vcomments=VComment.objects.filter(vpost=video_detail)
     vlikes=video_detail.likes.count()
+
     if vlikes is None:
         vlikes="a"
+
+    # 색 바뀌도록   
+    flag="ㅎㅎ"
+    video=Video.objects.all()
+    polldict={}
+    user=request.user
+    real=[]
+    for poll in Video.objects.all():
+        index=poll.title
+        choicedict={}
+            
+        choicedict[index] = poll.likes.all()
+        sedex=0
+        for x in choicedict[index]:
+            if x==user:
+                flag=False
+                real.append(index)
+            else:
+                flag=True
+    
+        polldict[index]=choicedict
+            #print(polldict[index])
+    
+        # real이 진짜 좋아요를 누른 영상들
+        # video객체를 가져 오겠다
+    like_videos=[]
+    for y in real:
+        #like_videos.append(Video.objects.filter(title=y).values('video_key'))
+        like_videos.append(Video.objects.filter(title=y))
+    
+    yyy=[]
+    for ob in like_videos:
+        for o in ob:
+            for vo in video:
+                if vo.title==o:
+                    yyy.append(vo)
+                else:
+                    yyy.append(o)
+    yyy = list(set(yyy))                
+    
+            #obs=Video.objects.filter(title=ob)
+        #like_videos = Video.objects.filter(title="1")        
   
-    return render(request,'vdetail.html',{'video':video_detail,'vcomments':vcomments,'vlikes':vlikes})
+    return render(request,'vdetail.html',{'video':video_detail,'flag':flag,'vcomments':vcomments,'vlikes':vlikes})
 
 # 지연 : 댓글 저장 기능만 하는 함수
 def vcsave(request,video_id):
@@ -99,22 +143,29 @@ def post_like(request, pk):
     # 좋아요에 사용자가 존재하면
     if post.likes.filter(id = user.id).exists():
         # 사용자를 지움
+        
         post.likes.remove(user)
+        flag=False
     else:
         # 아니면 사용자를 추가
         post.likes.add(user)
+        flag=True
     vlikes=post.likes.count()
     if vlikes is None:
         vlikes="a"    
     # 포스트로 리디렉션
-    return render(request,'vdetail.html',{'video':video_detail,'vlikes':vlikes})
+    return render(request,'vdetail.html',{'video':video_detail,'flag':flag,'vlikes':vlikes})
     #return redirect('vdetail',pk=pk, username=post.author, url=post.url)  
 
 # 윤아
 # 비디오 업로드 목록
 def vread(request):
     uploads = Upload.objects.order_by('-id')
-    return render(request, 'vread.html',{'uploads':uploads})
+    up = uploads.filter(uname=request.user)
+    if not up: ## 현재 로그인 한 유저가 올린 비디오가 없는 경우
+        return render(request, 'vread.html', {'novd':'업로드한 동영상이 없습니다.'})
+    else: ## 업로드 한 비디오가 있는 경우
+        return render(request, 'vread.html',{'uploads':uploads})
 
 # 비디오 업로드 폼 생성
 def vcreate(request):
