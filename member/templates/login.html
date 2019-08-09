@@ -409,7 +409,7 @@ li:hover ~ li p {
                     <!--   other buttons -->
                        <div class="other" style="position:absolute; top:82%;"> <!--forgot button과 sign up버튼의 위치-->
                     <!--     Sign Up button -->
-                          <button class="btn submits sign-up" type="button"><a href="{% url 'signup' %}" style="font-family: 'Chosunilbo_myungjo';text-decoration:none; color:#626263;">Sign Up</a></button>
+                        <button class="btn submits sign-up" style="font-family: 'Chosunilbo_myungjo';text-decoration:none; color:#626263;" onClick="location.href='{% url 'signup' %}'">Sign Up</button>
                     <!--         Sign Up font icon -->
                           <i class="fa fa-user-plus" aria-hidden="true"></i>
                           </button>

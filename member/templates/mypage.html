@@ -1,4 +1,6 @@
+{% extends 'base.html' %}
 {% load staticfiles %}
+{% block content %}
 <!-- BOOTSTAP CDN -->
 <!-- base.html 생기면 지우고 base.html 사용하기 -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -62,12 +64,13 @@
   </div>
 </div>
 </div>
-
+<br>
 <div class="list">
 <p>좋아요한 영상</p>
-
+</div><br>
+<div class="likelist">
 {% for y in yyy%}
-<div class="card" style="width: 250;padding:3px;margin:0.8em;" >
+<div class="cardlike" style="width: 250;padding:3px;margin:0.8em;" >
     <!-- model 연결되면 수정하기 -->
    <iframe width="240" height="125"
         src="https://www.youtube.com/embed/{{y.video_key}}">
@@ -78,8 +81,8 @@
   </div>
 </div>
 {%endfor%}
-
-</div><br>
+</div>
+<br>
 
 
 
@@ -92,3 +95,4 @@ window.location.href="../../user/login/";
 {% endif %}
 
 </body>
+{% endblock %}

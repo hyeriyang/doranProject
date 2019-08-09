@@ -172,9 +172,14 @@
 <table class="pt" width=700>
     <tr>
         <td>
-          <button class="btn-hover color-10" onClick="location.href='{% url 'vcreate' %}'">비디오 업로드</button></td>
+          <button class="btn-hover color-10" onClick="location.href='{% url 'vcreate' %}'">동영상 업로드</button></td>
     </tr>
 </table>
+
+ {% if novd %}
+  <h3 style="text-align:center">{{novd}}</h3>
+  <h6 style="text-align:center">개성넘치는 동영상을 업로드하여 도란도란에 참여해보세요!</h6>
+  {% else %}
 
 <table class="table">
   <thead>
@@ -194,9 +199,10 @@
         <td>{{upload.pub_date|date:"Y-m-d"}}</td>
       </tr>
   </ul>
-</tbody>
-  {% endif %}
+</tbody> 
+    {% endif %}
   {% endfor %}
+  {% endif %}
 </table>
 
 
