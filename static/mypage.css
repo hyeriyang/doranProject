@@ -21,7 +21,7 @@ iframe {border-style: none;}
     margin-top:1em;
     position:relative;
     right:-500px;}
-.uu{
+a{
     background-color:white;
     border-style: solid;
     border-radius:40px;
@@ -53,9 +53,7 @@ margin: 1em 1em 1em 0em;
     border-radius:10px;
     display:inline-block;
     position:relative;
-    right:-350px;
-    border: 1px solid #e4e4e4;
-    }
+    right:-350px;}
 
 .card:hover {
      box-shadow: 3px 4px 0px #cecece;

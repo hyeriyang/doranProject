@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
-    <title>vcreate</title>
+    <title>dorandoran</title>
     <!-- 부트스트랩 링크 -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- 파일업로드 아이콘 링크 -->
@@ -24,7 +24,7 @@
         <!-- 제목 폼 -->
         <p class="create_form">
             <label for="inp" class="inp">
-                <labe for = "id_utitle"></labe>
+                <label for = "id_utitle"></label>
                 <input type="text" name="utitle" maxlength="200" required id="id_utitle" placeholder="&nbsp;">
                 <span class="label">제목</span>
                 <span class="border"></span>
@@ -33,7 +33,7 @@
         <!-- 내용 폼 -->
         <p class="create_form">
             <label for="inp" class="inp">
-                <label for="id_utitle"></label>
+                <label for="id_ubody"></label>
                 <textarea name="ubody" cols="60" rows="10" required id="id_ubody" placeholder="&nbsp;"></textarea>
                 <span class="label">내용</span>
                 <span class="border"></span>
@@ -53,7 +53,7 @@
         <!-- 저장 버튼 -->
         <button class="outline-button" type="submit">게시</button>
         <!-- 취소 버튼 -->
-        <input type = "button" class = "outline-button" value = "취소" onClick="location.href='{% url 'vread' %}'">
+        <input type = "button" class = "outline-button" value = "취소" onClick="location.href='{% url 'mypage' %}'">
     </div>
     </form>
   </div>

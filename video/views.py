@@ -142,7 +142,7 @@ def vupdate(request, pk):
                         print(form.cleaned_data)
                         upload.utitle = form.cleaned_data['utitle']
                         upload.update_date=timezone.now()
-                        blog.uname = request.user
+                        # upload.uname = request.user
                         upload.ubody = form.cleaned_data['ubody']
                         upload.uvideo = form.cleaned_data['uvideo'] 
                         upload.save()
