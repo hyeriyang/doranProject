@@ -19,7 +19,7 @@ google-auth-httplib2==0.0.3
 gunicorn==19.9.0
 html5lib==1.0.1
 httpie==1.0.2
-httplib2==0.12.3
+httplib2==0.18.0
 idna==2.7
 jmespath==0.9.4
 kiwisolver==1.0.1
